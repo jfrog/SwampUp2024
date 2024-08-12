@@ -1,0 +1,49 @@
+{
+  "general_data": {
+    "name": "prod-watch",
+    "description": "This is a watch created for Production Repos and Builds",
+    "active": true
+  },
+  "project_resources": {
+    "resources": [
+      {
+        "type": "repository",
+        "name": "npm-local",
+        "bin_mgr_id": "default",
+        "repo_type": "local",
+        "include_patterns": [],
+        "exclude_patterns": []
+      },
+      {
+        "type": "repository",
+        "name": "npm-remote",
+        "bin_mgr_id": "default",
+        "repo_type": "remote",
+        "include_patterns": [],
+        "exclude_patterns": []
+      },
+      {
+        "type": "build",
+        "name": "npm_build",
+        "bin_mgr_id": "default",
+        "include_patterns": [],
+        "exclude_patterns": []
+      }
+    ]
+  },
+  "assigned_policies": [
+    {
+      "name": "prod-security-policy",
+      "type": "security"
+    },
+    {
+      "name": "prod-license-policy",
+      "type": "license"
+    },
+    {
+      "name": "prod-operational-risk-policy",
+      "type": "operational_risk"
+    }
+  ],
+  "watch_recipients":[]
+}

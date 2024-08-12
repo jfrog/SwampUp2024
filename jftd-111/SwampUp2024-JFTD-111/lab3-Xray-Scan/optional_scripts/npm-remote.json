@@ -1,0 +1,8 @@
+{
+  "key": "npm-remote",
+  "packageType": "npm",
+  "rclass": "remote",
+  "url": "https://registry.npmjs.org",
+  "repoLayoutRef": "npm-default",
+  "xrayIndex": "false"
+}

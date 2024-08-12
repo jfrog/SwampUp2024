@@ -1,0 +1,4 @@
+_auth = c3dhbXAyNDpBUDZ6Z3pKdTMyYkI4TnZXdjRNR3kyUW42Szk=
+email = tomj@jfrog.com
+always-auth = true
+registry=https://tomjfrog.jfrog.io/artifactory/api/npm/su24-npm-remote-curation/
