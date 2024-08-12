@@ -1,3 +1,4 @@
+# Lab 0: Tools Installation & Validation
 
 ## JFrog CLI setup
 ### Installation & validation
