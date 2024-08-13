@@ -92,5 +92,3 @@ jf config import $TOKEN
 
 **Note:** Replace all placeholders (e.g., `$JFROG_PLATFORM`, `$ADMIN_USER`, `$TOKEN`) with the appropriate values specific to your environment.
 ```
-
-You can save this text as `README.md` in your repository. This file structure and content align with current best practices, making it clear, concise, and easy to follow.
