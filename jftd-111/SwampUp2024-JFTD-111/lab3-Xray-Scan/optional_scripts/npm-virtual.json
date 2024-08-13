@@ -1,0 +1,9 @@
+{
+  "key": "npm-virtual",
+  "packageType": "npm",
+  "rclass": "virtual",
+  "repoLayoutRef": "npm-default",
+  "defaultDeploymentRepo": "npm-local",
+  "externalDependenciesRemoteRepo": "npm-remote",
+  "repositories": "npm-local,npm-remote"
+}

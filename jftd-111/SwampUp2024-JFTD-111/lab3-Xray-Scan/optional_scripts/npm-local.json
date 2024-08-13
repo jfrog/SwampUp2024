@@ -1,0 +1,7 @@
+{
+  "key": "npm-local",
+  "packageType": "npm",
+  "rclass": "local",
+  "repoLayoutRef": "npm-default",
+  "xrayIndex": "false"
+}
