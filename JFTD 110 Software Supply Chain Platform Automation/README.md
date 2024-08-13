@@ -17,12 +17,12 @@ if not installed then Download [JFrog CLI](https://jfrog.com/getcli/) based on o
 ## Option 1 - Set Up JFrog CLI with Main JPD
 Check Current JFrog CLI Configurations
 
-Run the following command to list all JFrog CLI configurations:
+1.Run the following command to list all JFrog CLI configurations:
 
 ```bash
 jf config show
 ```
-Configure JFrog CLI
+2.Configure JFrog CLI
 
 Add a new configuration that points to your JFrog instance:
 
@@ -45,12 +45,12 @@ or
     - Is the Artifactory reverse proxy configured to accept a client certificate (y/n) [n]?: ``n``
 
 
-Use the newly created configuration:
+3.Use the newly created configuration:
 
 ```bash
 jf config use swampup
 ```
-Health Check
+4.Health Check
 
 Verify the connection to your JFrog instance:
 
