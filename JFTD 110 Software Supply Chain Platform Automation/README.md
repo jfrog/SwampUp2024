@@ -91,4 +91,3 @@ jf config import $TOKEN
 ---
 
 **Note:** Replace all placeholders (e.g., `$JFROG_PLATFORM`, `$ADMIN_USER`, `$TOKEN`) with the appropriate values specific to your environment.
-```
