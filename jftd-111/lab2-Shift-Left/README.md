@@ -6,9 +6,7 @@ your preferred IDE isn't either of these two, we recommend installing VSCode to 
 #### 1.1. VSCode Plugin
 * VS Code IDE, or your preferred IDE,  with the JFRog Plug-in installed
 * Install The Jfrog extension in VS Code  as mentioned in [JFrog - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension)
-
 * Open npm-vulnerable-example project in the folder example on VS Code
-
 * Navigate to Extension tab and look up `JFrog` > Click `Install`
 * Configure Jfrog extension of VS Code - provide the instance url and credentials
 
