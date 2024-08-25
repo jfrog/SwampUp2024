@@ -1,0 +1,18 @@
+[
+  {"key":"finapp-docker-dev-local"},
+  {"key":"finapp-docker-qa-local"},
+  {"key":"finapp-docker-prod-local"},
+  {"key":"payment-maven-dev-local"},
+  {"key":"payment-maven-qa-local"},
+  {"key":"payment-maven-prod-local"},
+  {"key":"auth-npm-dev-local"},
+  {"key":"auth-npm-qa-local"},
+  {"key":"auth-npm-prod-local"},
+  {"key":"docker-remote"},
+  {"key":"maven-remote"},
+  {"key":"npm-remote"},
+  {"key":"finapp-docker-dev-virtual"},
+  {"key":"payment-maven-dev-virtual"},
+  {"key":"auth-npm-dev-virtual"},
+  {"key":"aws-tf-local"}
+]
