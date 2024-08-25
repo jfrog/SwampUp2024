@@ -6,7 +6,7 @@ Lab-0 - Configure JFrog CLI
 <br />
 
 
-### CREATE REPOSITORY TEMPLATE
+## CREATE REPOSITORY TEMPLATE
 Run the following command to create a local repository template:
 ```bash
 jf rt repo-template template-local.json
@@ -25,16 +25,16 @@ jf rt repo-template template-local.json
 - Select the next configuration key (press Tab for options): `:x`
 - Validate template `template-local.json` is created successfully. - ``ls -la``
 - View template
-          ```json
-          {
-            "key":"${repo-name}",               # auth-npm-dev-local
-            "packageType":"${package-type}",    # npm
-            "rclass":"${repo-type}",            # local
-            "repoLayoutRef":"${repo-layout}",   # npm-default
-            "environments":"${env}",            # DEV
-            "xrayIndex":"${xray-enable}"        # true
-          }
-          ```
+ ```json
+    {
+     "key":"${repo-name}",                
+     "packageType":"${package-type}",     
+     "rclass":"${repo-type}",             
+     "repoLayoutRef":"${repo-layout}",    
+     "environments":"${env}",             
+     "xrayIndex":"${xray-enable}"         
+}
+```
 
 Run the following command to create a local repository template:
 ```bash
@@ -109,19 +109,21 @@ jf rt repo-template template-virtual.json
 ## CREATE REPOSITORY
 - Run
 ```bash
-jf rt repo-create template-{{ local|remote|virtual }}.json``
+jf rt repo-create template-{{ local|remote|virtual }}.json
 ```
   or
   
 ```bash
-jf rt rc template-{{ local|remote|virtual }}.json``
+jf rt rc template-{{ local|remote|virtual }}.json
 ```
 
-    NOTE: 
+NOTE: 
 
-    --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
-    
-    ``jf rt rc template-local.json --var "repo-name=sup016-npm-qa-local"``
+--var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
+
+```bash
+jf rt rc template-local.json --var "repo-name=sup016-npm-qa-local"
+```
 
 - We are going to run this for local and remote repository. For virtual please skip this step and proceed with next step.
 
