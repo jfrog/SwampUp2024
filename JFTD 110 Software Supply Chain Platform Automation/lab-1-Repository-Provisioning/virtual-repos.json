@@ -1,0 +1,5 @@
+[
+  {"key":"finapp-docker-dev-virtual","packageType":"docker","rclass":"virtual","repoLayoutRef":"simple-default","defaultDeploymentRepo":"finapp-docker-dev-local","externalDependenciesRemoteRepo":"docker-remote","environments":"DEV","repositories":"finapp-docker-dev-local,finapp-docker-qa-local,finapp-docker-prod-local,docker-remote"},
+  {"key":"payment-maven-dev-virtual","packageType":"maven","rclass":"virtual","repoLayoutRef":"maven-2-default","defaultDeploymentRepo":"payment-maven-dev-local","externalDependenciesRemoteRepo":"maven-remote","environments":"DEV","repositories":"payment-maven-dev-local,payment-maven-qa-local,payment-maven-prod-local,maven-remote"},
+  {"key":"auth-npm-dev-virtual","packageType":"npm","rclass":"virtual","repoLayoutRef":"npm-default","defaultDeploymentRepo":"auth-npm-dev-local","externalDependenciesRemoteRepo":"npm-remote","environments":"DEV","repositories":"auth-npm-dev-local,auth-npm-qa-local,auth-npm-prod-local,npm-remote"}
+]
