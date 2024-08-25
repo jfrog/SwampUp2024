@@ -57,7 +57,7 @@ jf rt repo-template template-remote.json
   - Validate template `template-remote.json` is created successfully. ``ls -la``
 - 
 - View template
-          ```json
+ ```json
           {
             "key":"${repo-name}",
             "packageType":"${package-type}",
@@ -67,7 +67,7 @@ jf rt repo-template template-remote.json
             "environments":"${env}",           
             "xrayIndex":"${xray-enable}"
           }
-          ```
+```
 
 Run the following command to create a local repository template:
 ```bash
@@ -93,7 +93,7 @@ jf rt repo-template template-virtual.json
 - 
 - Validate template `template-remote.json` is created successfully. ``ls -la``
 - View template
-          ```json
+ ```json
           {
             "key":"${repo-name}",
             "packageType":"${package-type}",
@@ -104,7 +104,7 @@ jf rt repo-template template-virtual.json
             "environments":"${env}",
             "repositories": "${repos}"
           }
-          ```
+```
 
 <br />
 
