@@ -17,11 +17,14 @@ your preferred IDE isn't either of these two, we recommend installing VSCode to 
 * Once the Plugin is installed and available, Navigate to Settings > Other Settings > JFrog Global Configuration
 * Add in your Username and Password to the Workshop instance of JFrog Cloud
 
+#### 1.3. Open a new Editor instance
+Open a new project window or instance specifically on the `./sample-app` directory.  This is intended to help clearly show this course's sample app's results instead of the other courses' projects.  The results are much easier to review in the context of this course.
+
 ## 2. Scan the Sample Project with the IDE Plugin
-2.1. Once all set, navigate to the JFrog extension and run the scan
+2.1. Once all set, navigate to the JFrog extension and run a scan with the JFrog plugin.
 2.2. Check and validate the results
 2.2.3. Open `./sample-app/package.json` in your editor.  What do you note?  Hover over some of the underlined 
-dependencies. What's available?
+dependencies. What information is available? What information do you find useful?  Why or why not?
 2.2.4. Open the JFrog Plugin "tab", expand the `package.json` item.  Navigate to the `lodash:3.10.1` dependency and 
 click.  What do you note?  Is the CVE-2019-10744 applicable to your application code?  What about CVE-2021-23337? 
 As a developer, what value does this information provide? 
@@ -34,7 +37,7 @@ vulnerabilities.  Let's take it for a test drive!
 3.1. Select the CVE associated with the `lodash:3.10.1` package that was determined to be applicable.
 3.2. Can you spot the Applicability evidence for this applicable CVE?  Where should we look to remediate?  How 
 should we remediate?
-3.3. Go ahead and implement the fix by uncommenting line 26 in `./sample-app/index.js` on line 9 and _save the file_.
+3.3. Go ahead and implement the fix by uncommenting line 26 in `./sample-app/index.js` on line 9 and _save the file_ if you're running VSCode.  IntelliJ users don't need to save the file for the changes to persist.
 3.4. Re-run the JFrog Plugin scan.  Is your issue still applicable?
 
 
@@ -44,16 +47,19 @@ should we remediate?
 
 3.1. In your terminal navigate to the root of the sample project, `./sample-project`.
 3.2. Run the command 
-```
+```bash
 jf audit
 ```
-3.3. Optional : Run `jf audit --extended-table=true --fixable-only=true --licenses=true`
+3.3. Optional : Run the following command to do a security audit of the project's dependencies with results that are limited to dependencies that have fixes.  
+```bash
+jf audit --extended-table=true --fixable-only=true --licenses=true
+```
 (Screenshot)
 3.4. Validate the scan results
 (Screenshot)
 
 
-## Frogbot scan - optional
+## Frogbot scan - optional if we have time
 - Fork this project on github - https://github.com/omerzi/frogbot_demo_pypi
 - Examine the 2 files in the path - .github/workflows
 - frogbot-pr-scan.yml file is for scanning Pull Requests for any vulnerabilities

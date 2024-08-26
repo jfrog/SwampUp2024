@@ -45,6 +45,7 @@ Verify you have a working installation of `git`: `git -v`.  If you don't have `g
 [Linux Installation Options](https://git-scm.com/download/linux)
 
 ## NPM Installation
+[Installation guidance](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 ### Windows
 ### macOS
 ### Linux

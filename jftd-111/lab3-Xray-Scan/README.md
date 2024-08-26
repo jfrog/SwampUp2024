@@ -1,77 +1,88 @@
 # Xray Scan Lab
-## Pre-requisites:
-  - Navigate to the root of the npm project located in the sample project folder, `./sample-app`.
-  - JFrog CLI installed and configured with a connection to the workshop JFrog Cloud instance.
-  - Local NPM repository in your assigned JFrog Projects project.
+## 0. Pre-requisites:
+0.1 Navigate to the root of the npm project located in the sample project folder, `./sample-app`.
+0.2 JFrog CLI installed and configured with a connection to the workshop JFrog Cloud instance.
+0.2 Local, Remote and Virtual NPM repository in your assigned JFrog Projects project.
 
-## Index Your Build 
+## 1. Build The Project, Publish the Build and Configure for Indexing by XRay
+From the root of the Sample Application (`./sample-app`), configure the NPM package manager integration with your instance of the JFrog CLI.
+> IMPORTANT: When you choose a "build name" in step 1.8, it can be anything, but make sure you use the _same_ build name for all the subsequent steps
+
+1.1 Run `jf npmc`
+1.2 Resolve dependencies from Artifactory? (y/n)? y
+1.3 Set Artifactory server ID [swampup]: hit Return
+1.4 Set repository for dependencies resolution (press Tab for options): use Tab to select the virtual repository `npm-virtual` and hit Return
+1.5 Deploy project artifacts to Artifactory? (y/n)? y
+1.6 Set Artifactory server ID [swampup] hit Return
+1.7 Set repository for artifacts deployment (press Tab for options): use Tab to select the virtual repository `npm-virtual` and hit Return
+1.8 Npm install and build the sample application:
+```bash
+jf npm install --build-name <your-build-name> --build-number 1 --project
+```
+4.9 Publish the built NPM package to Artifactory:
+```bash
+jf npm publish --build-name <your-build-name> --build-number 1 --project
+```
+4.10 Collect build environment variables:
+```bash
+jf rt bce --project <your-build-name> 1 
+```
+4.11 Collect build information related to git data:
+```bash
+jf rt bag --project <your-build-name> 1
+```
+4.12 Publish the Build Info to Artifactory's:
+```bash
+jf rt bp --project <your-build-name> 1
+```
+1.13 Verify the published build info on the instance and check the scan details in Builds > npm_build > 02 > Xray data
+
+## 2. Index Your Build 
 > I am not sure where to configure Build Indexing.  I feel like it should go here, but then we have to go back and 
 > do another build in order for this to be indexed.  We can set a Wildcard placeholder for the Build in Lab0, or 
-> Lab1, but it's the wrong context.  Idk what feels more organic.  Kinda leaning toward indexing 
-- Turn on indexing of the build
-- Administration > Xray Settings > Indexed Resources > Builds > Manage Builds > Select your build in the left column 
-  and bring it over to  the  right `Selected Build` column.  Click "Save".
+> Lab1, but it's the wrong context.  Idk what feels more organic.  Kinda leaning toward indexing as an explicit part of this lab 
 
+2.1 Turn on indexing of the build. Navigate to <Your Project Context> -> Administration > Xray Settings > Indexed Resources > Builds > Manage Builds > Select your build in the left column and bring it over to  the  right `Selected Build` column.  Click "Save".
+
+## 3. Create an XRay Watch
 > It's best to create the watch, and then the policy.  This seems a little counter-intuitive but the UI now has a 
 > flow that lets you immediately apply your policy on watched resources and is a nice onboarding features.
-- Navigate to Xray > Watches & Policies > `Watches` tab > Click on `New Watch`
-- Create a Watch named `npm-build-watch`
-- Click on `Add Builds`
-- Select the `npm_build` and move it over to the right `Selected Build` column
-- Click Save
-- Click `Manage Policies`
-- In `Manage Watch Policies` Select the `security-policy` you created and move it to the right `Selected Policies` column and click Save
-- Click on `Create` to create the watch.
 
+A Watch in XRay defines the _scope_ on which you would apply one or more XRay _policies_.  In other words, a Watch tells XRay _where_ to look for policiy violations.    You can set Watches on many different objects in Artifactory: Repositories, Release Bundles & Builds. In this lab, we're going to put a watch on any builds that match a specific name. 
+3.1 Navigate to Xray > Watches & Policies > `Watches` tab > Click on `New Watch`
+3.2 Create a Watch named `npm-build-watch`
+3.3 Click on `Add Builds`
+3.4 Select the `npm_build` and move it over to the right `Selected Build` column. Click Save.
+3.5 Click `Manage Policies`
+3.6 In `Manage Watch Policies` Select the `security-policy` you created and move it to the right `Selected Policies` column and click Save
+3.7 Click on `Create` to create the watch.
 
-
-- Navigate to Xray > Watches & Policies > Click on `New Policy`
-- Create a Security Policy named `high-severity-policy`
-- The "New Rule" pop up should appear. If it doesn't, click on `New Rule`.
-- Add a rule named `high-severity-rule`.
-- Select "Malicious Packages" under Rule Type.
-- In the section titled "Then",  `Automatic Actions` select the `Fail Build` option and click `Save`
-- Once the rule is saved, click "Save Policy" in the lower right.
+## 4. Create an XRay Security Policy
+4.1 Navigate to Xray > Watches & Policies > Click on `New Policy`
+4.2 Create a Security Policy named `high-severity-policy`
+4.3 The "New Rule" pop up should appear. If it doesn't, click on `New Rule`.
+4.4 Add a rule named `high-severity-rule`.
+4.5 Select "Malicious Packages" under Rule Type. 
+4.6 In the section titled "Then",  `Automatic Actions` select the `Fail Build` option and click `Save`
+4.7 Once the rule is saved, click "Save Policy" in the lower right.
 > Does it make sense to have a Fail Build action here?  Not saying it doesn't, just considering whether or not we 
 > should do this here?
 
-    
-  - From the root of the project
-    - Npm package manager integration
-      - Run `jf npmc`
-      - Resolve dependencies from Artifactory? (y/n)? y
-      - Set Artifactory server ID [swampup]: hit Return
-      - Set repository for dependencies resolution (press Tab for options): use Tab to select the virtual repository 
-        `npm-virtual` and hit Return
-      - Deploy project artifacts to Artifactory? (y/n)? y
-      - Set Artifactory server ID [swampup] hit Return
-      - Set repository for artifacts deployment (press Tab for options): use Tab to select the virtual repository 
-        `npm-virtual` and hit Return
-    - Npm install and build
-      - `jf npm install --build-name npm_build --build-number 02`
-    - Publish the built npm pkg to Artifactory
-      - `jf npm publish --build-name npm_build --build-number 02`
-    - Collect environment variables
-      - `jf rt bce npm_build 02`
-    - Collect information regarding git
-      - `jf rt bag npm_build 02`
-        <br/>
-        <img src="jf_npm_publish_to_rt.png" alt="jf npm publish to RT" width="600" height="300">   
-    - Publish build info
-      - `jf rt bp npm_build 02`
-        <br/>
-        <img src="jf_rt_bp.png" alt="jf rt build-publish" width="600" height="100">
-    - Verify the published build info on the instance and check the scan details in Builds > npm_build > 02 > Xray data
-    - Scan the build info on your local by Xray - optional
-      - `jf bs npm_build 02 --extended-table=true --vuln`
-    - Run jf audit - optional
-      - `jf audit --extended-table=true --fixable-only=true --licenses=true`
-        <br/>
-        <img src="jf_audit1.png" alt="jf audit" width="600" height="100">
-        <img src="jf_audit2.png" alt="jf audit" width="600" height="300">
-        <img src="jf_audit3.png" alt="jf audit" width="600" height="300">
-> This next bit was in the previous repo. It's interesting, but I don't think it's necessary.
+## 5. Apply Your New Policy On Your Published Build
+5.1 Click "Apply on Existing Content".  Give XRay some time to scan your build (~ 5 minutes)
+5.2 Review any Policy Violations to see what the security risk of your application looks like.
+>  TODO: This needs to be fleshed out more
 
+## 5. (Optional) Scan the build locally with XRay after it's been published to Artifactory
+5.1 Scan the build info on your local machine with XRay:
+```bash
+jf bs npm_build 02 --extended-table=true --vuln
+```
+5.2 Run jf audit on the locally instance of the Sample:
+```bash
+jf audit --extended-table=true --fixable-only=true --licenses=true
+```
+> This next bit was in the previous repo. It's interesting, but I don't think it's necessary.
 - You can capture the output of the jf command, including any error messages or codes it produces, and then 
     process that output in a script. 
     - Here's how you might do it using Bash scripting as an example:
