@@ -113,7 +113,7 @@ Based on one of the findings in the XRay Policy let's pick a Vulnerability to re
 
 6.7 Re-run the build and publish steps starting with step 1.2 (you don't need to re-configure the NPM package manager integration), and ensure you increment your build number.
 
-6.8 Once you have run and published your build, XRay will automatically scan this new build.  Take a look at the results and see if `CVE-2018-3728` is still present in your scan results.
+6.8 Once you have run and published your build, XRay will automatically scan this new build.  After ~ 5 minutes, take a look at the results and see if `CVE-2018-3728` is still present in your scan results.
 
 ## 5. (Optional) Scan the build locally with XRay after it's been published to Artifactory
 5.1 Scan the build info on your local machine with XRay:
