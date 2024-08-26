@@ -9,7 +9,7 @@ Lab-0 - Configure JFrog CLI
 ## CREATE REPOSITORY TEMPLATE
 Run the following command to create a local repository template:
 ```bash
-jf rt repo-template template-local.json
+jf rt repo-template template-local1.json
 ```
   - Select the template type (press Tab for options): `create`
   - Insert the repository key > `auth-npm-dev-local`
