@@ -22,9 +22,12 @@ Open a new project window or instance specifically on the `./sample-app` directo
 
 ## 2. Scan the Sample Project with the IDE Plugin
 2.1. Once all set, navigate to the JFrog extension and run a scan with the JFrog plugin.
+
 2.2. Check and validate the results
+
 2.2.3. Open `./sample-app/package.json` in your editor.  What do you note?  Hover over some of the underlined 
 dependencies. What information is available? What information do you find useful?  Why or why not?
+
 2.2.4. Open the JFrog Plugin "tab", expand the `package.json` item.  Navigate to the `lodash:3.10.1` dependency and 
 click.  What do you note?  Is the CVE-2019-10744 applicable to your application code?  What about CVE-2021-23337? 
 As a developer, what value does this information provide? 
@@ -34,10 +37,14 @@ One of the most powerful features of JFrog Advanced Security capabilities, avail
 Plugin, is being able to mitigate security risk early in the development cycle.  The Contextual Analysis 
 (Applicability) offered by Jfrog Advanced Security can direct a developer precisely where and how to patch security 
 vulnerabilities.  Let's take it for a test drive!
+
 3.1. Select the CVE associated with the `lodash:3.10.1` package that was determined to be applicable.
+
 3.2. Can you spot the Applicability evidence for this applicable CVE?  Where should we look to remediate?  How 
 should we remediate?
+
 3.3. Go ahead and implement the fix by uncommenting line 26 in `./sample-app/index.js` on line 9 and _save the file_ if you're running VSCode.  IntelliJ users don't need to save the file for the changes to persist.
+
 3.4. Re-run the JFrog Plugin scan.  Is your issue still applicable?
 
 
@@ -46,6 +53,7 @@ should we remediate?
 * JFrog CLI installed and configured to connect to workshop instance as per Lab 0.
 
 3.1. In your terminal navigate to the root of the sample project, `./sample-project`.
+
 3.2. Run the command 
 ```bash
 jf audit
