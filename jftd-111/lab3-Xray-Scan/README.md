@@ -9,32 +9,44 @@ From the root of the Sample Application (`./sample-app`), configure the NPM pack
 > IMPORTANT: When you choose a "build name" in step 1.8, it can be anything, but make sure you use the _same_ build name for all the subsequent steps
 
 1.1 Run `jf npmc`
+
 1.2 Resolve dependencies from Artifactory? (y/n)? y
+
 1.3 Set Artifactory server ID [swampup]: hit Return
+
 1.4 Set repository for dependencies resolution (press Tab for options): use Tab to select the virtual repository `npm-virtual` and hit Return
+
 1.5 Deploy project artifacts to Artifactory? (y/n)? y
+
 1.6 Set Artifactory server ID [swampup] hit Return
+
 1.7 Set repository for artifacts deployment (press Tab for options): use Tab to select the virtual repository `npm-virtual` and hit Return
+
 1.8 Npm install and build the sample application:
 ```bash
 jf npm install --build-name <your-build-name> --build-number 1 --project
 ```
-4.9 Publish the built NPM package to Artifactory:
+
+1.9 Publish the built NPM package to Artifactory:
 ```bash
 jf npm publish --build-name <your-build-name> --build-number 1 --project
 ```
-4.10 Collect build environment variables:
+
+1.10 Collect build environment variables:
 ```bash
 jf rt bce --project <your-build-name> 1 
 ```
-4.11 Collect build information related to git data:
+
+1.11 Collect build information related to git data:
 ```bash
 jf rt bag --project <your-build-name> 1
 ```
-4.12 Publish the Build Info to Artifactory's:
+
+1.12 Publish the Build Info to Artifactory's:
 ```bash
 jf rt bp --project <your-build-name> 1
 ```
+
 1.13 Verify the published build info on the instance and check the scan details in Builds > npm_build > 02 > Xray data
 
 ## 2. Index Your Build 
