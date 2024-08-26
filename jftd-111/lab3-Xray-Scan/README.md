@@ -80,7 +80,7 @@ A Watch in XRay defines the _scope_ on which you would apply one or more XRay _p
 > Does it make sense to have a Fail Build action here?  Not saying it doesn't, just considering whether or not we 
 > should do this here?
 
-## 5. Apply Your New Policy On Your Published Build
+## 5. Apply Your New Policy On Your Published Build and Review Any Violations
 5.1 Click "Apply on Existing Content".  Give XRay some time to scan your build (~ 5 minutes)
 5.2 Review any Policy Violations to see what the security risk of your application looks like.
 >  TODO: This needs to be fleshed out more

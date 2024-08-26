@@ -7,6 +7,7 @@ WORKDIR /usr/src/app
 # Set NPM registry config to point resolve dependencies from Artifactory
 #COPY ./.npmrc-Docker .npmrc
 #RUN npm config fix
+# Note: The secret below is just a randomly-generated string.  It's not an actual operational secret :)
 ENV api_key=BQE7suZMs7U7anJ
 
 # Copy dependency definitions
