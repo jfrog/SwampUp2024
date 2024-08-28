@@ -11,22 +11,31 @@
 #### MAVEN - Package Manager Integration
 - `cd lab-3-Build-and-Replicate/example/maven-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
-    - Run ```bash jf mvnc```
-        - Resolve dependencies from Artifactory? (y/n) [y]? `y`
-        - Set Artifactory server ID [swampup]: ↵
-        - Set resolution repository for release dependencies (press Tab for options): `payment-maven-dev-virtual`
-        - Set resolution repository for snapshot dependencies (press Tab for options): `payment-maven-dev-virtual`
-        - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
-        - Set Artifactory server ID [swampup]: ↵
-        - Set repository for release artifacts deployment (press Tab for options): `payment-maven-dev-virtual`
-        - Set repository for snapshot artifacts deployment (press Tab for options): `payment-maven-dev-virtual`
-        - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
-- Run ```bash jf mvn clean install -f ./pom.xml --build-name payment-maven --build-number 1.0.0```
+    - Run the following command to configure Maven to resolve dependencies from Artifactory and deploy project artifacts to Artifactory:
+      - ```bash 
+        jf mvnc
+        ```
+    - Resolve dependencies from Artifactory? (y/n) [y]? `y`
+    - Set Artifactory server ID [swampup]: ↵
+    - Set resolution repository for release dependencies (press Tab for options): `payment-maven-dev-virtual`
+    - Set resolution repository for snapshot dependencies (press Tab for options): `payment-maven-dev-virtual`
+    - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
+    - Set Artifactory server ID [swampup]: ↵
+    - Set repository for release artifacts deployment (press Tab for options): `payment-maven-dev-virtual`
+    - Set repository for snapshot artifacts deployment (press Tab for options): `payment-maven-dev-virtual`
+    - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
+- Run 
+-   ```bash 
+       jf mvn clean install -f ./pom.xml --build-name payment-maven --build-number 1.0.0
+      ```
 
 #### NPM - Package Manager Integration
 - `cd lab-3-Build-and-Replicate/example-project/npm-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
-    - Run ```bashjf npmc```
+    - Run 
+    - ```bash
+         jf npmc
+      ```
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [swampup]: ↵
     - Set repository for dependencies resolution (press Tab for options): `auth-npm-dev-virtual`
@@ -35,7 +44,10 @@
     - Set repository for artifacts deployment (press Tab for options): `auth-npm-dev-virtual`
 - Run ```bash jf npm install --build-name auth-npm --build-number 1.0.0``
 - To Publish build Artifact to repository
-  - Run ```bash jf npm publish --build-name auth-npm --build-number 1.0.0```
+  - Run 
+    ```bash 
+       jf npm publish --build-name auth-npm --build-number 1.0.0
+    ```
 
 
 <br />
@@ -45,14 +57,20 @@
 #### Maven
 - Run
 
-  ```bash jf rt build-collect-env payment-maven 1.0.0```
-
+  ```bash 
+    jf rt build-collect-env payment-maven 1.0.0
+    ```
   or
+  ```bash 
+     jf rt bce payment-maven 1.0.0
+  ```
 
-  ```bash jf rt bce payment-maven 1.0.0```
 
 #### NPM
-- Run ```bash jf rt bce auth-npm 1.0.0```
+- Run 
+   ```bash
+     jf rt bce auth-npm 1.0.0
+    ```
 
 <br />
 <br />
@@ -77,10 +95,16 @@
 
 ## PUBLISH BUILD-INFO
 #### Maven publish build-info
-- Run ```bash jf rt bp payment-maven 1.0.0```
+- Run 
+  ```bash 
+    jf rt bp payment-maven 1.0.0
+    ```
 
 #### NPM publish build-info
-- Run ```bash jf rt bp auth-npm 1.0.0```
+- Run 
+  - ```bash
+      jf rt bp auth-npm 1.0.0
+    ```
 
 NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-PublishingBuild-Info)
 
@@ -89,10 +113,16 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 
 ## Promoting a Build
 #### Maven
-- Run ```bash jf rt bpr payment-maven 1.0.0 payment-maven-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"```
+- Run 
+  - ```bash 
+      jf rt bpr payment-maven 1.0.0 payment-maven-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"
+    ```
 
 #### NPM
-- Run ```bash jf rt bpr auth-npm 1.0.0 auth-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"```
+- Run 
+  - ```bash
+     jf rt bpr auth-npm 1.0.0 auth-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"
+    ```
 
 NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-PromotingaBuild)
 
@@ -103,26 +133,51 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 ### Add Files as Build Dependencies [OPTIONAL]
 - Run
 
-  ```bash jf rt build-add-dependencies payment-maven 1.0.0 "path/to/build/dependencies/dir/"```
+  ```bash 
+    jf rt build-add-dependencies payment-maven 1.0.0 "path/to/build/dependencies/dir/"
+  ```
 
   or
 
-  ```bash jf rt bad payment-maven 1.0.0 "path/to/build/dependencies/dir/"```
+  ```bash 
+    jf rt bad payment-maven 1.0.0 "path/to/build/dependencies/dir/"
+  ```
 
 <br />
 <br />
 
 ### Aggregate Published Builds [OPTIONAL]
 - Create and publish build 1 for multi1
-    - Run ```bash jf rt upload "multi1/*.zip" payment-maven-virtual --build-name multi1-build --build-number 1 --module multi1```
-    - Run ```bash jf rt bp multi1-build 1```
+    - Run 
+      ```bash 
+        jf rt upload "multi1/*.zip" payment-maven-virtual --build-name multi1-build --build-number 1 --module multi1
+      ```
+      - Run
+        ```bash 
+        jf rt bp multi1-build 1
+        ```
 - Create and publish build 1 for multi2
-    - Run ```bash jf rt upload "multi2/*.zip" payment-maven-virtual --build-name multi2-build --build-number 1 --module multi2```
-    - Run ```bash jf rt bp multi2-build 1```
-- Aggregate Builds
-    - Run ```bash jf rt build-append payment-maven 1.0.0 multi1-build 1```
-    - Run ```bash jf rt build-append payment-maven 1.0.0 multi2-build 1```
-- Run ```bash jf rt bp payment-maven 1.0.0```
+    - Run the following command to upload the build artifacts to Artifactory and publish the build information:
+      ```bash 
+        jf rt upload "multi2/*.zip" payment-maven-virtual --build-name multi2-build --build-number 1 --module multi2
+      ```
+    - Run 
+      ```bash 
+        jf rt bp multi2-build 1
+      ```
+  - Aggregate Builds
+      - Run the following command to aggregate the builds:
+        ```bash 
+        jf rt build-append payment-maven 1.0.0 multi1-build 1
+        ```
+        - Run the following command to aggregate the builds:
+      ```bash 
+      jf rt build-append payment-maven 1.0.0 multi2-build 1
+      ```
+- Run 
+  - ```bash
+      jf rt bp payment-maven 1.0.0
+    ```
 
 <br />
 <br />
@@ -139,35 +194,46 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 ### Set Properties
 #### Maven
 - Run
-  ```bash jf rt set-props "payment-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"```
+  ```bash 
+    jf rt set-props "payment-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"
+   ```
 
   or
 
-  ```bash jf rt sp "payment-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"```
+  ```bash
+  jf rt sp "payment-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"
+  ```
 
 NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-SettingPropertiesonFiles)
 
 #### NPM
 - Run
 
-  ```bash jf rt set-props "auth-npm-dev-local/npm-example/-/npm-example-1.1.5.tgz" "unit.test=pass;integration.test=null;"```
+  ```bash 
+     jf rt set-props "auth-npm-dev-local/npm-example/-/npm-example-1.1.5.tgz" "unit.test=pass;integration.test=null;"
+  ```
 
   or
 
-  ```bash jf rt sp "auth-npm-dev-local/npm-example/-/npm-example-1.1.5.tgz" "unit.test=pass;integration.test=null;"```
+  ```bash 
+     jf rt sp "auth-npm-dev-local/npm-example/-/npm-example-1.1.5.tgz" "unit.test=pass;integration.test=null;"
+  ```
 
 <br />
 <br />
 
 
 ## RUN SCRIPT
-- Run ```bash sh lab_3_build_rescue.sh```
+- Run 
+```bash 
+sh lab_3_build_rescue.sh
+```
 
 <br />
 <br />
 
 ## SETTING UP A CI PIPELINE [Optional - MUST for POST SESSION]
-- Run ```bash jf ci-setup```, **auto generate yml or jenkins file with CLI Steps**
+- Run ``jf ci-setup``, **auto generate yml or jenkins file with CLI Steps**
     - The ci-setup command allows setting up a basic CI pipeline with the JFrog Platform, while automatically configuring the JFrog Platform to serve the pipeline. It is an interactive command, which prompts you with a series for questions, such as your source control details, your build tool, build command and your CI provider. The command then uses this information to do following:
         - Create the repositories in JFrog Artifactory, to be used by the pipeline to resolve dependencies.
         - Configure JFrog Xray to scan the build.
@@ -186,11 +252,15 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 ## CREATE REPLICATION TEMPLATE
 - Run
 
-  ```bash jf rt replication-template template-pull.json```
+  ```bash
+   jf rt replication-template template-pull.json
+  ```
 
   or
 
-  ```bash jf rt rplt template-pull.json```
+  ```bash 
+    jf rt rplt template-pull.json
+  ```
 
     - Select replication job type (press Tab for options): `pull`
     - Enter source repo key > `swampup-docker-main`          # Smart Repository (Remote repository pointing other repository from other Artifactory instance)
@@ -228,11 +298,15 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 ## CREATE REPLICATION USING TEMPLATE
 - Run
 
-  ```bash jf rt replication-create template-pull.json --vars "url=https://lunchnlearn.jfrog.io/artifactory/docker-main/"```
+  ```bash
+    jf rt replication-create template-pull.json --vars "url=https://lunchnlearn.jfrog.io/artifactory/docker-main/"
+  ```
 
   or
 
-  ```bash jf rt rplc template-pull.json --vars "url=https://lunchnlearn.jfrog.io/artifactory/docker-main/"```
+  ```bash 
+  jf rt rplc template-pull.json --vars "url=https://lunchnlearn.jfrog.io/artifactory/docker-main/"
+  ```
 
 <br />
 <br />
@@ -244,7 +318,10 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
 <br />
 
 ## RUN SCRIPT
-- Run ```bash sh lab_3_replication_rescue_optional.sh```
+- Run 
+  ```bash
+     sh lab_3_replication_rescue_optional.sh
+  ```
 
 ## CHALLENGE 1 - Update Properties [Optional]
 - Add new property to sub-folder inside the artifact - HINT: We need that property to be tagged to each and every single file of the Artifact recursively.
