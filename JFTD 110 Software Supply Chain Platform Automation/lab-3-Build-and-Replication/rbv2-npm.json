@@ -1,0 +1,9 @@
+{
+  "builds": [
+    {
+      "name": "auth-npm",
+      "number": "2.0.0",
+      "project": ""
+    }
+  ]
+}
