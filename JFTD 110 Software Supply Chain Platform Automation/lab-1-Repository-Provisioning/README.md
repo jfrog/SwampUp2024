@@ -9,13 +9,15 @@ Lab-0 - Configure JFrog CLI
 ## CREATE REPOSITORY TEMPLATE
 Run the following command to create a local repository template:
 ```bash
-jf rt repo-template template-local1.json
+jf rt repo-template template-local2.json
 ```
   - Select the template type (press Tab for options): `create`
   - Insert the repository key > `auth-npm-dev-local`
   - Select the repository class (press Tab for options): `local`
   - Select the repository's package type (press Tab for options): `npm`
   - You can type ":x" at any time to save and exit.
+  - Select the next configuration key (press Tab for options): `projectKey`
+  - Insert the value for projectKey (press Tab for options): > 'tftd110tr{0}-{30}'
   - Select the next configuration key (press Tab for options): `repoLayoutRef`
   - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
   - Select the next configuration key (press Tab for options): `environment`
@@ -30,7 +32,8 @@ jf rt repo-template template-local1.json
     {
      "key":"${repo-name}",                
      "packageType":"${package-type}",     
-     "rclass":"${repo-type}",             
+     "rclass":"${repo-type}",
+     "projectKey":"${projectKey}",
      "repoLayoutRef":"${repo-layout}",    
      "environments":"${env}",             
      "xrayIndex":"${xray-enable}"         
@@ -47,6 +50,8 @@ jf rt repo-template template-remote.json
   - Insert the remote repository URL > `https://registry.npmjs.org`
   - Select the repository's package type (press Tab for options): `npm`
   - You can type ":x" at any time to save and exit.
+  - Select the next configuration key (press Tab for options): `projectKey`
+  - Insert the value for projectKey (press Tab for options): > 'tftd110tr{0}-{30}'
   - Select the next configuration key (press Tab for options): `repoLayoutRef`
   - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
   - Select the next configuration key (press Tab for options): `environment`
@@ -63,6 +68,7 @@ jf rt repo-template template-remote.json
             "packageType":"${package-type}",
             "rclass":"${repo-type}",
             "url":"${url}",
+            "projectKey":"${projectKey}",
             "repoLayoutRef":"${repo-layout}",
             "environments":"${env}",           
             "xrayIndex":"${xray-enable}"
@@ -78,6 +84,8 @@ jf rt repo-template template-virtual.json
   - Select the repository class (press Tab for options): `virtual`
   - Select the repository's package type (press Tab for options): `npm`
   - You can type ":x" at any time to save and exit.
+  - Select the next configuration key (press Tab for options): `projectKey`
+  - Insert the value for projectKey (press Tab for options): > 'tftd110tr{0}-{30}'
   - Select the next configuration key (press Tab for options): `repoLayoutRef`
   - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
   - Select the next configuration key (press Tab for options): `environment`
@@ -98,6 +106,7 @@ jf rt repo-template template-virtual.json
             "key":"${repo-name}",
             "packageType":"${package-type}",
             "rclass":"${repo-type}",
+            "projectKey":"${projectKey}",
             "repoLayoutRef":"${repo-layout}",
             "defaultDeploymentRepo":"${deploy-repo-name}",
             "externalDependenciesRemoteRepo":"${external-remote-repo-name}",
