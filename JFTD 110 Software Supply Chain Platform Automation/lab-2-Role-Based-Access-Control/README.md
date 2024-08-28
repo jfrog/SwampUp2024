@@ -8,11 +8,11 @@
 - Please review the CSV that is part of the lab where `username`, `password`, `email` defined for few test users
 - Run the following command to create users from the CSV file:
 ```bash
-- jf rt users-create --csv users.csv
+jf rt users-create --csv users.csv
  ```
 or
 ```bash
-``jf rt uc --csv users.csv
+jf rt uc --csv users.csv
  ```
 
 ## CREATE GROUPS AND ADD USERS TO GROUPS
@@ -36,59 +36,52 @@ or
 Run the following command to create secops group:
 ```bash 
 jf rt group-create secops
- ```
+```
  or
- ```bash
+```bash
  jf rt gc secops
-  ```
+ ```
 
 
 **Adding Users to Groups**
 - Developers - mike,jennifer
-    - Run
-
+    - Run the following command to add users to the developers group:
       ```bash 
          jf rt group-add-users "developers" "mike,jennifer" 
       ```
-
       or
       ```bash 
          jf rt gau "developers" "mike,jennifer"
      ```
-
-
 - ops - bob, rolando, jennifer, support
-    - Run
+  - Run the following command to add users to the ops group:
 
-  ```bash 
+    ```bash 
      jf rt group-add-users "ops" "bob,jennifer,rolando,support"
-   ```
+     ```
     or
     ```bash 
      jf rt gau "ops" "bob,jennifer,rolando,support"
-   ```
+     ```
 - secops - irene, matt, jennifer
-    - Run
-
-      ```bash 
-         jf rt group-add-users "secops" "irene,matt,jennifer"
-      ```
-
-      or
-      ```bash 
-         jf rt gau "secops" "irene,matt,jennifer"
+  - Run the following command to add users to the secops group:
+    ```bash 
+       jf rt group-add-users "secops" "irene,matt,jennifer"
+    ```
+    or
+    ```bash 
+       jf rt gau "secops" "irene,matt,jennifer"
      ```
 
 - secops - irene, matt, jennifer
-    - Run
-            
-        ```bash 
-            jf rt group-add-users "secops" "irene,matt,jennifer"
-        ```
-      or
-        ```bash 
-            jf rt gau "secops" "irene,matt,jennifer"
-        ```
+- Run the following command to add users to the secops group: 
+    ```bash 
+        jf rt group-add-users "secops" "irene,matt,jennifer"
+    ``` 
+  or
+    ```bash 
+        jf rt gau "secops" "irene,matt,jennifer"
+    ```
 <br />
 
 ## CREATE PERMISSION TARGET TEMPLATE
@@ -97,9 +90,7 @@ jf rt group-create secops
   ```bash 
       jf rt permission-target-template pt-template.json
    ```
-
     or
-
   ```bash
      jf rt ptt pt-template.json
   ```
@@ -147,14 +138,11 @@ jf rt group-create secops
 <br />
 
 ## CREATE PERMISSION TARGET USING TEMPLATE
-- Run
-
+- Run the following command to create a permission target using the template:
   ```bash
   jf rt permission-target-create pt-template.json
   ```
-
   or
-
   ```bash
   jf rt ptc pt-template.json
   ```
@@ -174,7 +162,6 @@ or
     
 ###NOTE:
     --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
-    
 
 <br />
 
@@ -185,7 +172,7 @@ or
 ```bash
 jf rt users-delete users.csv --quiet``
 ```
-  or
+or
 
 ```bash
 jf rt udel --csv users.csv --quiet``
@@ -193,7 +180,7 @@ jf rt udel --csv users.csv --quiet``
 <br />
 
 ### Delete Group - [POST SESSION TASK]
-- Run
+- Run the following command to delete the developers group:
 
 ```bash
 jf rt group-delete developers
