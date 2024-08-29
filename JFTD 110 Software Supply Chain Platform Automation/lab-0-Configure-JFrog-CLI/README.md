@@ -14,7 +14,7 @@ jf -v
 
 ```html
 <pre style="background-color: black; color: white; padding: 10px;">
-jf -v
+jf -v 
 </pre>
 if not installed then Download [JFrog CLI](https://jfrog.com/getcli/) based on our machine.
 
