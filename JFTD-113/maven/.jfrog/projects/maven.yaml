@@ -1,0 +1,11 @@
+version: 1
+type: maven
+resolver:
+    serverId: soleng-latest
+    snapshotRepo: jftd113-dev-maven-remote
+    releaseRepo: jftd113-dev-maven-remote
+deployer:
+    serverId: soleng-latest
+    snapshotRepo: jftd113-dev-maven-virt
+    releaseRepo: jftd113-dev-maven-virt
+useWrapper: true
