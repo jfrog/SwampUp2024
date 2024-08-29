@@ -12,6 +12,10 @@ Run the following command to verify that JFrog CLI is installed:
 jf -v
 ```
 
+```html
+<pre style="background-color: black; color: white; padding: 10px;">
+jf -v
+</pre>
 if not installed then Download [JFrog CLI](https://jfrog.com/getcli/) based on our machine.
 
 ## Option 1 - Set Up JFrog CLI with Main JPD
