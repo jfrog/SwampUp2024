@@ -42,7 +42,7 @@ Check Current JFrog CLI Configurations
     jf config use swampup
     ```
 4. Health Check
-       - Verify the connection to your JFrog instance:
+       - Verify the connection to your JFrog instance by running the following command and the result should be 'OK'
      ```bash
      jf rt ping
      ```
