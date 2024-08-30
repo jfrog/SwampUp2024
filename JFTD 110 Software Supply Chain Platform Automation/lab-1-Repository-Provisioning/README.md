@@ -7,7 +7,7 @@ Lab-0 - Configure JFrog CLI
 
 
 ## CREATE REPOSITORY TEMPLATE
-Run the following command to create a local repository template:
+### Step 1: Run the following command to create a local repository template:
 ```bash
 jf rt repo-template template-local.json
 ```
@@ -40,7 +40,7 @@ jf rt repo-template template-local.json
 }
 ```
 
-Run the following command to create a local repository template:
+### Step 2: Run the following command to create a remote repository template:
 ```bash
 jf rt repo-template template-remote.json
 ```
@@ -75,7 +75,7 @@ jf rt repo-template template-remote.json
           }
 ```
 
-Run the following command to create a local repository template:
+### Step 3: Run the following command to create a virtual repository template:
 ```bash
 jf rt repo-template template-virtual.json
 ```        
@@ -118,7 +118,7 @@ jf rt repo-template template-virtual.json
 <br />
 
 ## CREATE REPOSITORY
-- Run
+### Step 4: Run the template one after the other to create local, remote, and virtual repositories.
 ```bash
 jf rt repo-create template-{{ local|remote|virtual }}.json
 ```
