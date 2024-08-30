@@ -1,7 +1,3 @@
-# Path to the projects JSON file
-project_file="./project.json"
-# Fetch the projectKey from projects.json
-project_key=$(jq -r '.projectKey' "$project_file")
 
 # Loop through each repository entry in local-repos.json
 for row in $(jq -r '.[] | @base64' ./virtual-repos-for-edge.json); do

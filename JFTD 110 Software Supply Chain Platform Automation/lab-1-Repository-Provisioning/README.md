@@ -92,11 +92,11 @@ jf rt repo-template template-virtual.json
   - Insert the name of the environment to assign to > `DEV`
   - Select the next configuration key (press Tab for options): `repositories`
   - The value should be a comma separated list:
-  - Insert the value for repositories > `auth-npm-dev-local,npm-remote`
+  - Insert the value for repositories > `tftd110tr{0}-{30}auth-npm-dev-local,tftd110tr{0}-{30}npm-remote`
   - Select the next configuration key (press Tab for options): `externalDependenciesRemoteRepo`
-  - Insert the value for externalDependenciesRemoteRepo > `auth-npm-remote`
+  - Insert the value for externalDependenciesRemoteRepo > `tftd110tr{0}-{30}auth-npm-remote`
   - Select the next configuration key (press Tab for options): `defaultDeploymentRepo`
-  - Insert the value for defaultDeploymentRepo > `auth-npm-dev-local`
+  - Insert the value for defaultDeploymentRepo > `tftd110tr{0}-{30}auth-npm-dev-local`
   - Select the next configuration key (press Tab for options): `:x`
 - 
 - Validate template `template-remote.json` is created successfully. ``ls -la``

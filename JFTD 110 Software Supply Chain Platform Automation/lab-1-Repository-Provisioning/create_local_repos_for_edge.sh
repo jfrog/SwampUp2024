@@ -16,7 +16,8 @@ for row in $(jq -r '.[] | @base64' ./local-repos-for-edge.json); do
     # Combine project_key and repo_key with a hyphen
     prefixed_repo_name="${project_key}-${repo_key}"
 
+
     # Create the repository with the prefixed repo name and other variables
-    jf rt repo-create template-local-rescue.json \
-        --vars "repo-name=$prefixed_repo_name;package-type=$(_jq '.packageType');repo-type=$(_jq '.rclass');repo-layout=$(_jq '.repoLayoutRef');project-key=$project_key;env=$(_jq '.environments');xray-enable=$(_jq '.xrayIndex')"
+    jf rt repo-create template-local-rescue-for-edge.json \
+        --vars "repo-name=$prefixed_repo_name;package-type=$(_jq '.packageType');repo-type=$(_jq '.rclass');repo-layout=$(_jq '.repoLayoutRef')"
 done

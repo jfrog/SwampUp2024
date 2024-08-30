@@ -14,5 +14,5 @@
   {"key":"finapp-docker-dev-virtual"},
   {"key":"payment-maven-dev-virtual"},
   {"key":"auth-npm-dev-virtual"},
-  {"key":"aws-tf-local"}
+  {"key":"notification-npm-dev-local"}
 ]
