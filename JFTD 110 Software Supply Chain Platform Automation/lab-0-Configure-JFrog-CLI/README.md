@@ -34,7 +34,7 @@ Check Current JFrog CLI Configurations
       - Enter a unique server identifier: ```${{unique name}}```        # like -> `swampup`
       - JFrog platform URL: ```https://{{host}}.jfrog.io```             # JFrog Cloud instance URL from document
       - JFrog access token (Leave blank for username and password/API key): ```${{access_token}}```
-      - Create access token from UI ``Administration`` -> ``Identity and Access`` -> ``Access Tokens``
+      - Create access token from UI In the JFrog UI, click the initials of your username on the top right-hand corner of the screen to view the User Profile menu ``User Profile``-> ``Edit Profile`` -> ``Generate An Identity Token``-> ``Next`` -> ``Copy the token`` -> ``Close``
       - Is the Artifactory reverse proxy configured to accept a client certificate (y/n) [n]?: ``n``
 
 3. Use the newly created configuration:
