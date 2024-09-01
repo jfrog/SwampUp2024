@@ -23,6 +23,8 @@ Ensure that you have the following details from the email you have received:
   - click the initials of your username on the top right-hand corner of the screen to view the User Profile menu ``User Profile``-> ``Edit Profile`` -> ``Generate An Identity Token``-> ``Next`` -> ``Copy the token`` -> ``Close``
   - Replace all placeholders (e.g., `$JFROG_PLATFORM`, `$JFROG_EDGE`,`$ADMIN_USER`,`$ADMIN_PASSWORD`, `$ACCESS_TOKEN`) with the appropriate values specific to your environment.
 
+There are two options to configure JFrog CLI: Use Option 1 for an interactive setup or Option 2 for a non-interactive setup.
+
 ## Option 1 - Set Up JFrog CLI with Main JPD
 Check Current JFrog CLI Configurations
 
@@ -57,13 +59,13 @@ Check Current JFrog CLI Configurations
 
 ## Option 2: Setup JFrog CLI with Main JPD (Non-Interactive)
 
-### Step 1: Add Configuration for Main JPD
+### Add Configuration for Main JPD
 To configure JFrog CLI without interaction, use the following command:
 ```bash
 jf config add swampup --artifactory-url=https://$JFROG_PLATFORM/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
 ```
 
-### Step 2: Add Configuration for Edge Node 
+## Add Configuration for Edge Node 
 To add configuration for an edge node, use the following command:
 ```bash
 jf config add swampupedge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
