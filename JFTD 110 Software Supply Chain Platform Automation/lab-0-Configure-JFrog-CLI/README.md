@@ -14,6 +14,15 @@ jf -v
 
 if not installed then Download [JFrog CLI](https://jfrog.com/getcli/) based on our machine.
 
+### Check Host, Authentication Details
+
+Ensure that you have the following details from the email you have received:
+`$JFROG_PLATFORM`, `$JFROG_EDGE`,`$ADMIN_USER`,`$ADMIN_PASSWORD` are the placeholders for the JFrog Platform URL, Edge Node URL, Project Admin User, and Project Admin Password, respectively.
+- Create access token from UI
+  - Goto JFrog Platform URL `$JFROG_PLATFORM` and use the credentials `$ADMIN_USER` and `$ADMIN_PASSWORD` to login
+  - click the initials of your username on the top right-hand corner of the screen to view the User Profile menu ``User Profile``-> ``Edit Profile`` -> ``Generate An Identity Token``-> ``Next`` -> ``Copy the token`` -> ``Close``
+  - Replace all placeholders (e.g., `$JFROG_PLATFORM`, `$JFROG_EDGE`,`$ADMIN_USER`,`$ADMIN_PASSWORD`, `$ACCESS_TOKEN`) with the appropriate values specific to your environment.
+
 ## Option 1 - Set Up JFrog CLI with Main JPD
 Check Current JFrog CLI Configurations
 
@@ -32,9 +41,8 @@ Check Current JFrog CLI Configurations
      jf c add --interactive
      ```
       - Enter a unique server identifier: ```${{unique name}}```        # like -> `swampup`
-      - JFrog platform URL: ```https://{{host}}.jfrog.io```             # JFrog Cloud instance URL from document
-      - JFrog access token (Leave blank for username and password/API key): ```${{access_token}}```
-      - Create access token from UI In the JFrog UI, click the initials of your username on the top right-hand corner of the screen to view the User Profile menu ``User Profile``-> ``Edit Profile`` -> ``Generate An Identity Token``-> ``Next`` -> ``Copy the token`` -> ``Close``
+      - JFrog platform URL: ```https://{{host}}.jfrog.io```             # JFrog Cloud instance URL $JFROG_PLATFORM from document
+      - JFrog access token (Leave blank for username and password/API key): ```${{$ACCESS_TOKEN}}``` # Access token generated from JFrog Platform
       - Is the Artifactory reverse proxy configured to accept a client certificate (y/n) [n]?: ``n``
 
 3. Use the newly created configuration:
@@ -73,9 +81,7 @@ This generates a token that can be used to import the configuration on another s
 ### Import Configuration
 On the target system, import the configuration using the token:
 ```bash
-jf config import $TOKEN
+jf config import $ACCESS_TOKEN
 ```
 
 ---
-
-**Note:** Replace all placeholders (e.g., `$JFROG_PLATFORM`, `$ADMIN_USER`, `$TOKEN`) with the appropriate values specific to your environment.
