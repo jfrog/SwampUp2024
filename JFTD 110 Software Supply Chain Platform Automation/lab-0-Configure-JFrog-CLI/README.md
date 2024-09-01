@@ -63,7 +63,7 @@ To configure JFrog CLI without interaction, use the following command:
 jf config add swampup --artifactory-url=https://$JFROG_PLATFORM/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
 ```
 
-### Step 2: Add Configuration for Edge Node
+### Step 2: Add Configuration for Edge Node 
 To add configuration for an edge node, use the following command:
 ```bash
 jf config add swampupedge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
