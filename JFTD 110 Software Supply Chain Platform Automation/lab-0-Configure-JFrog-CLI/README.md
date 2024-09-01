@@ -26,7 +26,7 @@ Ensure that you have the following details from the email you have received:
 ## Step 1 : Add Configuration for Main JFrog Platform
 There are two options to configure JFrog CLI: Use Option 1 for an interactive setup or Option 2 for a non-interactive setup.
 
-      ## Option 1 - Set Up JFrog CLI with Main JPD
+   ## Option 1 - Set Up JFrog CLI with Main JPD
    Check Current JFrog CLI Configurations
 
 1. Run the following command to list all JFrog CLI configurations:
