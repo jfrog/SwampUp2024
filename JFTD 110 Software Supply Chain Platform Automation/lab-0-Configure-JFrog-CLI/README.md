@@ -87,4 +87,3 @@ On the target system, import the configuration using the token:
 jf config import $ACCESS_TOKEN
 ```
 
----
