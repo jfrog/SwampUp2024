@@ -5,12 +5,14 @@
 
 <br />
 
-## CREATE GLOBAL ENVIRONMENT VARIABLE
+## CREATE GLOBAL ENVIRONMENT VARIABLE [MUST]
 - Open `createEng.json` where we define environment variable `QA`
 - Review `sh create_env.sh`
   - run `sh create_env.sh`
 
-## CREATE REPOSITORY TEMPLATES
+<br />
+
+## CREATE REPOSITORY TEMPLATES [MUST]
 - Federated Repository Template
     - run ``jf rt repo-template template-federated.json``
         - Select the template type (press Tab for options): `create`
@@ -40,7 +42,7 @@
 
 <br />
 
-## CREATE REPOSITORY
+## CREATE REPOSITORY [MUST]
 - Run ``jf rt repo-create template-{{ federated|local|remote|virtual }}.json``
 
   or
@@ -62,7 +64,7 @@
 
 <br />
 
-## UPLOAD MAVEN AND NPM ARTIFACTS [Must]
+## UPLOAD MAVEN AND NPM ARTIFACTS [MUST]
 - Run ``cd sample-data/maven``
     - ``jf rt u "./hello-world-api/*" "payment-maven-dev-virtual/"``
     - For bulk uploads, ``jf rt u "./*" "payment-maven-dev-virtual/" --threads 10``
@@ -74,13 +76,17 @@
 
 <br />
 
-## CONVERT LOCAL REPOSITORY TO A FEDERATED REPOSITORY
+## CONVERT LOCAL REPOSITORY TO A FEDERATED REPOSITORY [MUST]
 - run `jf rt curl -XPOST "/api/federation/migrate/notification-npm-dev-local" -H "Content-Type: application/json"`
+
+<br />
 
 ## REFERENCE SAMPLE REPOSITORY CONFIGURATIONS [Optional]
 - [Repository Configuration JSON](https://jfrog.com/help/r/jfrog-rest-apis/repository-configuration-json)
 
-## REGISTER JPDs BEFORE ADD MEMBER NODE TO FEDERATED REPOSITORY
+<br />
+
+## REGISTER JPDs BEFORE ADD MEMBER NODE TO FEDERATED REPOSITORY [MUST]
 - We have two ways to setup
   - Option 1: Using Circle Of Trust between JPDs 
   - Option 2: Using Binding Token
@@ -103,7 +109,9 @@
   - Click on `Add`
 - Verify the message
 
-## ADD MEMBER NODE TO FEDERATED REPOSITORY
+<br />
+
+## ADD MEMBER NODE TO FEDERATED REPOSITORY [MUST]
 - We have two JPDs, lets called that JPD1(main) and JPD2(2nd site) moving forward.
 - Open `JPD1 URL` in browser 
 - `Administration` > `Repositories` > `Federated` > `notification-npm-dev-local` > `Federation`
@@ -112,12 +120,28 @@
   - Expand `JPD2`, it will show list of repository for same package as well as `+ Create Repository` with same name
   - We can also use URL based approach
 
-## REVIEW FEDERATED REPOSITORY CONFIGURATIONS
+<br />
+
+## UPLOAD MAVEN AND NPM ARTIFACTS [MUST]
+- Run ``cd sample-data/maven``
+    - ``jf rt u "./hello-world-api/*" "payment-maven-dev-virtual/"``
+    - For bulk uploads, ``jf rt u "./*" "payment-maven-dev-virtual/" --threads 10``
+        - NOTE: we are using 10 threads here
+- Run ``cd sample-data/npm``
+    - ``jf rt u "./hello-world-ui/*" "auth-npm-dev-virtual/"``
+    - For bulk uploads, ``jf rt u "./*" "auth-npm-dev-virtual/" --threads 10``
+        - NOTE: we are using 10 threads here
+
+<br />
+
+## REVIEW FEDERATED REPOSITORY CONFIGURATIONS [Optional]
 - Check `Administration` > `Repositories` > `Federated` > `...` when hover on the repository name 
 - Select `Federation Status`
 - Review other feature from dropdown and ask questions
 
-## ACCESS FEDERATION [Must]
+<br />
+
+## ACCESS FEDERATION [MUST]
 - Open `JPD1 URL` in browser
 - `Administration` > `Topology` > `Access Federation`
 - Let's Create MESH TOPOLOGY across sites
@@ -129,6 +153,9 @@
 - Create [MESH TOPOLOGY using REST API](https://jfrog.com/help/r/jfrog-rest-apis/create-mesh)
   - run `jf rt curl -XPOST "/mc/api/v1/federation/create_mesh" -d "@createMeshTopologySample.json"`
 
+<br />
+<br />
+<br />
     
 ## CHALLENGE - Create / Update Repository [Optional]
 - Make changes into `notification-npm-dev-local` Federated Repository Configuration on JPD1
