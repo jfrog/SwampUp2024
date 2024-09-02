@@ -17,13 +17,13 @@ You can set environment variables directly in your shell session
   export token="replace your_access_or_identity_token"
  ```
 
-### Step 2: GET PROJECT DETAILS
+### Step 2: Get Project Details
  ```bash 
 curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}"
   ```
 
-### Step 3: # GET PROJECT USERS
+### Step 3: # Get Project Users
  ```bash 
 curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}"
@@ -73,15 +73,16 @@ curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorD
 -d "@update-role.json"
   ```
 
-## RUN SCRIPT - Prerequisites for future labs that CREATES ALL REPOSITORIES [MUST]
+## [Optional]
+
+## RUN SCRIPT - if you want to skip Step 1 - Step 10
 - Run
 ```bash
 sh lab_2_rescue.sh
  ``` 
 and it will get project detail and maintain members, roles
 
-## [Optional]
-
+## *** You need Platform Admin Access to run the below section.***
 ## CREATE USER (Internal)
 - Please review the CSV that is part of the lab where `username`, `password`, `email` defined for few test users
 - Run the following command to create users from the CSV file:
