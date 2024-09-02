@@ -4,6 +4,84 @@
 - Lab-0 - Configure JFrog CLI
 - Lab-1 - Repository Provisioning
 
+## JFrog Project
+### Step 1: Set Environment Variables 
+You can set environment variables directly in your shell session
+ ```bash 
+ export baseUrl="https://your-jfrog-instance.com replace with your_jfrog_instance"
+ ```
+ ```bash 
+ export project_key="replace with your_project"
+ ```
+ ```bash
+  export token="replace your_access_or_identity_token"
+ ```
+
+### Step 2: GET PROJECT DETAILS
+ ```bash 
+curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}"
+  ```
+
+### Step 3: # GET PROJECT USERS
+ ```bash 
+curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}"
+  ```
+### Step 4: # Add User in Project
+ ```bash 
+curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}" \
+-H "Content-Type: application/json" \
+-d "@add-user.json"
+  ```
+### Step 5: # Update User in Project
+ ```bash 
+curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}" \
+-H "Content-Type: application/json" \
+-d "@update-user.json"
+  ```
+### Step 6: # Delete User in Project
+ ```bash 
+curl -XDELETE "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}" \
+-H "Content-Type: application/json"
+  ```
+### Step 7: # GET PROJECT ROLES
+ ```bash 
+curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}"
+  ```
+### Step 8: # Delete role in Project
+ ```bash 
+curl -XDELETE "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorDeveloper" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}"
+  ```
+### Step 9: # Add role in Project
+ ```bash 
+curl -XPOST "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}" \
+-H "Content-Type: application/json" \
+-d "@add-role.json"
+  ```
+### Step 10: # Update role in Project
+ ```bash 
+curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorDeveloper" \
+-H "Authorization: Bearer ${ACCESS_TOKEN}" \
+-H "Content-Type: application/json" \
+-d "@update-role.json"
+  ```
+
+## RUN SCRIPT - Prerequisites for future labs that CREATES ALL REPOSITORIES [MUST]
+- Run
+```bash
+sh lab_2_rescue.sh
+ ``` 
+and it will get project detail and maintain members, roles
+
+## [Optional]
+
 ## CREATE USER (Internal)
 - Please review the CSV that is part of the lab where `username`, `password`, `email` defined for few test users
 - Run the following command to create users from the CSV file:
@@ -188,17 +266,3 @@ jf rt group-delete developers
 
 <br />
 <br />
-
-## JFrog Project
-- JFrog Projects is a management entity for hosting your resources (repositories, builds, Release Bundles, and Pipelines), and for associating users/groups as members with specific entitlements. 
-- As such, using projects helps Platform Admins to offload part of their day-to-day management effort and to generate a better separation between the customer products to improve customer visibility on efficiency, scale, cost, and security. 
-- Projects simplifies the onboarding process for new users, and create better visibility for LOBs and project stakeholders.
-- Review and RUN
-  ```bash 
-  sh project.sh
-  ```
-
-## CHALLENGE - RBAC [Optional]
-- Remove `deleteme` users from artifactory
-- Update ``development`` permission target and give ``ops`` group ``managedXrayMeta`` permission
-- Use JFrog [Project Terraform provider](https://registry.terraform.io/providers/jfrog/project/latest)

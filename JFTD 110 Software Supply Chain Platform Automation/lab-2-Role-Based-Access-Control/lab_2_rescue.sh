@@ -1,19 +1,51 @@
-# Create Users
-jf rt users-create --csv users.csv
+#!/bin/bash
+source ./config.sh
+# GET JFROG PROJECT
+curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}" \
+ -H "Authorization: Bearer ${ACCESS_TOKEN}"
 
-# Create Groups
-jf rt group-create developers
-jf rt group-create ops
-jf rt group-create secops
+# GET PROJECT GROUPS
+curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/groups" \
+ -H "Authorization: Bearer ${ACCESS_TOKEN}"
 
-# Add users to the groups
-jf rt group-add-users developers "mike,jennifer"
-jf rt group-add-users ops "bob,jennifer,rolando,support"
-jf rt group-add-users secops "irene,matt,jennifer"
+ # GET PROJECT USERS
+curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users" \
+ -H "Authorization: Bearer ${ACCESS_TOKEN}"
 
-# Create Permission Target
-jf rt permission-target-create dev-permission-target-template.json
-jf rt permission-target-create prod-permission-target-template.json
+# Add User in Project
+curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
+ -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+ -H "Content-Type: application/json" \
+ -d "@add-user.json"
 
-# JFROG Project
-sh project.sh
+ # Update User in Project
+ curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
+  -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d "@update-user.json"
+
+  # Delete User in Project
+  curl -XDELETE "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
+   -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+   -H "Content-Type: application/json"
+
+  # GET PROJECT ROLES
+  curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles" \
+   -H "Authorization: Bearer ${ACCESS_TOKEN}"
+
+  # Delete role in Project
+   curl -XDELETE "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorDeveloper" \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}"
+
+ # Add role in Project
+ curl -XPOST "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles" \
+  -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d "@add-role.json"
+
+  # Update role in Project
+   curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorDeveloper" \
+    -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+    -H "Content-Type: application/json" \
+    -d "@update-role.json"
+
