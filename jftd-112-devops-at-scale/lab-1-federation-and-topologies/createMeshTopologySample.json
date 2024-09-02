@@ -1,0 +1,13 @@
+{
+  "jpd_ids": [
+    "JPD1",
+    "JPD2",
+    "edge"
+  ],
+  "entities": [
+    "USERS",
+    "GROUPS",
+    "PERMISSIONS",
+    "TOKENS"
+  ]
+}
