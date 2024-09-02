@@ -17,12 +17,12 @@
         ```
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [swampup]: ↵
-    - Set resolution repository for release dependencies (press Tab for options): `payment-maven-dev-virtual`
-    - Set resolution repository for snapshot dependencies (press Tab for options): `payment-maven-dev-virtual`
+    - Set resolution repository for release dependencies (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
+    - Set resolution repository for snapshot dependencies (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
     - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [swampup]: ↵
-    - Set repository for release artifacts deployment (press Tab for options): `payment-maven-dev-virtual`
-    - Set repository for snapshot artifacts deployment (press Tab for options): `payment-maven-dev-virtual`
+    - Set repository for release artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
+    - Set repository for snapshot artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
     - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
 - Run 
 -   ```bash 
@@ -38,10 +38,10 @@
       ```
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [swampup]: ↵
-    - Set repository for dependencies resolution (press Tab for options): `auth-npm-dev-virtual`
+    - Set repository for dependencies resolution (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
     - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [swampup]: ↵
-    - Set repository for artifacts deployment (press Tab for options): `auth-npm-dev-virtual`
+    - Set repository for artifacts deployment (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
 - Run ```bash jf npm install --build-name auth-npm --build-number 1.0.0``
 - To Publish build Artifact to repository
   - Run 
@@ -106,7 +106,6 @@
       jf rt bp auth-npm 1.0.0
     ```
 
-NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-PublishingBuild-Info)
 
 <br />
 <br />
@@ -204,7 +203,6 @@ NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFr
   jf rt sp "payment-maven-qa-local/org/jfrog/test/" "unit.test=pass;integration.test=null;"
   ```
 
-NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-SettingPropertiesonFiles)
 
 #### NPM
 - Run
