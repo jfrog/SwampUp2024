@@ -83,7 +83,7 @@ sh lab_2_rescue.sh
  ``` 
 and it will get project detail and maintain members, roles
 
-## *** You need Platform Admin Access to run the below section.***
+## [POST SESSION TASK] *** You need Platform Admin Access to run the below section.***
 ## CREATE USER (Internal)
 - Please review the CSV that is part of the lab where `username`, `password`, `email` defined for few test users
 - Run the following command to create users from the CSV file:
