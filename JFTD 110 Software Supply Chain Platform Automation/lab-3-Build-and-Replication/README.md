@@ -132,7 +132,6 @@
      jf rt bpr auth-npm 1.0.0 auth-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=anantha;stage=qa"  --project {projectKey}
     ```
 
-NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-PromotingaBuild)
 
 <br />
 <br />
