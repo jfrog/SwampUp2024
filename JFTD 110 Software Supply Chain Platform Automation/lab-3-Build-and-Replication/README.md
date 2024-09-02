@@ -123,13 +123,13 @@
 #### Maven
 - Run 
   - ```bash 
-      jf rt bpr payment-maven 1.0.0 payment-maven-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"
+      jf rt bpr payment-maven 1.0.0 payment-maven-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=anantha;stage=qa"  --project {projectKey}
     ```
 
 #### NPM
 - Run 
   - ```bash
-     jf rt bpr auth-npm 1.0.0 auth-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=maharship;stage=qa"
+     jf rt bpr auth-npm 1.0.0 auth-npm-qa-local --status='QA candidate' --comment='webservice is now QA candidate and hand over for regression test' --copy=true --props="maintainer=anantha;stage=qa"  --project {projectKey}
     ```
 
 NOTE: [Command Options](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-PromotingaBuild)
