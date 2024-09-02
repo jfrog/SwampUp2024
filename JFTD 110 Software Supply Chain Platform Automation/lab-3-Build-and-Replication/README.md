@@ -24,6 +24,7 @@
     - Set repository for release artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
     - Set repository for snapshot artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
     - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
+    - Use Maven wrapper? (y/n) [y]? `y`
 - Run 
 -   ```bash 
        jf mvn clean install -f ./pom.xml --build-name payment-maven --build-number 1.0.0
@@ -78,17 +79,25 @@
 
 ## COLLECT INFORMATION REGARDING GIT
 #### Maven
-- Run
+- Run - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
 
-  ```bash jf rt build-add-git payment-maven 1.0.0``` - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
 
+  ```bash 
+  jf rt build-add-git payment-maven 1.0.0
+  ``` 
   or
 
-  ```bash jf rt bag payment-maven 1.0.0```
+  ```bash
+   jf rt bag payment-maven 1.0.0
+   ```
 
 #### NPM
-- Run ```bash jf rt bag auth-npm 1.0.0```  - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
+- Run - (.git path[Optional] - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.)
 
+- ```bash 
+- jf rt bag auth-npm 1.0.0
+- ```  
+  
 <br />
 <br />
 
@@ -97,13 +106,13 @@
 #### Maven publish build-info
 - Run 
   ```bash 
-    jf rt bp payment-maven 1.0.0
+    jf rt bp payment-maven 1.0.0 --project {projectKey}
     ```
 
 #### NPM publish build-info
 - Run 
   - ```bash
-      jf rt bp auth-npm 1.0.0
+      jf rt bp auth-npm 1.0.0 --project {projectKey}
     ```
 
 
