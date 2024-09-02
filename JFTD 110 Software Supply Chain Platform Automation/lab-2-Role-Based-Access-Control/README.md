@@ -5,6 +5,7 @@
 - Lab-1 - Repository Provisioning
 
 ## JFrog Project
+- `cd lab-2-Role-Based-Access-Control`
 ### Step 1: Set Environment Variables 
 You can set environment variables directly in your shell session
  ```bash 
