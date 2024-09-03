@@ -43,7 +43,10 @@
     - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [swampup]: ↵
     - Set repository for artifacts deployment (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
-- Run ```bash jf npm install --build-name auth-npm --build-number 1.0.0``
+- Run   
+```bash 
+jf npm install --build-name auth-npm --build-number 1.0.0
+```
 - To Publish build Artifact to repository
   - Run 
     ```bash 

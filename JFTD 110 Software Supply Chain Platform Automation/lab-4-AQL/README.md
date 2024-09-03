@@ -4,7 +4,7 @@
 - Lab-0 - Configure JFrog CLI
 - Lab-1 - Repository Provisioning
 - Lab-2 - Role-Based Access Control
-- Lab 3 - Build, Properties and Replication
+- Lab 3 - Build and Replication
 
 ## Artifactory Query Language
 **Artifactory Query Language** (AQL) is specially designed to let you **uncover any data** related to the artifacts and builds stored within Artifactory. Its syntax offers a simple way to formulate complex queries that specify any number of search criteria, filters, sorting options, and output parameters. AQL is exposed as a RESTful API which uses data streaming to provide output data resulting in **extremely fast response times and low memory consumption**. AQL can only extract data that resides in your instance of Artifactory, so it runs on **Local Repositories, Remote Repositories** and **Virtual Repositories**.
