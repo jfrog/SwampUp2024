@@ -3,6 +3,9 @@
    "version": "1.0.q",
    "private": false,
    "description": "react application",
+   "publishConfig": {
+      "registry": "https://mptest1.jfrog.io/artifactory/api/npm/auth-npm-dev-virtual/"
+   },
    "scripts": {
       "start": "node -r dotenv/config ./api/app.js",
       "start-dev": "nodemon -r dotenv/config ./api/app.js",
