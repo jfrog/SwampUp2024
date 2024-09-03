@@ -3,9 +3,6 @@
    "version": "1.0.q",
    "private": false,
    "description": "react application",
-   "publishConfig": {
-      "registry": "https://soleng.jfrog.io/artifactory/api/npm/alpha-npm-virtual/"
-   },
    "scripts": {
       "start": "node -r dotenv/config ./api/app.js",
       "start-dev": "nodemon -r dotenv/config ./api/app.js",
