@@ -1,9 +1,10 @@
+
 {
-  "builds": [
+  "files": [
     {
-      "name": "auth-npm",
-      "number": "2.0.0",
-      "project": ""
+      "build": "auth-npm/2.0.0",
+      "includeDeps": "false",
+      "project": "${key1}"
     }
   ]
 }

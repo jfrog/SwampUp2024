@@ -1,9 +1,10 @@
+
 {
-  "builds": [
+  "files": [
     {
-      "name": "payment-maven",
-      "number": "2.0.0",
-      "project": ""
+      "build": "payment-maven/2.0.0",
+      "includeDeps": "false",
+      "project": "${key1}"
     }
   ]
 }

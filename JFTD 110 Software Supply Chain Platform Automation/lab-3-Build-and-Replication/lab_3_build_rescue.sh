@@ -3,7 +3,7 @@ cd ./example/maven-example
 jf mvnc --server-id-resolve swampup --server-id-deploy swampup --repo-resolve-releases $projectKey-payment-maven-dev-virtual --repo-resolve-snapshots $projectKey-payment-maven-dev-virtual --repo-deploy-releases $projectKey-payment-maven-dev-virtual --repo-deploy-snapshots $projectKey-payment-maven-dev-virtual
 
 # Build Maven Project
-jf mvn clean install -f pom.xml --build-name payment-maven --build-number 2.0.0
+jf mvn clean install -f pom.xml --build-name payment-maven --build-number 2.0.0 --project $projectKey
 
 jf rt bce payment-maven 2.0.0 --project $projectKey
 jf rt bag payment-maven 2.0.0 --project $projectKey
@@ -15,8 +15,8 @@ cd ../npm-example
 jf npmc --server-id-resolve swampup --server-id-deploy swampup --repo-resolve $projectKey-auth-npm-dev-virtual --repo-deploy $projectKey-auth-npm-dev-virtual
 
 # Build NPM Project
-jf npm install --build-name auth-npm --build-number 2.0.0
-jf npm publish --build-name auth-npm --build-number 2.0.0
+jf npm install --build-name auth-npm --build-number 2.0.0 --project $projectKey
+jf npm publish --build-name auth-npm --build-number 2.0.0 --project $projectKey
 
 jf rt bce auth-npm 2.0.0 --project $projectKey
 jf rt bag auth-npm 2.0.0 --project $projectKey
@@ -38,5 +38,5 @@ jf rt sp "auth-npm-dev-local/npm-example/-/npm-example-1.1.6.tgz" "unit.test=pas
 
 cd ../../
 
-jf rbc --builds=rbv2-npm.json --signing-key=debian-erika auth-npm 2.0.2 --project $projectKey
-jf rbc --builds=rbv2-maven.json --signing-key=debian-erika payment-maven 2.0.2 --project $projectKey
+jf rbc --spec=rbv2-npm.json --signing-key=debian-erika auth-npm 2.0.0 --project $projectKey --spec-vars="key1=tftd110tr2"
+jf rbc --spec=rbv2-maven.json --signing-key=debian-erika payment-maven 2.0.0 --project $projectKey  --spec-vars="key1=tftd110tr2"
