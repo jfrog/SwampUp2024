@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.multimodule.application.DemoApplicationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.897 s - in com.example.multimodule.application.DemoApplicationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.907 s - in com.example.multimodule.application.DemoApplicationTest
