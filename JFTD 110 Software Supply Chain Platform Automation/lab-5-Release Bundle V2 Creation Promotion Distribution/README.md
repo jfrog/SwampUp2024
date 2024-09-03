@@ -1,4 +1,4 @@
-# LAB 35 - Release Bundle V2 Creation Promotion and Distribution
+# LAB 5 - Release Bundle V2 Creation Promotion and Distribution
 
 ## Prerequisites
 - Lab-0 - Configure JFrog CLI
