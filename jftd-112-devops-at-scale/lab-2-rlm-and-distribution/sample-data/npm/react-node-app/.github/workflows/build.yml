@@ -38,7 +38,7 @@ jobs:
           # Configure the project
           jf npmc --repo-resolve auth-npm-dev-virtual --repo-deploy auth-npm-dev-virtual
           # Build the project using JFrog CLI
-          jf npm install ./jftd-112-devops-at-scale/lab-2-rlm-and-distribution/sample-data/npm/react-node-app/ --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
+          jf npm install --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
           jf npm publish --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
       - name: Failure check
         run: |
