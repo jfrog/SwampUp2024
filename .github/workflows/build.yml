@@ -1,0 +1,87 @@
+name: 'reactModule'
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  npm-build-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      BUILD_NAME: 'reactModule'
+      JFROG_BUILD_STATUS: PASS
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: JFrog CLI setup 🐸
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: ${{ secrets.JF_URL }}
+          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+          JF_USER: ${{secrets.JF_USER}}
+          JF_ACCESS_TOKEN: ${{secrets.JF_ACCESS_TOKEN}}
+          DOCKER_JF_RT_REPO: ${{secrets.DOCKER_JF_RT_REPO}}
+          NPM_JF_RT_REPO: ${{secrets.NPM_JF_RT_REPO}}
+      - name: Health check JFrog Artifactory instance 🐸
+        run: |
+          jf --version
+          jf rt ping
+          # jf config show
+      - name: Build and publish
+        run: |
+          # Configure the project
+          jf npmc --repo-resolve auth-npm-dev-virtual --repo-deploy auth-npm-dev-virtual
+          # Build the project using JFrog CLI
+          jf npm install --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
+          jf npm publish --build-name ${{env.BUILD_NAME}} --build-number ${{github.run_number}}
+      - name: Failure check
+        run: |
+          echo "JFROG_BUILD_STATUS=FAIL" >> $GITHUB_ENV
+        if: failure()
+      - name: Login to JFrog Docker repo
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.JF_URL }}
+          username: ${{ secrets.JF_USER }}
+          password: ${{ secrets.JF_PASSWORD }}
+      - name: Docker Build 🐳🐸
+        run: |
+          jf docker build . -t mptest1.jfrog.io/finapp-docker-dev-virtual/reactappimage:${{github.run_number}}
+      - name: Docker Scan 🐳🐸
+        run: |
+          jf docker scan mptest1.jfrog.io/finapp-docker-dev-virtual/reactappimage:${{github.run_number}}
+      - name: Docker Push 🐳🐸
+        run: |
+          jf docker push mptest1.jfrog.io/finapp-docker-dev-virtual/reactappimage:${{github.run_number}}
+      - name: Publish build build-info
+        run: |
+          # Collect and store environment variables in the build-info
+          jf rt bce ${{env.BUILD_NAME}} ${{github.run_number}}
+          # Collect and store VCS details in the build-info
+          jf rt bag ${{env.BUILD_NAME}} ${{github.run_number}}
+          # Publish the build-info to Artifactory
+          jf rt bp ${{env.BUILD_NAME}} ${{github.run_number}}
+          # Scan the published build-info with Xray
+          jf rt bs ${{env.BUILD_NAME}} ${{github.run_number}}
+        if: always()
+#      - name: Create Release Bundle for RLM
+#        run: |
+#          jf rbc --builds=json/builds-spec.json --signing-key=${{ secrets.Key }} reactApp ${{github.run_number}}
+#
+#          # promote to Dev
+#          jf rbp reactApp ${{ github.run_number}} DEV --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-dev-local
+#          jf rt set-props "alpha-npm-dev-local/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=null;"
+#
+#
+#          # Promote to QA
+#          jf rbp reactApp ${{ github.run_number }} QA --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-qa-local
+#          jf rt set-props "alpha-npm-qa-local/react-bank-api/-/react-bank-api-1.0.23.tgz" "unit.test=pass;integration.test=pass;"
+#
+#          # Promote to PROD
+#          jf rbp reactApp ${{ github.run_number }} PROD --signing-key=${{ secrets.Key }} --include-repos=alpha-npm-prod-local

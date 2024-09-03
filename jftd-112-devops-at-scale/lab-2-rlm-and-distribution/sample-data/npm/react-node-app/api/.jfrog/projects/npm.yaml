@@ -1,0 +1,8 @@
+version: 1
+type: npm
+resolver:
+  repo: alpha-npm-virtual
+  serverId: rtsaas
+deployer:
+  repo: alpha-npm-dev-local
+  serverId: rtsaas
