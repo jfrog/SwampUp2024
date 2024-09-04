@@ -6,7 +6,7 @@
 <br />
 
 ## CREATE GLOBAL ENVIRONMENT VARIABLE [MUST]
-- Open `createEng.json` where we define environment variable `QA`
+- Open `createEnv.json` where we define environment variable `QA`
 - Review `sh create_env.sh`
   - run `sh create_env.sh`
 
