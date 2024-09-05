@@ -8,19 +8,26 @@
 Let's build a Docker image that we can scan with JAS
 1.1. Navigate to sample app directory, `./sample-app`.
 1.2. Open the Dockerfile and update the `FROM` directive with your Docker registry and virtual repo.
-For example: `FROM <myinstance>.jfrog.io/docker-virtual/node:lts-buster`
+For example: `FROM <your-instance-name>.jfrog.io/docker-virtual/node:lts-buster`
 1.3 Build the Docker image:
 ```bash
-docker build -t myinstance.jfrog.io/docker-virtual/sample-app:1 .
+docker build -t <your-instance-name>.jfrog.io/<project-prefix>-docker-virtual/sample-app:1 .
 ```
 1.4 Verify the image was created successfully
 1.5 Publish the image
+```bash
+docker push <your-instance-name>.jfrog.io/<project-prefix>-docker-virtual/sample-app:1
+```
 
 ## 2. Review the Scan Results in the XRay > Scans > Repositories
 > Look at the ENORMOUS amount of vulnerabilities that you would never see with Code-level scanning alone.
 > This image is full of holes, some of the very high vulnerability scores, and they are applicable!
-2.1.  Explore the JAS UI.  What stands out?  What surprises you?  Is there anything here you expect to see?
 
-## 3. Upload some more images and IaC specs to further exercise JAS capabilities
-3.1. _Run the original `guided trial` content?_
+JFrog Advanced Security has powerful security capabilities to scan for Contextualized Applicability of detected CVEs, but it can do much more. When a Docker image with application frameworks like Django (Python) or Express (Javascript) are detected by Advanced Security, we can make recommendations on whether there are security vulnerabilities exposed by the configuration of the service or framework.  In this case, our Sample Application uses the Express framework and has some recommendations to harden the container.  
+
+JFrog Advanced Security can also detect Secrets that might be found in any layer of the image, and we happen to have one seeded in the Docker image that you just published.  Let's take a look at both of those examples.
+
+2.1.  In the JFrog UI head to `XRay -> Scans -> Repositories` and locate the local Docker repository into which we just published the Docker image.  The scan may still be running, so please be patient to let the scan finish.  The Advanced Security Engine is going layer by layer through the image and examining all the artifacts in each layer for potential security vulnerabilities.  It tak 
+2.2.  Explore the JAS UI.  What stands out?  What surprises you?  Is there anything here you expect to see?
+
 

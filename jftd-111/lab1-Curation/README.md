@@ -13,7 +13,8 @@
 * Type the repo name 'npm-remote-curation' in the Repository Key field and hit Create Remote Repository.  Note 
 the Project "prefix" is pre-configured and indicates that this repo belongs to your Project.
 * Scroll to the bottom of the view to ensure that XRay Indexing is enabled, it should be by default.
-
+TODO:  Fix that
+TODO:  API call to script enabling cureation on repos
 #### 2.2 Local Repository
 * Ensure your project is active in the JFrog Platform UI
 * Navigate to Admin panel > Project Settings > Resources > Create Repository
@@ -28,11 +29,10 @@ the Project "prefix" is pre-configured and indicates that this repo belongs to y
 > Note:  We're going to skip the "Set Me Up" client guidance for this lab. We will use the JFRog CLI's 
 > NPM integration for this workshop.
 
-> @Rakesh & @Gabe: The output is silent on the jf npm wrapper, though, and that sucks.  No one has idea whats happening. I Got past it by exporting the LOG LEVEL env var....do we want to do this?
-
 ### 3. Instructors Will Demonstrate Enabling the Curation Service On All Students' Remote Repos
 > As of SwampUp '24, configuring Curation settings like enabling Curation on remote repos is a function reserved for Platform Admins. Workshop instructors will handle steps enabling Curation on each remote repo.
-  
+
+TODO: Script out enabling Curation on the remote repos
   
 ### 4. Build a Basic Curation Policy
 > In order for this to work, each Student _must_ have "Manage Policies" Role added to their User account by a platform Admin
@@ -71,33 +71,31 @@ Now that all this setup is done, let's see Curation in Action!  Take a look at T
 
 Let's find out! 
 
-> @Rakesh @Gabe, this is Mend article, but it's the best I could find about this particular package.  Should we leave it, find something else?  Also, should we go into Catalog and show the page for Cors.js?
 
 > Note: If you'd like to see some verbose output in the next example, set the JFRog CLI log level to DEBUG.  This can be done by exporting an Environment variable like the following 
 > ```bash
 > export JFROG_CLI_LOG_LEVEL=DEBUG
 > ```
 
-5.3. Run this command:
+5.3. Run this command.  **Pay particular attention to the `--build-name` paramter we use in this step.  We will need this value when we look at XRay in Lab 3.**
 ```bash
 jf npm install --build-name=<your-initials>-npm-app --build-number=1 --project=<your-project-prefix>`
 ```
 What happened?  Can we fix it?
 
-> Note: If the build succeeds, there are a few things to do in order to "reset" the lab:
+> Note: If the build actually succeeds, there are a few things to do in order to "reset" the lab:
 > 1. Clear the local npm cache `npm cache clean --force`
 > 2. Remove package-lock.json & the node_modules dir: `rm -rf node_modules package-lock.json`
 > 3. Delete the Remote Cache Repo in Artifactory
 > 4. "Zap Cache" of the Remote Cache Repo in Artifactory
 
-5.4. Check the Catalog service for details on `Cors.js` and implement the recommendation.
-> @Rakesh and @Gabe, I had originally considered just changing the policy to Dry Run, but perhaps it's cooler to actually use the remediation recommendation in Catalog to fix the issue and see it succeed.  WDYT?
+5.4. Check the Catalog service for details on `Cors.js` and implement the recommendation.  Log in to the Artifactory instance, and go to "Catalog" in the left-hand Navigation pane
 
 5.5  Re-run the build and it should succeed:
 ```bash
 jf npm install --build-name=<your-initials>-npm-app --build-number=1 --project=<your-project-prefix>`
 ```
-5.6  Now add some details and publish the build: 
+5.6  Now add some details and publish the build.  If you follow the example in previous steps, your build number will be `1`
 ```bash
 jf rt build-collect-env <your-initials>-npm-app <build-number>
 jf rt build-add-git <your-initials>-npm-app <build-number>
