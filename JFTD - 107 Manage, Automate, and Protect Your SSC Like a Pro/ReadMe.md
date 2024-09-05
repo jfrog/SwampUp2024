@@ -45,7 +45,7 @@ Upload a Docker image to a JFrog repository to observe the scanning results.
    - After pushing the image, navigate to **Scans List** in the JFrog UI to view the security scan results of your Docker repository.
 
 ### Observation
-   - Check the vulnerabilities, CWEs, and any detected secrets in the scanned Docker image.
+Check the vulnerabilities, CWEs, and any detected secrets in the scanned Docker image.
 
 ### Conclusion
 Participants should now understand how to upload a Docker image and interpret scanning results, including CVEs, CWEs, and secrets.
@@ -71,11 +71,11 @@ Learn how to perform on-demand scanning of Docker images locally using JFrog CLI
    - Review the scan results displayed in the CLI, focusing on detected CVEs and their severity.
 
 ### Observation
-   - Participants will see a detailed list of vulnerabilities detected in the Docker image.
+Participants will see a detailed list of vulnerabilities detected in the Docker image.
 
 ### Conclusion
-   - Participants will understand how to use the JFrog CLI for on-demand scanning and how it provides an immediate view of vulnerabilities.
+Participants will understand how to use the JFrog CLI for on-demand scanning and how it provides an immediate view of vulnerabilities.
 
 ## Summary
-   - By following these guided steps, participants will gain hands-on experience in enabling Xray indexing, uploading and scanning Docker images, and using JFrog CLI to manage and understand security vulnerabilities effectively.
+By following these guided steps, participants will gain hands-on experience in enabling Xray indexing, uploading and scanning Docker images, and using JFrog CLI to manage and understand security vulnerabilities effectively.
 
