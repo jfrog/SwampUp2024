@@ -37,7 +37,7 @@ Upload a Docker image to a JFrog repository to observe the scanning results.
 2. **Push the Docker Image to JFrog:**
    - Use the following command to push your Docker image to the JFrog Docker repository:
      ```bash
-     docker push soleng.jfrog.io/docker-virtual/infinitengine/swampup:1.0.0
+     docker push swampup17242481112.jfrog.io/docker-virtual/infinitengine/swampup:1.0.0
      ```
    - Replace the repository URL and image tag if necessary based on your JFrog setup.
 
