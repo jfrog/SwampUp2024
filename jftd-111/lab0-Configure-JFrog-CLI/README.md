@@ -3,8 +3,7 @@
 EC2s will be available.
 Terminal app installation is told a head of time
 
-Have the instructions written out and provided for each student.  "please go through these as you take your seat"
-
+TODO:  Have the instructions written out and provided for each student.  "please go through these as you take your seat"
 
 ## JFrog CLI setup
 ### Installation & validation
