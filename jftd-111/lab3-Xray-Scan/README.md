@@ -98,13 +98,13 @@ Based on one of the findings in the XRay Policy let's pick a Vulnerability to re
 
 6.2 Find your build scan
 
-6.3 Take a look at the "Policy Violations" tab ont he left side of the Scan UI
+6.3 Take a look at the "Policy Violations" tab ont he left side of the Scan UI.
 
-6.4 At the bottom of the list is a reference to `CVE-2018-3728`, associated with the `hoek` package.  Click on that row
+6.4 At the bottom of the list is a reference to `CVE-2018-3728`, associated with the `hoek` package.  Click on that row.
 
 6.5 In the pop-out, there is a section called `Component Details`.  Take a look at the versions of the `hoek` package that resolve this CVE.  
 
-6.6 Go back out to your IDE or text editor and upgrade the `hoek` package to referenced version
+6.6 Go back out to your IDE or text editor and upgrade the `hoek` package to referenced version.
 
 6.7 Re-run the build and publish steps starting with step 1.2 (you don't need to re-configure the NPM package manager integration), and ensure you increment your build number.
 
