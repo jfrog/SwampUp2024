@@ -21,6 +21,11 @@ your preferred IDE isn't either of these two, we recommend installing VSCode to 
 Open a new project window or instance specifically on the `./sample-app` directory.  This is intended to help clearly show this course's sample app's results instead of the other courses' projects.  The results are much easier to review in the context of this course.
 
 ## 2. Scan the Sample Project with the IDE Plugin
+2.0  In order to get the full experience of the JFrog IDE Plugin, the project needs to have it's dependencies resolved and present in the `./sampe-app/node_modules` folder.  If you haven't already built this project in Lab 1, please do so now with the following command:
+```bash
+jf npm install
+```
+
 2.1. Once all set, navigate to the JFrog extension and run a scan with the JFrog plugin.
 
 2.2. Check and validate the results
@@ -68,7 +73,7 @@ jf audit --extended-table=true --fixable-only=true --licenses=true
 
 
 ## Frogbot scan - optional if we have time
-- Fork this project on github - https://github.com/omerzi/frogbot_demo_pypi
+- Fork this project on Github - https://github.com/omerzi/frogbot_demo_pypi
 - Examine the 2 files in the path - .github/workflows
 - frogbot-pr-scan.yml file is for scanning Pull Requests for any vulnerabilities
 - frogbot-scan-and-fix.yml is for scanning the git repository for any vulnerabilities
