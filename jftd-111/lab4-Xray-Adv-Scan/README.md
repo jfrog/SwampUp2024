@@ -6,17 +6,21 @@
 
 ## 1. Build Docker Image from Sample App
 Let's build a Docker image that we can scan with JAS
+
 1.1. Navigate to sample app directory, `./sample-app`.
+
 1.2. Open the Dockerfile and update the `FROM` directive with your Docker registry and virtual repo.
-For example: `FROM <your-instance-name>.jfrog.io/docker-virtual/node:lts-buster`
+For example: `FROM https://swampup17242481114.jfrog.io/<project-prefix>-docker-virtual/node:lts-buster`
+
 1.3 Build the Docker image:
 ```bash
-docker build -t <your-instance-name>.jfrog.io/<project-prefix>-docker-virtual/sample-app:1 .
+docker build -t https://swampup17242481114.jfrog.io/<project-prefix>-docker-virtual/sample-app:1 .
 ```
 1.4 Verify the image was created successfully
+
 1.5 Publish the image
 ```bash
-docker push <your-instance-name>.jfrog.io/<project-prefix>-docker-virtual/sample-app:1
+docker push https://swampup17242481114.jfrog.io/<project-prefix>-docker-virtual/sample-app:1
 ```
 
 ## 2. Review the Scan Results in the XRay > Scans > Repositories
@@ -27,7 +31,12 @@ JFrog Advanced Security has powerful security capabilities to scan for Contextua
 
 JFrog Advanced Security can also detect Secrets that might be found in any layer of the image, and we happen to have one seeded in the Docker image that you just published.  Let's take a look at both of those examples.
 
-2.1.  In the JFrog UI head to `XRay -> Scans -> Repositories` and locate the local Docker repository into which we just published the Docker image.  The scan may still be running, so please be patient to let the scan finish.  The Advanced Security Engine is going layer by layer through the image and examining all the artifacts in each layer for potential security vulnerabilities.  It tak 
+2.1.  In the JFrog UI head to `XRay -> Scans -> Repositories` and locate the local Docker repository into which we just published the Docker image.  The scan may still be running, so please be patient to let the scan finish.  The Advanced Security Engine is going layer by layer through the image and examining all the artifacts in each layer for potential security vulnerabilities.  It can take a few minutes for all the different scans to complete 
+
 2.2.  Explore the JAS UI.  What stands out?  What surprises you?  Is there anything here you expect to see?
+
+2.3. Check the `Secrets` section of the Scan UI.  Did you notice the Secret that was found?  
+
+2.4. Check the `Applications` section of the Scan UI.  Does anything stand out here?  
 
 
