@@ -4,11 +4,6 @@ This is a sample node js application created for demo
 ## Stack
 Node.js | Express | EJS
 
-## Getting Started
-```
-git clone 
-```
-
 ### Bootstrapping the app
 ```
 npm install
