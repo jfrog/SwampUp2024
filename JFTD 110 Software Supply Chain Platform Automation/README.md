@@ -1,4 +1,4 @@
-# 110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale 🐸
+# [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](#110---software-supply-chain-platform-automation---create-distribute-and-automate-at-scale-) 🐸
 
 ## [Module 1 - JFrog Platform Automation](#module-1---jfrog-platform-automation)
 Intro to the JFrog Software Supply Chain Platform
