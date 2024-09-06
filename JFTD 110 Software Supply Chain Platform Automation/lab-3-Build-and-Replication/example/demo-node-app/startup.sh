@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing packages..."
-npm install -g express-generator mocha
+npm install -g express-generator
 npm install
 
 echo ""

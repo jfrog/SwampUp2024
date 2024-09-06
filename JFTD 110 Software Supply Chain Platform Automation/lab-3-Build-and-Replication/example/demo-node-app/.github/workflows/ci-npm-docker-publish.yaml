@@ -3,13 +3,18 @@ name: demo-node-app-npm-docker-publish
 on:
   push:
     branches:
-      - rk-branch
+      - <<ADD_BRANCH_NAME>>
   pull_request:
-    types:
-      - closed
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  actions: read # for detecting the Github Actions environment.
+  id-token: write # for creating OIDC tokens for signing.
+  packages: write # for uploading attestations.
+  contents: read #Ability to read the contents permission
+  security-events: write # Required for uploading code scanning 
 
 jobs:
   npm-docker-build-and-publish-dev:
