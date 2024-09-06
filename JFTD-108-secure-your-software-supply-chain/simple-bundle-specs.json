@@ -1,0 +1,17 @@
+{
+    "files": [
+        {
+          "aql":{
+            "items.find": {
+                "repo":"dro-backend-docker-dev-local",
+                "$and": [
+                    {
+                        "path": {"$match" : "ejs-app/${dockertag}"},
+                        "type": "file"
+                    }
+                ]
+            }
+          }
+        }
+    ]
+}
