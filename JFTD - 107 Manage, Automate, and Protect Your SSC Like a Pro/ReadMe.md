@@ -184,3 +184,45 @@ Participants will understand how to use the JFrog CLI for on-demand scanning, pr
 
 ## Summary
 By completing these steps, participants will gain hands-on experience with JFrog Xray, enhancing their understanding of how to secure Docker images against vulnerabilities and other security threats.
+
+# Lab 3: Distribution
+
+In this lab, you will create a Release Bundle and distribute it to an Edge node using previously uploaded Docker images from a local repository.
+
+## Step 1: Create a Release Bundle
+
+1. Navigate to **Distribution** -> **Release Bundles** -> Click **+ New Release Bundle**.
+2. Fill in the following details:
+   - **Name**: `<Your UserName>-release-bundle`
+   - **Version**: `1.0.7`
+3. Click **Create Query** -> **Add Query**.
+4. Set the Query name to `<Your user name>-AQL`.
+5. Add the local repository from the previous labs using the “Repository Names” drop-down.
+   - **Repository Name**: `puser<usernumber>-docker-local`
+6. (Optional) Click the **Show AQL** checkbox at the bottom of the page to view the AQL format.
+7. Click **Next** and then **Next** again, then save the release bundle.
+8. Click the **Create and Sign** button.
+9. Click **Sign** to finalize the signing of the release bundle.
+
+## Step 2: Distribute Your Signed Release Bundle
+
+1. Click on the **Versioned Actions** button in the top right corner.
+2. Select **Distribute Version**.
+3. Choose the edge node to which you want to distribute your release bundle.
+4. Click the **Distribute** button to start the distribution process.
+
+### JFrog Setup
+
+- JPD with Edge, Docker, and NPM repositories configured.
+- Indexing enabled, with Docker images scanned for Basic and Advanced Security.
+- Keep JPDs active for a week after the session (until Sep 20th).
+- GitHub account setup.
+
+### Workstation Setup
+
+- Git CLI
+- Docker Runtime
+- JFrog CLI
+- NPM Native Client
+- IDE (VSCode, IntelliJ)
+- Web Browser (Chrome)
