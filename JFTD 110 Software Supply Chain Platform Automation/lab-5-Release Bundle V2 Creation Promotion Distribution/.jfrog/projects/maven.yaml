@@ -1,0 +1,11 @@
+version: 1
+type: maven
+resolver:
+    serverId: devnext
+    snapshotRepo: masterdemo-maven-virtual
+    releaseRepo: masterdemo-maven-virtual
+deployer:
+    serverId: devnext
+    snapshotRepo: masterdemo-maven-virtual
+    releaseRepo: masterdemo-maven-virtual
+useWrapper: true

@@ -1,0 +1,5 @@
+PyYAML==5.2
+nltk
+numpy
+pymongo==3.3.0
+django==3.2.20

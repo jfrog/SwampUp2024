@@ -1,0 +1,1 @@
+jf rt u "./*" "auth-npm-dev-local/" --threads 10

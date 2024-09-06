@@ -1,0 +1,10 @@
+{
+  "name": "SeniorDeveloper",
+  "actions": [
+    "READ_REPOSITORY","MANAGE_XRAY_MD_RELEASE_BUNDLE","MANAGE_XRAY_MD_BUILD"
+  ],
+  "type": "CUSTOM",
+  "environments": [
+    "DEV","PROD"
+  ]
+}

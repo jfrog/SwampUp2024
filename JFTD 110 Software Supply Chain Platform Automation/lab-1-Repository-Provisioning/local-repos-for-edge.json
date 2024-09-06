@@ -1,0 +1,5 @@
+[
+  {"key":"finapp-docker-prod-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default","environments":"PROD","xrayIndex":"true"},
+  {"key":"payment-maven-prod-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default","environments":"PROD","xrayIndex":"true"},
+  {"key":"auth-npm-prod-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"PROD","xrayIndex":"true"}
+]
