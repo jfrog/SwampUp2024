@@ -4,7 +4,7 @@
 
 0.2 JFrog CLI installed and configured with a connection to the workshop JFrog Cloud instance.
 
-0.3 Local, Remote and Virtual NPM repository in your assigned JFrog Projects project.
+0.3 Local & Remote NPM repository in your assigned JFrog Projects project.
 
 ## 1. Index Your Build
 In order for XRay to scan anything, we need to "Index" the resources that XRay will scan.  This step will tell XRay to scan any build that matches a specific name.
@@ -77,7 +77,7 @@ jf rt bp --project <your-project-name> <your-build-name> 2
 > It's best to create the watch, and then the policy.  This seems a little counter-intuitive but the UI now has a 
 > flow that lets you immediately apply your policy on watched resources and is a nice onboarding features.
 
-A Watch in XRay defines the _scope_ on which you would apply one or more XRay _policies_.  In other words, a Watch tells XRay _where_ to look for policiy violations.    You can set Watches on many different objects in Artifactory: Repositories, Release Bundles & Builds. In this lab, we're going to put a watch on any builds that match a specific name. 
+A Watch in XRay defines the _scope_ on which you would apply one or more XRay _policies_.  In other words, a Watch tells XRay _where_ to look for policy violations.    You can set Watches on many different objects in Artifactory: Repositories, Release Bundles & Builds. In this lab, we're going to put a watch on any builds that match a specific name. 
 
 4.1 Navigate to `Xray > Watches & Policies > Watches` tab > Click on `New Watch`
 
@@ -116,3 +116,24 @@ Based on one of the findings in the XRay Policy let's pick a Vulnerability to re
 ```bash
 jf bs <your-build-name> 2 --extended-table=true --vuln
 ```
+
+# Quick Start To Quickly Advance to the Required End State of this Lab
+1. Index the build that was published to Artifactory in Lab 1.
+2. If an NPM config for the JFrog CLI isn't present in the root of the sample app, run `jf npmc` and connect to the project local and remotes
+3. jf npm install --build-name <your-build-name> --build-number 2 --project <your-project-name>
+4. jf npm publish --build-name <your-build-name> --build-number 2 --project <your-project-name>
+5. jf rt bce --project <your-project-name> <your-build-name> 2
+6. jf rt bag --project <your-project-name> <your-build-name> 2
+7. jf rt bp --project <your-project-name> <your-build-name> 2
+8. `Xray > Watches & Policies > Policies Tab > New Policy`
+9. Create a Security Policy named `<your-initials>-high-severity-policy`
+10. `Select Policy Type`, select `Security`
+11. Add a rule named `high-severity-rule`
+12. Under `Rule Types` Select `CVEs` under Rule Type,
+13. Under `Rule Category` select `Minimal Severity`.
+14. In the Drop-Down for `Minimal Severity`, select `High`
+15. When completed, click `Save Rule`.
+16. `Xray > Watches & Policies > Watches` tab > Click on `New Watch`
+17. `<your-intials>-npm-build-watch`
+18. `Add Builds`, Select appropriate build name.
+19. `Apply on Existing Content`

@@ -3,8 +3,6 @@
 EC2s will be available.
 Terminal app installation is told a head of time
 
-TODO:  Have the instructions written out and provided for each student.  "please go through these as you take your seat"
-
 ## JFrog CLI setup
 ### Installation & validation
   * Install JFrog CLI - https://jfrog.com/getcli/
@@ -18,27 +16,19 @@ TODO:  Have the instructions written out and provided for each student.  "please
   * Choose a server ID: {unique name} Ex: `swampup`
   * JFrog platform url: `{your Jfrog instance url}` Ex: https://southbay.jfrog.io
   * Use one of these methods to authenticate to the workshop instance:
-    * JFrog access token (Leave blank for username and password/API key): `{access token}`
-      * To create an access token, navigate on the UI to Administration > User management > Access Tokens > Generate token
-        <br/>
-        <img src="user-mgmt-for-token-create.jpg" alt="create user token" width="600" height="300">
-        <br/> 
     * JFrog username: `{username}`
     * JFrog password or API key: `{password} or {api key}`
   * Is the Artifactory reverse proxy configured to accept a client certificate? (y/n): `n`
   * Use the configured instance - `jf config use {server ID}` Ex: `jf config use swampup`
-<br/>
 
 
 * Validate your connection with a basic connection health check: `jf rt ping`
-  <br/>
-  <br/>
-  ![jf config add and check](image15.png)
 
 ## IDE Installation
-### VS Code //TODO
-### IntelliJ IDE //TODO
-### Eclipse //TODO
+If you don't have a preferred Code editor / IDE installed on your local machine, we recommend installing VSCode from Microsoft.  
+
+Head to the VSCode download site and follow the instrctions for your machine
+https://code.visualstudio.com/download
 
 ## Git Installation
 Verify you have a working installation of `git`: `git -v`.  If you don't have `git` installed, use one of the following methods:

@@ -1,8 +1,0 @@
-version: 1
-type: npm
-resolver:
-    repo: su24-npm-remote-curation
-    serverId: tomjfrog.jfrog.io
-deployer:
-    repo: su24-npm-local
-    serverId: tomjfrog.jfrog.io
