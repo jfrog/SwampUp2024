@@ -1,0 +1,20 @@
+{
+    "files": [
+      {
+        "pattern" or "aql": "[Mandatory]",
+        "target": "[Optional]",
+        "props": "[Optional]",
+        "targetProps": "[Optional]",
+        "excludeProps": "[Optional]",
+        "recursive": "[Optional, Default: 'true']",
+        "flat": "[Optional, Default: 'false']",
+        "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
+        "archiveEntries": "[Optional]",
+        "build": "[Optional]",
+        "bundle": "[Optional]",
+        "sortBy": "[Optional]",
+        "sortOrder": "[Optional, Default: 'asc']",
+        "limit": [Optional],
+        "offset": [Optional] }
+      ]
+    }
