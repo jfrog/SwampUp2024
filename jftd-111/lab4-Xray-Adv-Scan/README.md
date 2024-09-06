@@ -4,8 +4,15 @@
 0.2. Docker Local, Remote and Virtual
 0.3. Note the name of your virtual Docker repo
 
+## 1. Create Docker Local, Remote and Virtual Repos
+In your Project context, create new repositories for Docker.
+
+1.1. In your project context, go to `Administration -> Resources -> Create Repository`, click Local Repository.  Name the new repo `<project-prefix>-docker-local` and keep the defaults
+1.1. In your project context, go to `Administration -> Resources -> Create Repository`, click Remote Repository.  Name the new repo `<project-prefix>-docker-remote` and keep the defaults
+1.1. In your project context, go to `Administration -> Resources -> Create Repository`, click Virtual Repository.  Name the new repo `<project-prefix>-docker-virtual`.  Add the two previously-created repos as members of the Virtual repository.  Leave all other values at their defaults.
+
 ## 1. Build Docker Image from Sample App
-Let's build a Docker image that we can scan with JAS
+Let's build a Docker image that we can scan with JFrog Advanced Security
 
 1.1. Navigate to sample app directory, `./sample-app`.
 
@@ -37,6 +44,9 @@ JFrog Advanced Security can also detect Secrets that might be found in any layer
 
 2.3. Check the `Secrets` section of the Scan UI.  Did you notice the Secret that was found?  
 
-2.4. Check the `Applications` section of the Scan UI.  Does anything stand out here?  
+2.4. Check the `Applications` section of the Scan UI.  Does anything stand out here?
+
+## 3. Remediate as many vulnerabilities as possible
+3.1 After spending some time reviewing the vulnerabilities discovered with the JFrog Advanced Security scans, feel free to experiment with either the Javascript application or the Dockerfile to remediate the scan findings.  What would you prioritize?  How come?
 
 

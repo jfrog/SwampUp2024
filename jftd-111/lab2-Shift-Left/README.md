@@ -3,22 +3,28 @@
 ### 1. IDE Plugin Installation
 Instructions for the two most popular IDEs, VSCode and IntelliJ, or any other JetBrains IDE, are included below.  If 
 your preferred IDE isn't either of these two, we recommend installing VSCode to get up and running quickly.
+
 #### 1.1. VSCode Plugin
-* VS Code IDE, or your preferred IDE,  with the JFRog Plug-in installed
-* Install The Jfrog extension in VS Code  as mentioned in [JFrog - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension)
-* Open npm-vulnerable-example project in the folder example on VS Code
-* Navigate to Extension tab and look up `JFrog` > Click `Install`
-* Configure Jfrog extension of VS Code - provide the instance url and credentials
+1.1.1. Install The Jfrog extension in VS Code  as mentioned in [JFrog - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension)
+
+1.1.2. Open npm-vulnerable-example project in the folder example on VS Code 
+
+1.1.3. Navigate to Extension tab and look up `JFrog` > Click `Install`
+
+1.1.4. Configure Jfrog extension of VS Code - the URL for the Course JFrog Platform instance will be provided, along with your username and password
 
 #### 1.2. IntelliJ Plugin
-* Navigate to Settings > Plugins > Marketplace and enter `JFrog`.
-* Click the "INSTALL" button.  Once it's done installing, click "Apply".  You may be asked to restart IntelliJ.  Go 
+1.2.1. Navigate to Settings > Plugins > Marketplace and enter `JFrog`.
+
+1.2.2. Click the "INSTALL" button.  Once it's done installing, click "Apply".  You may be asked to restart IntelliJ.  Go 
   ahead and do that.
-* Once the Plugin is installed and available, Navigate to Settings > Other Settings > JFrog Global Configuration
-* Add in your Username and Password to the Workshop instance of JFrog Cloud
+
+1.2.3. Once the Plugin is installed and available, Navigate to Settings > Other Settings > JFrog Global Configuration
+
+1.2.4. Add in your Username and Password to the Workshop instance of JFrog Cloud
 
 #### 1.3. Open a new Editor instance
-Open a new project window or instance specifically on the `./sample-app` directory.  This is intended to help clearly show this course's sample app's results instead of the other courses' projects.  The results are much easier to review in the context of this course.
+1.3.1. Open a new project window or instance specifically on the `./sample-app` directory.  This is intended to help clearly show this course's sample app's results instead of the other courses' projects.  The results are much easier to review in the context of this course.
 
 ## 2. Scan the Sample Project with the IDE Plugin
 2.0  In order to get the full experience of the JFrog IDE Plugin, the project needs to have it's dependencies resolved and present in the `./sampe-app/node_modules` folder.  If you haven't already built this project in Lab 1, please do so now with the following command:
@@ -101,5 +107,8 @@ jf audit --extended-table=true --fixable-only=true --licenses=true
   - Once the workflow is completed, navigate to Pull requests and select the PR that was just created
   - Find and examine the scan result highlighting the vulnerability impacting PyYaml v5.2 
 
-
+# Quick Start To Quickly Advance to the Required End State
+1. Install the JFrog CLI in your IDE
+2. Uncomment out (remove the `//` characters at the line start) line 9 of `./sample-app/index.js`.
+3. Save the file if you're running VSCode or a different editor, IntelliJ or other Jetbrains IDEs will automatically save.
 
