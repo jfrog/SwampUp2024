@@ -63,7 +63,7 @@ In this lab, we will configure access to the JFrog platform and define repositor
    - Run the SSH command that corresponds to your computer’s architecture.
 
 ## Step 5: Configure the JFrog CLI
-1. Run command ```jf config add```.
+1. Run command ```bashjf config add```
    - **Unique Server identifier**: SwampUp2024.
    - **JFrog Platform URL**: [https://swampup17242481112.jfrog.io](https://swampup17242481112.jfrog.io).
    - Press enter (Save and Continue).
@@ -71,26 +71,26 @@ In this lab, we will configure access to the JFrog platform and define repositor
    - **Username**: Your lab user `userX`.
    - Paste the Access Token generated in Step 3.
    - Press enter (Accept default).
-   - `jf config use SwampUp2024`.
-   - `jf c show`.
-2. Test with `jf rt ping`.
+   - ```bashjf config use SwampUp2024```
+   - ```bashjf c show```
+2. Test with ```bashjf rt ping```
    - You should get an **OK** response.
 
 ## Step 6: Install Docker Client
-1. Run: `sudo apt install docker.io`.
-2. Run: `sudo usermod -a -G docker ubuntu`.
-3. Run: `newgrp docker`.
-4. Run: `docker ps`.
+1. Run: ```bashsudo apt install docker.io```
+2. Run: ```bashsudo usermod -a -G docker ubuntu```
+3. Run: ```bashnewgrp docker```
+4. Run: ```bashdocker ps```
    - If you get an error:
      1. Exit the terminal and log in again (Steps 4.d).
 
 ## Step 7: Run Docker Login Command Using Set Me Up Functionality in Artifactory
-1. Run: `docker login swampup17242481112.jfrog.io`.
+1. Run: ```bashdocker login swampup17242481112.jfrog.io```
    - **Username**: Your lab user `userX`.
    - **Password**: Token from Step 3.
 
 ## Step 8: Download a Docker Image from Docker Hub Using JFrog CLI
-1. Example: `docker pull swampup17242481112.jfrog.io/puser<Your user number>-docker-virtual/infinitengine/swampup:1.0.0`.
+1. Example: ```bashdocker pull swampup17242481112.jfrog.io/puser<Your user number>-docker-virtual/infinitengine/swampup:1.0.0```
    - **NOTE**: Change the URL to add your user number (lab user).
 
 # Lab 2: JFrog Xray - Step-by-Step Guide
