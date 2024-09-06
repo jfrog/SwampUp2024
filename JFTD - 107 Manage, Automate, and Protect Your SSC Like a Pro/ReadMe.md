@@ -111,7 +111,7 @@ Enable Xray indexing to ensure that Docker images are scanned for vulnerabilitie
 
 2. **Add a Repository for Indexing:**
    - Click **+ Add a Repository**.
-   - From the list, select a Docker repository that contains Docker images. It is recommended to select a repository with existing scanned Docker images (preferably from another Docker repository).
+   - From the list, select the Docker repositories that contains Docker images from Lab 1 `docker-local` and `docker-remote`.
    - Click **Save** to enable indexing for the selected repository.
 
 3. **Observation:**
