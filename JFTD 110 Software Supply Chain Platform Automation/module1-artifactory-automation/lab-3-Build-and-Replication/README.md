@@ -35,7 +35,7 @@
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
     - Run 
     - ```bash
-         jf npmc
+         jf npmc 
       ```
     - Resolve dependencies from Artifactory? (y/n) [y]? `y`
     - Set Artifactory server ID [swampup]: ↵
