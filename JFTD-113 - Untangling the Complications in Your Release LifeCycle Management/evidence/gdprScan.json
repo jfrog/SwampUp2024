@@ -1,0 +1,44 @@
+{
+  "scan_id": "12345",
+  "timestamp": "2024-07-21T14:35:00Z",
+  "project_name": "MyProject",
+  "files_scanned": 25,
+  "issues_found": 3,
+  "issues": [
+    {
+      "file": "src/main/java/com/example/UserService.java",
+      "line": 42,
+      "issue_type": "PII Exposure",
+      "description": "Personal data (email address) found being logged.",
+      "severity": "high",
+      "gdpr_reference": "Article 5(1)(f)"
+    },
+    {
+      "file": "src/main/java/com/example/CustomerController.java",
+      "line": 78,
+      "issue_type": "Inadequate Data Protection",
+      "description": "User password stored in plain text.",
+      "severity": "critical",
+      "gdpr_reference": "Article 32"
+    },
+    {
+      "file": "src/main/resources/config.properties",
+      "line": 12,
+      "issue_type": "PII Storage",
+      "description": "Sensitive information stored without encryption.",
+      "severity": "medium",
+      "gdpr_reference": "Article 5(1)(e)"
+    }
+  ],
+  "summary": {
+    "high_severity_issues": 1,
+    "medium_severity_issues": 1,
+    "low_severity_issues": 0,
+    "critical_severity_issues": 1
+  },
+  "recommendations": [
+    "Remove or mask personal data from logs.",
+    "Encrypt user passwords using a strong algorithm.",
+    "Ensure sensitive information is stored securely."
+  ]
+}
