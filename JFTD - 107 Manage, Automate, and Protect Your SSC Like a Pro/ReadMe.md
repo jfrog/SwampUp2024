@@ -1,3 +1,96 @@
+# Lab 1: Artifactory
+
+In this lab, we will configure access to the JFrog platform and define repositories to hold Docker images (Docker registries).
+
+## Step 1: Login to the Lab instance
+1. Go to: [https://swampup17242481112.jfrog.io/](https://swampup17242481112.jfrog.io/)
+2. Login using:
+   - **User**: user<#>
+   - **Password**: SwampUP2024!
+3. From the Projects dropdown, select your project.
+
+## Step 2: Create a Local and Remote Repository
+1. Log into the provided JFrog platform with the username/password you were provided.
+2. Select your project from the project dropdown in the top right of the page.
+3. Click the **“Administration”** section of the platform to the left of the project dropdown.
+4. Under project resources, click on **“+ Create Repository”** under resources on the right side of the page.
+
+### 2a: Create a Local Docker Repository
+1. Select Docker from the list of repository types.
+2. Fill in the repository key that will be the name of the local repository: `docker-local`.
+3. Click the **Create Local Repository** button at the bottom of the page.
+4. Click on **“I’ll Do It Later”**.
+
+### 2b: Create a Remote Docker Repository
+1. Click **Create a Repository** (Top right) and select **Remote**.
+2. Select Docker from the list of repository types.
+3. Fill in the repository key that will be the name of the remote repository: `docker-remote` (NOTE: Do not change the URL).
+4. Click the **Create Remote Repository** button at the bottom of the page.
+5. Click on **“I’ll Do It Later”**.
+
+### 2c: Create a Virtual Repository
+1. Click **Create a Repository** (Top right) and select **Virtual**.
+2. Select Docker from the list of repository types.
+3. Fill in the repository key that will be the name of the local repository: `docker-virtual`.
+4. Scroll down to **Available Repositories**:
+   - Select both remote/local and click **>>**.
+5. Scroll down to **Default Deployment Repository**:
+   - Select `puser<user>-docker-local` from the dropdown.
+6. Click the **Create Virtual Repository** button at the bottom of the page.
+7. Click on **“I’ll Do It Later”**.
+
+## Step 3: Create an Access Token on the JFrog UI
+1. Under **Administration**, select **User Management**.
+2. Click **Access Tokens** on the right side panel.
+3. Click **+ Generate Token** on the top right corner of the page.
+   - **Description**: Optional.
+   - **Token Roles**: Project Admin.
+4. Click **Generate**.
+5. Copy the token for use later in the lab.
+
+## Step 4: Login to Virtual Machine for CLI Access: Download SSH Tools/Key
+1. Follow this path in the JFrog UI: **Application** (Top navbar) -> **Artifactory** (Left Panel) -> **Artifacts**.
+2. Expand `purserX-virtual-machine-tools`.
+3. Select and download each file:
+   - `Swampup2024-keypair.pem`
+   - `Swampup2024-keypair.ppk`
+   - `vm_ssh_command.txt`
+4. Open a terminal (Requires SSH client):
+   - Change the directory to where the files were downloaded in the step above.
+   - Review `vm_ssh_command.txt`.
+   - Run the SSH command that corresponds to your computer’s architecture.
+
+## Step 5: Configure the JFrog CLI
+1. Run command `jf config add`.
+   - **Unique Server identifier**: SwampUp2024.
+   - **JFrog Platform URL**: [https://swampup17242481112.jfrog.io](https://swampup17242481112.jfrog.io).
+   - Press enter (Save and Continue).
+   - Select Username and Password / API Key and press enter.
+   - **Username**: Your lab user `userX`.
+   - Paste the Access Token generated in Step 3.
+   - Press enter (Accept default).
+   - `jf config use SwampUp2024`.
+   - `jf c show`.
+2. Test with `jf rt ping`.
+   - You should get an **OK** response.
+
+## Step 6: Install Docker Client
+1. Run: `sudo apt install docker.io`.
+2. Run: `sudo usermod -a -G docker ubuntu`.
+3. Run: `newgrp docker`.
+4. Run: `docker ps`.
+   - If you get an error:
+     1. Exit the terminal and log in again (Steps 4.d).
+
+## Step 7: Run Docker Login Command Using Set Me Up Functionality in Artifactory
+1. Run: `docker login swampup17242481112.jfrog.io`.
+   - **Username**: Your lab user `userX`.
+   - **Password**: Token from Step 3.
+
+## Step 8: Download a Docker Image from Docker Hub Using JFrog CLI
+1. Example: `docker pull swampup17242481112.jfrog.io/puser<Your user number>-docker-virtual/infinitengine/swampup:1.0.0`.
+   - **NOTE**: Change the URL to add your user number (lab user).
+
 # Lab 2: JFrog Xray - Step-by-Step Guide
 
 This lab will guide you through enabling Xray indexing on local and remote repositories, uploading Docker images using Docker native commands, and scanning images using JFrog CLI. By completing these steps, you will gain a deeper understanding of CVEs (Common Vulnerabilities and Exposures), CWEs (Common Weakness Enumeration), secrets, and how JFrog Xray helps identify these issues in Docker images.
