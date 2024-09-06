@@ -63,7 +63,8 @@ In this lab, we will configure access to the JFrog platform and define repositor
    - Run the SSH command that corresponds to your computer’s architecture.
 
 ## Step 5: Configure the JFrog CLI
-1. Run command ```
+1. Run command
+```
 jf config add
 ```
    - **Unique Server identifier**: SwampUp2024.
