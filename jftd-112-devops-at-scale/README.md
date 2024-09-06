@@ -14,20 +14,25 @@
     - **NOTE**: if you already have GitHub access token then skip this step else create GitHub account first and then follow above steps.
 - Confirm `git` [client](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) has been configured with your user
     - verify with ``git config --list``
-- Fork [jfrog/SwampUp2023](https://github.com/jfrog/SwampUp2023) github repository.
+- Fork [jfrog/SwampUp2024](https://github.com/jfrog/SwampUp2024) github repository.
     - Reference document to [fork repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository).
 - `git clone` the forked repo on your workstation
     - Reference document to [clone repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository).
 - Preferred IDE (Integrated Development Environment) like [Intellij](https://www.jetbrains.com/idea/download/?section=mac#section=mac), [VSCode](https://code.visualstudio.com/download)
-- All content related today's training is under "**JFTD103-JFrog_Platform_Automation/**".
+- All content related today's training is under "**jftd-112-devops-at-scale/**".
 
 <br/>
 
-## .env config [Must]
-- Our directory `SwampUp2023/JFTD103-JFrog_Platform_Automation` has `.env` or `env.bat` file where we need define environment variables.
-    - Mandatory - JFROG_PLATFORM, ADMIN_USER, ADMIN_PASSWORD, JFROG_EDGE
-    - Optional - ACCESS_TOKEN
-- For linux machine - `source .env` or for windows - `call env.bat`
+## SETUP ENV VARIABLES [Must]
+- Our directory `SwampUp2024/jftd-112-devops-at-scale/lab-0-Configure-JFrog-CLI` has `setup.sh` file where we need define environment variables.
+    - Mandatory - 
+      - JFROG_PLATFORM,
+      - JFROG_HOST, (same as JFROG_PLATFORM without HTTPs)
+      - JFROG_PLATFORM_2, (this will be JPD2)
+      - JFROG_EDGE,
+      - ADMIN_USER, 
+      - ADMIN_PASSWORD, 
+      - ACCESS_TOKEN
 
 <br/>
 
