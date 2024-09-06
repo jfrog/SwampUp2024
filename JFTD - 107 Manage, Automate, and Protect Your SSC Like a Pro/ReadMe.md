@@ -64,9 +64,9 @@ In this lab, we will configure access to the JFrog platform and define repositor
 
 ## Step 5: Configure the JFrog CLI
 1. Run command
-```
-jf config add
-```
+   ```
+   jf config add
+   ```
    - **Unique Server identifier**: SwampUp2024.
    - **JFrog Platform URL**: [https://swampup17242481112.jfrog.io](https://swampup17242481112.jfrog.io).
    - Press enter (Save and Continue).
@@ -74,21 +74,24 @@ jf config add
    - **Username**: Your lab user `userX`.
    - Paste the Access Token generated in Step 3.
    - Press enter (Accept default).
-   - ```bashjf config use SwampUp2024```
-   - ```bashjf c show```
+   - ```jf config use SwampUp2024```
+   - ```jf c show```
 2. Test with ```bashjf rt ping```
    - You should get an **OK** response.
 
 ## Step 6: Install Docker Client
-1. Run: ```bashsudo apt install docker.io```
-2. Run: ```bashsudo usermod -a -G docker ubuntu```
-3. Run: ```bashnewgrp docker```
-4. Run: ```bashdocker ps```
+1. Run:
+```
+sudo apt install docker.io
+```
+3. Run: ```sudo usermod -a -G docker ubuntu```
+4. Run: ```newgrp docker```
+5. Run: ```docker ps```
    - If you get an error:
      1. Exit the terminal and log in again (Steps 4.d).
 
 ## Step 7: Run Docker Login Command Using Set Me Up Functionality in Artifactory
-1. Run: ```bashdocker login swampup17242481112.jfrog.io```
+1. Run: ``` docker login swampup17242481112.jfrog.io```
    - **Username**: Your lab user `userX`.
    - **Password**: Token from Step 3.
 
