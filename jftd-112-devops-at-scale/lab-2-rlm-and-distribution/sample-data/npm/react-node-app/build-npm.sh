@@ -6,7 +6,6 @@ jf rt ping
 
 jf npmc --repo-resolve auth-npm-dev-virtual --repo-deploy auth-npm-dev-virtual
 
-
 jf npm install --build-name ${buildName} --build-number ${buildVersion}
 jf npm publish --build-name ${buildName} --build-number ${buildVersion}
 
@@ -17,7 +16,7 @@ jf rt bag ${buildName} ${buildVersion}
 
 jf rt bp ${buildName} ${buildVersion}
 
-jf rt bs ${buildName} ${buildVersion}
+# jf rt bs ${buildName} ${buildVersion}
 
 jf rbc --builds=json/builds-spec.json --signing-key=thekey reactModuleRelease ${buildVersion}
 
@@ -32,8 +31,9 @@ jf rt set-props "auth-npm-qa-local/react-bank-api/-/react-bank-api-1.0.1.tgz" "u
  # Promote to PROD
 jf rbp reactModuleRelease ${buildVersion} PROD --signing-key=thekey --include-repos=auth-npm-prod-local
 
+# Distribute the Release Bundle to another JPD instance
 jf rbd reactModuleRelease ${buildVersion} --signing-key=thekey --dist-rules=dist-rules.json --create-repo=true
 
-
+# Distribute the Release Bundle to another JPD Edge
 jf ds rbs --sign=thekey reactModuleRelease ${buildVersion}
 jf ds rbd reactModuleRelease ${buildVersion} --dist-rules=dist-rules.json --create-repo=true
