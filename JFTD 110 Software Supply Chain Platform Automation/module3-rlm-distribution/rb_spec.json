@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "build": "demo-node-app-npm-docker-publish/34",
+      "includeDeps": "false"
+    }
+  ]
+}

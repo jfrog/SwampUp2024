@@ -1,0 +1,11 @@
+output "jfrog_xray_watch_all_repos_block_malicious_banned_license_packages" {
+  value = xray_watch.watch_all_repos_block_malicious_banned_license_packages
+}
+
+output "jfrog_xray_watch_all_builds_block_malicious_banned_license_packages" {
+  value = xray_watch.watch_all_builds_block_malicious_banned_license_packages
+}
+
+output "jfrog_xray_watch_all_rb_block_malicious_banned_license_packages" {
+  value = xray_watch.watch_all_rb_block_malicious_banned_license_packages
+}

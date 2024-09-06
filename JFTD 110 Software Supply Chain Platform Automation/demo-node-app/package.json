@@ -1,0 +1,59 @@
+{
+  "name": "demo-node-app",
+  "version": "1.0.0",
+  "description": "demo-node-app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www",
+    "patch": "npm version patch -m \"Upgrade to %s for reasons\" --no-git-tag-version --no-commit-hooks",
+    "minor": "npm version minor -m \"Upgrade to %s for reasons\" --no-git-tag-version --no-commit-hooks",
+    "major": "npm version major -m \"Upgrade to %s for reasons\" --no-git-tag-version --no-commit-hooks"
+  },
+  "files": [
+    "bin",
+    "public",
+    "routes",
+    "test",
+    "views",
+    "app.js",
+    "package.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkfrog/demo-node-app.git"
+  },
+  "author": "Roshan Kadasani <roshank@jfrog.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkfrog/demo-node-app/issues"
+  },
+  "homepage": "https://github.com/rkfrog/demo-node-app#readme",
+  "dependencies": {
+    "axios": "^1.3.4",
+    "cookie-parser": "~1.4.4",
+    "crypto-browserify": "3.12.0",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "helmet": "^7.0.0",
+    "http-errors": "~1.6.3",
+    "lodash": "4.17.0",
+    "minimatch": "~3.0.4",
+    "morgan": "~1.9.1",
+    "next": "13.5.4",
+    "node-emoji": "^2.1.0",
+    "nodemon": "1.3.0-1",
+    "nopp": "1.0.2",
+    "pac-resolver": "3.0.0",
+    "process": "0.11.10",
+    "react": "18",
+    "react-dom": "18",
+    "stream-browserify": "3.0.0",
+    "word-wrap": "^1.2.5",
+    "moment": "1.2.0",
+    "mocha": "7.0.0",
+    "socket.io": "1.4.3"
+  }
+}

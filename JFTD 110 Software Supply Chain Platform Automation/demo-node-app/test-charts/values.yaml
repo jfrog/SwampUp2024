@@ -1,0 +1,11 @@
+replicaCount: 2
+
+image:
+  repository: soleng.jfrog.io/frogs-us-docker-virtual/demo-node-app
+  tag: latest
+
+imagePullSecrets:
+  name: regcred
+
+service:
+  type: NodePort

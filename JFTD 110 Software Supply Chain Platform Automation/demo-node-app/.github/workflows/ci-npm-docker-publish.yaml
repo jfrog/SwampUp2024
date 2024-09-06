@@ -1,0 +1,94 @@
+name: demo-node-app-npm-docker-publish
+
+on:
+  push:
+    branches:
+      - rk-branch
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  npm-docker-build-and-publish-dev:
+    runs-on: ubuntu-20.04
+    env:
+      NPM_JF_RT_REPO: ${{ vars.NPM_JF_RT_REPO }}
+      DOCKER_JF_RT_REPO: ${{ vars.DOCKER_JF_RT_REPO }}
+      JF_RT_PROJECT_NAME: ${{ vars.JF_RT_PROJECT_NAME }}
+    steps:
+      - run: |
+          echo "The job was triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code 🛎️
+        uses: actions/checkout@v3
+      - run: |
+          echo "${{ github.repository }} repository has been cloned to the runner."
+      - name: List files in the repository
+        run: |
+          ls -la ${{ github.workspace }}
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: "18.15.0"
+      - name: JFrog CLI setup 🐸
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: https://${{ secrets.JF_PLATFORM_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+      - name: Health check JFrog Artifactory instance 🐸
+        run: |
+          jfrog --version
+          jfrog rt ping
+          jfrog config show
+      - name: Capture previous build version
+        run: echo NPM_PACKAGE_BUILD_VERSION=$(cat package.json | jq -r ."version") >> $GITHUB_ENV
+      - name: Set JF NPM Config
+        run:  |
+          jfrog npm-config --repo-deploy=$NPM_JF_RT_REPO -repo-resolve=$NPM_JF_RT_REPO
+          jfrog npm config set registry https://${{ env.JF_URL }}/artifactory/api/npm/$NPM_JF_RT_REPO/
+          jfrog npm config list | jq -r .registry
+        env:
+          JF_URL: ${{ secrets.JF_PLATFORM_URL }}
+      # - name: JFrog Curation audit
+      #   run: |
+      #     jf curation-audit
+      # - name: JFrog audit 🐸
+      #   run: |
+      #     jfrog audit
+      - name: Install dependencies
+        run: jfrog npm ci --build-name $JFROG_CLI_BUILD_NAME --build-number $JFROG_CLI_BUILD_NUMBER --module npm-build --project $JF_RT_PROJECT_NAME
+      - name: NPM publish 🐸
+        run: jfrog npm publish  --project $JF_RT_PROJECT_NAME --build-name $JFROG_CLI_BUILD_NAME --build-number $JFROG_CLI_BUILD_NUMBER --module npm-build
+      - name: Login to JFrog Docker repo
+        uses: docker/login-action@v3
+        with:
+          registry: https://${{ secrets.JF_PLATFORM_URL }}
+          username: ${{ secrets.JF_USERNAME }}
+          password: ${{ secrets.JF_ACCESS_TOKEN }}
+      - name: Docker Build 🐳🐸
+        run: |
+          jfrog docker image build --tag ${{ env.JF_URL }}/$DOCKER_JF_RT_REPO/demo-node-app:${{ env.NPM_PACKAGE_BUILD_VERSION }} --secret id=npmrc,src=$HOME/.npmrc  --build-name $JFROG_CLI_BUILD_NAME --build-number $JFROG_CLI_BUILD_NUMBER --module docker-build --project $JF_RT_PROJECT_NAME --build-arg="REGISTRY_URL=${{ env.JF_URL }}" --build-arg="DOCKER_REPO_NAME=$DOCKER_JF_RT_REPO" --build-arg="NPM_REPO_NAME=$NPM_JF_RT_REPO" .
+        env:
+          JF_URL: ${{ secrets.JF_PLATFORM_URL }}
+      # - name: JFrog docker image scan 🐳🐸
+      #   run: |
+      #     jfrog docker scan ${{ env.JF_URL }}/$DOCKER_JF_RT_REPO/demo-node-app:${{ env.NPM_PACKAGE_BUILD_VERSION }}
+      #   env:
+      #     JF_URL: ${{ secrets.JF_PLATFORM_URL }}
+      - name: Docker Push 🐳🐸
+        run: |
+          jfrog docker push ${{ env.JF_URL }}/$DOCKER_JF_RT_REPO/demo-node-app:${{ env.NPM_PACKAGE_BUILD_VERSION }} --build-name $JFROG_CLI_BUILD_NAME --build-number $JFROG_CLI_BUILD_NUMBER --module docker-build --project $JF_RT_PROJECT_NAME
+        env:
+          JF_URL: ${{ secrets.JF_PLATFORM_URL }}
+      - name: Gather build details 🐸
+        run: |
+          jfrog rt build-add-git $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER ./ --project $JF_RT_PROJECT_NAME
+          jfrog rt build-collect-env $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER --project $JF_RT_PROJECT_NAME
+      - name: JFrog build publish 🐸
+        run: jfrog rt build-publish  $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER --project $JF_RT_PROJECT_NAME
+      - name: JFrog build scan 🐸
+        run: |
+          sleep 60
+          jfrog bs $JFROG_CLI_BUILD_NAME $JFROG_CLI_BUILD_NUMBER --project $JF_RT_PROJECT_NAME --vuln=true
