@@ -1,5 +1,17 @@
-# LAB 5 - Release Bundle V2 Creation Promotion and Distribution
+# [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](../../JFTD%20110%20Software%20Supply%20Chain%20Platform%20Automation/) 🐸
 
+## Module 3 - JFrog Release Lifecycle Management (RLM) and Distribution
+Intro to Release Lifecycle Management (RLM) and Distribution
+- RLM Building Blocks
+- Release Bundles
+- Promotion
+- Distribution
+
+Lab - Security config  Automation - Using JFrog CLI
+- Release Bundle Management
+- Build Promotion Automation
+- Secure distribution
+  
 ## Prerequisites
 - Lab-0 - Configure JFrog CLI
 - Lab-1 - Repository Provisioning
