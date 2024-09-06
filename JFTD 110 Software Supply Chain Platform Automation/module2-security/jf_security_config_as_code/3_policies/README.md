@@ -45,3 +45,5 @@ Apply terraform changes
 ```
 tf apply -var-file=swampup.tfvars
 ```
+
+Let's move on to [Attaching policies to resources using watches](../4_watches/))

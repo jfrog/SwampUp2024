@@ -46,7 +46,7 @@ if not installed then download or refer to the [executables folder](../executabl
 - [JFrog CLI version 2.67.0](https://jfrog.com/getcli/)
 - [Terraform CLI version 1.8.5](https://releases.hashicorp.com/terraform/1.8.5/)
 
-Let's jump into [resource indexing](./1_resource_indexing/README.md)
+Let's jump into [resource indexing](./1_resource_indexing/)
 ```
 cd 1_resource_indexing
 ```

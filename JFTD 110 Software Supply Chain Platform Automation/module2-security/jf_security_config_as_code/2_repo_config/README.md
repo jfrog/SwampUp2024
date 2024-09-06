@@ -51,3 +51,5 @@ Apply terraform changes
 ```
 tf apply -var-file=swampup.tfvars
 ```
+
+Let's move on to [Xray Policy Creation](../3_policies/)

@@ -45,3 +45,5 @@ Apply terraform changes
 ```
 tf apply -var-file=swampup.tfvars
 ```
+
+Let's move on to [repo config](../2_repo_config/)
