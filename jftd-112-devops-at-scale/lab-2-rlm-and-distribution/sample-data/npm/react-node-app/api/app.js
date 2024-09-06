@@ -70,7 +70,7 @@ if (process.env.CURRENT_ENV === 'development') {
    app.use(errorHandler);
 } else {
    app.use((err, req, res, next) => {
-      console.log('Server Error')
+      console.log('Server Error-')
       res.status(500).send('Server Error');
    });
 }
@@ -79,7 +79,7 @@ if (process.env.CURRENT_ENV === 'development') {
 app.listen(CONFIG.port, async () => {
    angular.merge({}, evilsrc)
    console.log(
-      '==%s App is running at http://localhost:%d in %s mode==',
+      '==%s ReactApp is running at http://localhost:%d in %s mode==',
       chalk.green('✓'),
       process.env.PORT,
       process.env.CURRENT_ENV
