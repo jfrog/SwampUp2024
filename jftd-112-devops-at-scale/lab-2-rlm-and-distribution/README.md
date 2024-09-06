@@ -6,19 +6,41 @@
 - Lab-2 - Release Lifecycle Management and Distribution Patterns
 
 ## Release Lifecycle Management
+- For NPM sample project for build, 
+  - `cd jftd-112-devops-at-scale/lab-2-rlm-and-distribution/sample-data/npm/react-node-app`
+    - ```
+      export buildName=reactModule
+      export buildVersion=1
+      
+      jf npmc --repo-resolve auth-npm-dev-virtual --repo-deploy auth-npm-dev-virtual
+      jf npm install --build-name ${buildName} --build-number ${buildVersion}
+      jf npm publish --build-name ${buildName} --build-number ${buildVersion}
+      
+      jf rt bce ${buildName} ${buildVersion}
+      jf rt bag ${buildName} ${buildVersion}
+      jf rt bp ${buildName} ${buildVersion}
+      ```
 
-
-### CREATE RELEASE BUNDLE
-- Run ``jf ds rbc --spec=rb-spec.json rb_swamp 1.0.0 --desc="release candidate"``
-
-### SIGN RELEASE BUNDLE
-- Run ``jf ds rbs rb_swamp 1.0.0``
-
-### DISTRIBUTE RELEASE BUNDLE
-- Run ``jf ds rbd --dist-rules=dist-rules.json rb_swamp 1.0.0``
-    - Note: We need to update ``dist-rules.json`` with the site name of the actual edge instance before running above command.
-
-
-### CHALLENGE - Release Bundle [Optional]
-- Scan Release Bundle using Xray HINT: Need to be added to watch
-- Delete older Release Bundle
+ - `Run the following command to create a release bundle version 2 for the npm package`
+   - ```
+        jf rbc --builds=json/builds-spec.json --signing-key=thekey reactModuleRelease ${buildVersion}
+       
+        # promote to Dev
+        jf rbp reactModuleRelease ${buildVersion} DEV --signing-key=thekey --include-repos=auth-npm-dev-local
+        jf rt set-props "auth-npm-dev-local/react-bank-api/-/react-bank-api-1.0.1.tgz" "unit.test=pass;integration.test=null;"
+  
+        # Promote to QA
+        jf rbp reactModuleRelease ${buildVersion} QA --signing-key=thekey --include-repos=auth-npm-qa-local
+        jf rt set-props "auth-npm-qa-local/react-bank-api/-/react-bank-api-1.0.1.tgz" "unit.test=pass;integration.test=pass;"
+  
+        # Promote to PROD
+        jf rbp reactModuleRelease ${buildVersion} PROD --signing-key=thekey --include-repos=auth-npm-prod-local
+        
+        jf rbd reactModuleRelease ${buildVersion} --signing-key=thekey --dist-rules=dist-rules.json --create-repo=true
+     ```
+     
+ - `Run the following command for distribution`
+   - ```
+        jf ds rbs --sign=thekey reactModuleRelease ${buildVersion}
+        jf ds rbd reactModuleRelease ${buildVersion} --dist-rules=dist-rules.json --create-repo=true
+     ```
