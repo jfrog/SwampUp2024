@@ -1,3 +1,5 @@
+# JFTD-107 JFrog Platform Essentials - Hands-on Labs
+
 # Lab 1: Artifactory
 
 In this lab, we will configure access to the JFrog platform and define repositories to hold Docker images (Docker registries).
