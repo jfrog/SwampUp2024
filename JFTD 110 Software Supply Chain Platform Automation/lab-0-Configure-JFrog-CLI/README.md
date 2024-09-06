@@ -1,4 +1,4 @@
-# Lab 0 - Configure JFrog CLI
+# Lab 0 - Configure JFrog CLI 🐸
 
 ## Prerequisites
 
@@ -19,46 +19,45 @@ if not installed then Download [JFrog CLI](https://jfrog.com/getcli/) based on o
 Ensure that you have the following details from the email you have received:
 `$JFROG_PLATFORM`, `$JFROG_EDGE`,`$ADMIN_USER`,`$ADMIN_PASSWORD` are the placeholders for the JFrog Platform URL, Edge Node URL, Project Admin User, and Project Admin Password, respectively.
 - Create access token from UI
-  - Goto JFrog Platform URL `$JFROG_PLATFORM` and use the credentials `$ADMIN_USER` and `$ADMIN_PASSWORD` to login
-  - click the initials of your username on the top right-hand corner of the screen to view the User Profile menu ``User Profile``-> ``Edit Profile`` -> ``Generate An Identity Token``-> ``Next`` -> ``Copy the token`` -> ``Close``
+  - Navigate to the JFrog Platform URL `$JFROG_PLATFORM` and use the credentials `$ADMIN_USER` and `$ADMIN_PASSWORD` to login
+  - Click the initials of your username on the top right-hand corner of the screen to view the User Profile menu ``User Profile`` -> ``Edit Profile`` -> ``Generate An Identity Token``-> ``Next`` -> ``Copy the token`` -> ``Close``
   - Replace all placeholders (e.g., `$JFROG_PLATFORM`, `$JFROG_EDGE`,`$ADMIN_USER`,`$ADMIN_PASSWORD`, `$ACCESS_TOKEN`) with the appropriate values specific to your environment.
 
 ## Step 1 : Add Configuration for Main JFrog Platform
-There are two options to configure JFrog CLI: Use Option 1 for an interactive setup or Option 2 for a non-interactive setup.
+There are two options to configure JFrog CLI: Use [Option 1](#option-1---set-up-jfrog-cli-with-main-jpd) for an interactive setup or [Option 2](#option-2-setup-jfrog-cli-with-main-jpd-non-interactive) for a non-interactive setup.
 
 ## Option 1 - Set Up JFrog CLI with Main JPD
 Check Current JFrog CLI Configurations
 
 1. Run the following command to list all JFrog CLI configurations:
-```bash
-    jf config show
-```
+    ```bash
+        jf config show
+    ```
+
 2. Configure JFrog CLI
     - Choose a server ID: e.g., swampup
     - Configure CLI that point to JFrog Instance
-    ```bash 
-     jf config add --interactive
-    ``` 
-    or
-    ```bash 
-     jf c add --interactive
-     ```
-      - Enter a unique server identifier: ```${{unique name}}```        # like -> `swampup`
-      - JFrog platform URL: ```https://{{host}}.jfrog.io```             # JFrog Cloud instance URL $JFROG_PLATFORM from document
-      - JFrog access token (Leave blank for username and password/API key): ```${{$ACCESS_TOKEN}}``` # Access token generated from JFrog Platform
-      - Is the Artifactory reverse proxy configured to accept a client certificate (y/n) [n]?: ``n``
+      ```bash 
+      jf config add
+      #or 
+      jf c add
+      ```
+    - Enter a unique server identifier: ```${{unique name}}```         # like -> `swampup`
+    - JFrog platform URL: ```https://{{host}}.jfrog.io```       # JFrog Cloud instance URL $JFROG_PLATFORM from document
+    - JFrog access token (Leave blank for username and password/API key): ```Access token generated from JFrog Platform``` 
+    - Is the Artifactory reverse proxy configured to accept a client certificate (y/n) [n]?: ``n``
 
 3. Use the newly created configuration:
     ```bash
     jf config use swampup
     ```
-4. Health Check
-       - Verify the connection to your JFrog instance by running the following command and the result should be 'OK'
+
+4. Verify the connection to your JFrog instance by running the following command and the result should be 'OK'
      ```bash
      jf rt ping
      ```
 
-  ## Option 2: Setup JFrog CLI with Main JPD (Non-Interactive)
+## Option 2: Setup JFrog CLI with Main JPD (Non-Interactive)
 
 ### Add Configuration for Main JPD
 To configure JFrog CLI without interaction, use the following command:
