@@ -32,7 +32,7 @@
       "lodash": "^4.17.15",
       "module-alias": "^2.2.2",
       "mongodb": "^3.3.3",
-      "mongoose": "5.10.12",
+      "mongoose": "5.13.20",
       "nodemailer": "^6.3.1",
       "nodemailer-mailgun-transport": "^1.4.0",
       "nodemon": "^1.19.4",
