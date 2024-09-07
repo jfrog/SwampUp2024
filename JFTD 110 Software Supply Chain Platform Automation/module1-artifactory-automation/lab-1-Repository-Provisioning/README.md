@@ -1,16 +1,14 @@
 # LAB 1 - Repository Provisioning
 
 ## Prerequisites
-Lab-0 - Configure JFrog CLI
-
-<br />
+[Lab-0 - Configure JFrog CLI](../../lab-0-Configure-JFrog-CLI/)
 
 
 ## CREATE REPOSITORY TEMPLATE
 ### Step 1: Run the following command to create a local repository template:
-```bash
-jf rt repo-template template-local.json
-```
+  ```bash
+  jf rt repo-template template-local.json
+  ```
   - Select the template type (press Tab for options): `create`
   - Insert the repository key > `auth-npm-dev-local`
   - Select the repository class (press Tab for options): `local`
@@ -26,19 +24,18 @@ jf rt repo-template template-local.json
   - Insert the value for xrayIndex (press Tab for options): > `true`
   - Select the next configuration key (press Tab for options): `:x`
   - Validate template `template-local.json` is created successfully. - ``ls -la``
-- 
-- View template
- ```json
+  - View template
+    ```json
     {
-     "key":"${repo-name}",                
-     "packageType":"${package-type}",     
-     "rclass":"${repo-type}",
-     "projectKey":"${projectKey}",
-     "repoLayoutRef":"${repo-layout}",    
-     "environments":"${env}",             
-     "xrayIndex":"${xray-enable}"         
-}
-```
+      "key":"${repo-name}",
+      "packageType":"${package-type}",
+      "rclass":"${repo-type}",
+      "projectKey":"${projectKey}",
+      "repoLayoutRef":"${repo-layout}",
+      "environments":"${env}",
+      "xrayIndex":"${xray-enable}"
+    }
+    ```
 
 ### Step 2: Run the following command to create a remote repository template:
 ```bash
@@ -60,20 +57,19 @@ jf rt repo-template template-remote.json
   - Insert the value for xrayIndex (press Tab for options): > `true`
   - Select the next configuration key (press Tab for options): `:x`
   - Validate template `template-remote.json` is created successfully. ``ls -la``
-- 
-- View template
- ```json
-          {
-            "key":"${repo-name}",
-            "packageType":"${package-type}",
-            "rclass":"${repo-type}",
-            "url":"${url}",
-            "projectKey":"${projectKey}",
-            "repoLayoutRef":"${repo-layout}",
-            "environments":"${env}",           
-            "xrayIndex":"${xray-enable}"
-          }
-```
+  - View template
+    ```json
+    {
+      "key":"${repo-name}",
+      "packageType":"${package-type}",
+      "rclass":"${repo-type}",
+      "url":"${url}",
+      "projectKey":"${projectKey}",
+      "repoLayoutRef":"${repo-layout}",
+      "environments":"${env}",
+      "xrayIndex":"${xray-enable}"
+    }
+    ```
 
 ### Step 3: Run the following command to create a virtual repository template:
 ```bash
@@ -98,24 +94,21 @@ jf rt repo-template template-virtual.json
   - Select the next configuration key (press Tab for options): `defaultDeploymentRepo`
   - Insert the value for defaultDeploymentRepo > `puser{1}-{43}auth-npm-dev-local`
   - Select the next configuration key (press Tab for options): `:x`
-- 
-- Validate template `template-remote.json` is created successfully. ``ls -la``
-- View template
- ```json
-          {
-            "key":"${repo-name}",
-            "packageType":"${package-type}",
-            "rclass":"${repo-type}",
-            "projectKey":"${projectKey}",
-            "repoLayoutRef":"${repo-layout}",
-            "defaultDeploymentRepo":"${deploy-repo-name}",
-            "externalDependenciesRemoteRepo":"${external-remote-repo-name}",
-            "environments":"${env}",
-            "repositories": "${repos}"
-          }
-```
-
-<br />
+  - Validate template `template-remote.json` is created successfully. ``ls -la``
+  - View template
+    ```json
+    {
+      "key":"${repo-name}",
+      "packageType":"${package-type}",
+      "rclass":"${repo-type}",
+      "projectKey":"${projectKey}",
+      "repoLayoutRef":"${repo-layout}",
+      "defaultDeploymentRepo":"${deploy-repo-name}",
+      "externalDependenciesRemoteRepo":"${external-remote-repo-name}",
+      "environments":"${env}",
+      "repositories": "${repos}"
+    }
+    ```
 
 ## CREATE REPOSITORY
 ### Step 4: Run the template one after the other to create local, remote, and virtual repositories.
@@ -128,28 +121,23 @@ jf rt repo-create template-{{ local|remote|virtual }}.json
 jf rt rc template-{{ local|remote|virtual }}.json
 ```
 
-NOTE: 
-
---var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
+> NOTE: 
+> --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
 
 ```bash
 jf rt rc template-local.json --var "repo-name=sup016-npm-qa-local"
 ```
-
-- We are going to run this for local and remote repository. For virtual please skip this step and proceed with next step.
-
-<br />
+We are going to run this for local and remote repository. For virtual please skip this step and proceed with next step.
 
 
-## RUN SCRIPT - Prerequisites for future labs that CREATES ALL REPOSITORIES [MUST]
-- Run
+## Demo App Repo Bootstrap - Prerequisites for future labs [MUST]
+Run the following `repo_bootstrap.sh` script to all local, remote, and virtual repositories needed for 
 ```bash
-chmod 755
-sh lab_1_rescue.sh
- ``` 
-and it will create all local, remote, virtual repositories.
+chmod 755 repo_bootstrap*.sh
+sh repo_bootstrap.sh
+```
 
-<br />
+After successful execution of the `repo_bootstrap.sh` script let's proceed with lab 2 - [Role based access control](../lab-2-Role-Based-Access-Control/)
 
 ## CHALLENGE - Update Repository [Optional]
 - Disable indexing in Xray for one repository we created above
