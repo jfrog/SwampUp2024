@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www",
+    "start": "node bin/www",
     "patch": "npm version patch -m \"Upgrade to %s for reasons\" --no-git-tag-version --no-commit-hooks",
     "minor": "npm version minor -m \"Upgrade to %s for reasons\" --no-git-tag-version --no-commit-hooks",
     "major": "npm version major -m \"Upgrade to %s for reasons\" --no-git-tag-version --no-commit-hooks"
