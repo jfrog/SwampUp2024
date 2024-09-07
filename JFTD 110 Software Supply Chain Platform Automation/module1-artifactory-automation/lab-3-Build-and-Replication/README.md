@@ -8,6 +8,30 @@
 ## BUILDING AND DEPLOYING
 - One of the Package Manager Integration we can use
 
+#### NPM - Package Manager Integration
+- `cd lab-3-Build-and-Replicate/example-project/demo-node-app`
+- To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
+  - Run
+  - ```bash
+         jf npmc 
+      ```
+  - Resolve dependencies from Artifactory? (y/n) [y]? `y`
+  - Set Artifactory server ID [swampup]: ↵
+  - Set repository for dependencies resolution (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
+  - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
+  - Set Artifactory server ID [swampup]: ↵
+  - Set repository for artifacts deployment (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
+- Run
+```bash 
+jf npm install --build-name demo-node-app-npm --build-number 1.0.0
+```
+- To Publish build Artifact to repository
+  - Run
+    ```bash 
+       jf npm publish --build-name demo-node-app-npm --build-number 1.0.0
+    ```
+
+
 #### MAVEN - Package Manager Integration
 - `cd lab-3-Build-and-Replicate/example/maven-example`
 - To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
@@ -30,28 +54,6 @@
        jf mvn clean install -f ./pom.xml --build-name payment-maven --build-number 1.0.0
       ```
 
-#### NPM - Package Manager Integration
-- `cd lab-3-Build-and-Replicate/example-project/npm-example`
-- To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
-    - Run 
-    - ```bash
-         jf npmc 
-      ```
-    - Resolve dependencies from Artifactory? (y/n) [y]? `y`
-    - Set Artifactory server ID [swampup]: ↵
-    - Set repository for dependencies resolution (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
-    - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
-    - Set Artifactory server ID [swampup]: ↵
-    - Set repository for artifacts deployment (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
-- Run   
-```bash 
-jf npm install --build-name auth-npm --build-number 1.0.0
-```
-- To Publish build Artifact to repository
-  - Run 
-    ```bash 
-       jf npm publish --build-name auth-npm --build-number 1.0.0
-    ```
 
 
 <br />
