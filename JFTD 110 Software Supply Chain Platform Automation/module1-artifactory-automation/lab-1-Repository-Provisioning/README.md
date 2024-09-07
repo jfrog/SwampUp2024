@@ -17,7 +17,7 @@ jf rt repo-template template-local.json
   - Select the repository's package type (press Tab for options): `npm`
   - You can type ":x" at any time to save and exit.
   - Select the next configuration key (press Tab for options): `projectKey`
-  - Insert the value for projectKey (press Tab for options): > 'tftd110tr{0}-{30}'
+  - Insert the value for projectKey (press Tab for options): > 'puser{1}-{43}'
   - Select the next configuration key (press Tab for options): `repoLayoutRef`
   - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
   - Select the next configuration key (press Tab for options): `environment`
@@ -51,7 +51,7 @@ jf rt repo-template template-remote.json
   - Select the repository's package type (press Tab for options): `npm`
   - You can type ":x" at any time to save and exit.
   - Select the next configuration key (press Tab for options): `projectKey`
-  - Insert the value for projectKey (press Tab for options): > 'tftd110tr{0}-{30}'
+  - Insert the value for projectKey (press Tab for options): > 'puser{1}-{43}'
   - Select the next configuration key (press Tab for options): `repoLayoutRef`
   - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
   - Select the next configuration key (press Tab for options): `environment`
@@ -85,18 +85,18 @@ jf rt repo-template template-virtual.json
   - Select the repository's package type (press Tab for options): `npm`
   - You can type ":x" at any time to save and exit.
   - Select the next configuration key (press Tab for options): `projectKey`
-  - Insert the value for projectKey (press Tab for options): > 'tftd110tr{0}-{30}'
+  - Insert the value for projectKey (press Tab for options): > 'puser{1}-{43}'
   - Select the next configuration key (press Tab for options): `repoLayoutRef`
   - Insert the value for repoLayoutRef (press Tab for options): > `npm-default`
   - Select the next configuration key (press Tab for options): `environment`
   - Insert the name of the environment to assign to > `DEV`
   - Select the next configuration key (press Tab for options): `repositories`
   - The value should be a comma separated list:
-  - Insert the value for repositories > `tftd110tr{0}-{30}auth-npm-dev-local,tftd110tr{0}-{30}npm-remote`
+  - Insert the value for repositories > `puser{1}-{43}auth-npm-dev-local,tftd110tr{0}-{30}npm-remote`
   - Select the next configuration key (press Tab for options): `externalDependenciesRemoteRepo`
-  - Insert the value for externalDependenciesRemoteRepo > `tftd110tr{0}-{30}auth-npm-remote`
+  - Insert the value for externalDependenciesRemoteRepo > `puser{1}-{43}auth-npm-remote`
   - Select the next configuration key (press Tab for options): `defaultDeploymentRepo`
-  - Insert the value for defaultDeploymentRepo > `tftd110tr{0}-{30}auth-npm-dev-local`
+  - Insert the value for defaultDeploymentRepo > `puser{1}-{43}auth-npm-dev-local`
   - Select the next configuration key (press Tab for options): `:x`
 - 
 - Validate template `template-remote.json` is created successfully. ``ls -la``
