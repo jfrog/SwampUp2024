@@ -144,6 +144,7 @@ jf rt rc template-local.json --var "repo-name=sup016-npm-qa-local"
 ## RUN SCRIPT - Prerequisites for future labs that CREATES ALL REPOSITORIES [MUST]
 - Run
 ```bash
+chmod 755
 sh lab_1_rescue.sh
  ``` 
 and it will create all local, remote, virtual repositories.

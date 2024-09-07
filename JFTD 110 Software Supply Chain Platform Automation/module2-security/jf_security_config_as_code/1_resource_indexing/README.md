@@ -9,7 +9,7 @@ The terraform (tf) resources in this folder will help managing the JFrog Xray in
 - [Release Bundle (xray_binary_manager_release_bundles_v2)](https://registry.terraform.io/providers/jfrog/xray/latest/docs/resources/binary_manager_release_bundles_v2)
 
 > **NOTE**
-> Changes to the xray binary manager for repos, builds, or release bundles will impact the existing indexed resources. Ensure full list of existing and new resources are passed in when running the tf apply    
+> Changes to the xray binary manager for repos, builds, or release bundles will impact the existing indexed resources. Ensure full list of existing and new resources are passed in when running the tf apply  
 
 ## Getting Started
 Purpose of the various terraform files used 
