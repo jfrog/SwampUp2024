@@ -1,63 +1,122 @@
 # LAB 3 - Build, Properties and Replication
 
 ## Prerequisites
-- Lab-0 - Configure JFrog CLI
-- Lab-1 - Repository Provisioning
-- Lab-2 - Role-Based Access Control
+- [Lab-0 - Configure JFrog CLI](../../lab-0-Configure-JFrog-CLI/)
+- [Lab-1 - Repository Provisioning](../lab-1-Repository-Provisioning/)
+- [Lab-2 - Role-Based Access Control](../lab-3-Build-and-Replication/)
 
 ## BUILDING AND DEPLOYING
-- One of the Package Manager Integration we can use
+JFrog CLI includes integration with maven, npm, go, nuget, pip, docker, gradle, dotnet, poetry, and yard allowing you to resolve dependencies and deploy build artifacts from and to Artifactory, while collecting build-info and storing it in Artifactory.
 
-#### NPM - Package Manager Integration
-- `cd lab-3-Build-and-Replicate/example-project/demo-node-app`
-- To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
-  - Run
-  - ```bash
-         jf npmc 
-      ```
-  - Resolve dependencies from Artifactory? (y/n) [y]? `y`
-  - Set Artifactory server ID [swampup]: ↵
-  - Set repository for dependencies resolution (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
-  - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
-  - Set Artifactory server ID [swampup]: ↵
-  - Set repository for artifacts deployment (press Tab for options): `{projectKey}-auth-npm-dev-virtual`
-- Run
-```bash 
-jf npm install --build-name demo-node-app-npm --build-number 1.0.0
+Below are the instructions for [NPM](#npm---package-manager-integration) and [Maven](#maven---package-manager-integration). 
+
+### NPM and Docker - Package Manager Integration
+
+**Step 1 -** Navigate into the demo-node-app under `lab-3-Build-and-Replicate/example-project/demo-node-app`
 ```
-- To Publish build Artifact to repository
-  - Run
-    ```bash 
-       jf npm publish --build-name demo-node-app-npm --build-number 1.0.0
-    ```
+cd lab-3-Build-and-Replicate/example-project/demo-node-app
+```
+The `package.json` file has all the npm dependencies needed to run the app.
 
+**Step 2 -** To pre-configured with the Artifactory server, repositories and use for resolving OSS dependencies and publishing. The configuration is stored by the command in the `.jfrog` directory at the root directory of the project.
+```bash
+jf npmc 
+```
+Input the following values
+```
+Resolve dependencies from Artifactory? (y/n) [y]? `y`
+Set Artifactory server ID [swampup]: ↵
+Set repository for dependencies resolution (press Tab for options): `{projectKey}-demonodeapp-npm-dev-virtual`
+Deploy project artifacts to Artifactory? (y/n) [y]? `y`
+Set Artifactory server ID [swampup]: ↵
+Set repository for artifacts deployment (press Tab for options): `{projectKey}-demonodeapp-npm-dev-virtual`
+```
 
-#### MAVEN - Package Manager Integration
-- `cd lab-3-Build-and-Replicate/example/maven-example`
-- To pre-configured with the Artifactory server, repositories and use for building and publishing. The configuration is stored by the command in the .jfrog directory at the root directory of the project.)
-    - Run the following command to configure Maven to resolve dependencies from Artifactory and deploy project artifacts to Artifactory:
-      - ```bash 
-        jf mvnc
-        ```
-    - Resolve dependencies from Artifactory? (y/n) [y]? `y`
-    - Set Artifactory server ID [swampup]: ↵
-    - Set resolution repository for release dependencies (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
-    - Set resolution repository for snapshot dependencies (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
-    - Deploy project artifacts to Artifactory? (y/n) [y]? `y`
-    - Set Artifactory server ID [swampup]: ↵
-    - Set repository for release artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
-    - Set repository for snapshot artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
-    - Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
-    - Use Maven wrapper? (y/n) [y]? `y`
-- Run 
--   ```bash 
-       jf mvn clean install -f ./pom.xml --build-name payment-maven --build-number 1.0.0
-      ```
+View the config stored under `.jfrog`
+```
+cat .jfrog/projects/npm.yaml
+```
 
+**Step 3 -** Build the npm app by passing in the build name and build number.
 
+Set the following values before proceeding
+```
+export JF_PROJECT="" 
+export JF_INSTANCE="" 
+export JF_BUILD_NAME="demo-node-app"
+export JF_BUILD_NUMBER="1.0.0"
+```
 
-<br />
-<br />
+```bash
+jf npm install --build-name $JF_BUILD_NAME --build-number 1.0.0 --project $JF_PROJECT
+```
+
+(Optional) Start the app and open `localhost:3000` in your browser 
+```
+DEBUG=demo-node-app:* npm start
+```
+
+**Step 4 -** Publish the npm build artifact to artifactory
+```bash
+jf npm publish --build-name $JF_BUILD_NAME --build-number $JF_BUILD_NUMBER --project $JF_PROJECT
+```
+On successful upload you should should be able to view the artifact under the npm local dev repo in Artifactory.
+
+**Step 5 -** Perform a docker image build using the `dockerfile` placed under the same folder.
+```
+jf docker build -t $JF_INSTANCE.jfrog.io/$JF_PROJECT-demonodeapp-docker-dev-virtual/$JF_BUILD_NAME:$JF_BUILD_NUMBER --build-name $JF_BUILD_NAME --build-number $JF_BUILD_NUMBER --project $JF_PROJECT .
+```
+
+**Step 6 -** Publish the docker image to artifactory.
+```
+jf docker push $JF_INSTANCE.jfrog.io/$JF_PROJECT-demonodeapp-docker-dev-virtual/$JF_BUILD_NAME:$JF_BUILD_NUMBER --build-name $JF_BUILD_NAME --build-number $JF_BUILD_NUMBER --project $JF_PROJECT
+```
+
+**Step 7 -** Gather the build environment variables and git information.
+```
+jf rt build-add-git $JF_BUILD_NAME $JF_BUILD_NUMBER --project $JF_PROJECT
+jf rt build-collect-env $JF_BUILD_NAME $JF_BUILD_NUMBER --project $JF_PROJECT
+```
+
+**Step 8 -** Build the build info to artifactory. Replace the placeholder `PROJECT_KEY` with your actual project key.
+```
+jf rt build-publish $JF_BUILD_NAME $JF_BUILD_NUMBER --project $JF_PROJECT
+```
+
+### MAVEN - Package Manager Integration
+Navigate into the maven-example app under 
+```
+cd lab-3-Build-and-Replicate/example/maven-example
+```
+
+To pre-configured with the Artifactory server, repositories and use for resolving OSS dependencies and publishing. The configuration is stored by the command in the `.jfrog` directory at the root directory of the project.
+```bash 
+jf mvnc
+```
+
+Input the following values
+```
+Resolve dependencies from Artifactory? (y/n) [y]? `y`
+Set Artifactory server ID [swampup]: ↵
+Set resolution repository for release dependencies (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
+Set resolution repository for snapshot dependencies (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
+Deploy project artifacts to Artifactory? (y/n) [y]? `y`
+Set Artifactory server ID [swampup]: ↵
+Set repository for release artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
+Set repository for snapshot artifacts deployment (press Tab for options): `{projectKey}-payment-maven-dev-virtual`
+Would you like to filter out some of the deployed artifacts? (y/n) [n]? `n`
+Use Maven wrapper? (y/n) [y]? `y`
+```
+
+View the config stored under `.jfrog`
+```
+cat .jfrog/projects/maven.yaml
+```
+
+Build the app using the below command and pass in the build name and build number
+```bash 
+jf mvn clean install -f ./pom.xml --build-name payment-maven --build-number 1.0.0
+```
 
 ## COLLECT ENVIRONMENT VARIABLES
 #### Maven

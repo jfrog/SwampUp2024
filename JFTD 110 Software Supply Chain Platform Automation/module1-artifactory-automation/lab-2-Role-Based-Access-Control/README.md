@@ -1,11 +1,14 @@
 # LAB 2 - Role-Based Access Control
 
 ## Prerequisites
-- Lab-0 - Configure JFrog CLI
-- Lab-1 - Repository Provisioning
+- [Lab-0 - Configure JFrog CLI](../../lab-0-Configure-JFrog-CLI/)
+- [Lab-1 - Repository Provisioning](../lab-1-Repository-Provisioning/)
 
 ## JFrog Project
-- `cd lab-2-Role-Based-Access-Control`
+```
+cd lab-2-Role-Based-Access-Control`
+```
+
 ### Step 1: Set Environment Variables 
 You can set environment variables directly in your shell session
  ```bash 
@@ -24,49 +27,49 @@ curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}"
   ```
 
-### Step 3: # Get Project Users
+### Step 3: Get Project Users
  ```bash 
 curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}"
   ```
-### Step 4: # Add User in Project
+### Step 4: Add User in Project
  ```bash 
 curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 -H "Content-Type: application/json" \
 -d "@add-user.json"
   ```
-### Step 5: # Update User in Project
+### Step 5: Update User in Project
  ```bash 
 curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 -H "Content-Type: application/json" \
 -d "@update-user.json"
   ```
-### Step 6: # Delete User in Project
+### Step 6: Delete User in Project
  ```bash 
 curl -XDELETE "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/users/mike" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 -H "Content-Type: application/json"
   ```
-### Step 7: # GET PROJECT ROLES
+### Step 7: GET PROJECT ROLES
  ```bash 
 curl -XGET "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}"
   ```
-### Step 8: # Delete role in Project
+### Step 8: Delete role in Project
  ```bash 
 curl -XDELETE "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorDeveloper" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}"
   ```
-### Step 9: # Add role in Project
+### Step 9: Add role in Project
  ```bash 
 curl -XPOST "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 -H "Content-Type: application/json" \
 -d "@add-role.json"
   ```
-### Step 10: # Update role in Project
+### Step 10: Update role in Project
  ```bash 
 curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorDeveloper" \
 -H "Authorization: Bearer ${ACCESS_TOKEN}" \
@@ -74,10 +77,12 @@ curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorD
 -d "@update-role.json"
   ```
 
+Let's jump into [lab 3 - Build and Replication](../lab-3-Build-and-Replication/)
+
 ## [Optional]
 
 ## RUN SCRIPT - if you want to skip Step 1 - Step 10
-- Run
+Run
 ```bash
 sh lab_2_rescue.sh
  ``` 
@@ -97,88 +102,77 @@ jf rt uc --csv users.csv
 
 ## CREATE GROUPS AND ADD USERS TO GROUPS
 **Create Groups**
-- Run the following command to create developers group:
+Run the following command to create developers group:
 ```bash
 jf rt group-create developers
  ```
-- or 
+or 
 ```bash
 jf rt gc developers
  ```
-- Run the following command to create OPS group:
+
+Run the following command to create OPS group:
 ```bash
 jf rt group-create ops
 ```
 or
- ```bash
- jf rt gc ops
-  ```
+```bash
+jf rt gc ops
+```
+
 Run the following command to create secops group:
 ```bash 
 jf rt group-create secops
 ```
  or
 ```bash
- jf rt gc secops
- ```
-
+jf rt gc secops
+```
 
 **Adding Users to Groups**
-- Developers - mike,jennifer
-    - Run the following command to add users to the developers group:
-      ```bash 
-         jf rt group-add-users "developers" "mike,jennifer" 
-      ```
-      or
-      ```bash 
-         jf rt gau "developers" "mike,jennifer"
-     ```
-- ops - bob, rolando, jennifer, support
-  - Run the following command to add users to the ops group:
 
-    ```bash 
-     jf rt group-add-users "ops" "bob,jennifer,rolando,support"
-     ```
+Developers - Mike, Jennifer
+- Run the following command to add users to the developers group:
+  ```bash 
+  jf rt group-add-users "developers" "mike,jennifer" 
+  ```
     or
     ```bash 
-     jf rt gau "ops" "bob,jennifer,rolando,support"
-     ```
-- secops - irene, matt, jennifer
-  - Run the following command to add users to the secops group:
-    ```bash 
-       jf rt group-add-users "secops" "irene,matt,jennifer"
-    ```
-    or
-    ```bash 
-       jf rt gau "secops" "irene,matt,jennifer"
-     ```
-
-- secops - irene, matt, jennifer
-- Run the following command to add users to the secops group: 
-    ```bash 
-        jf rt group-add-users "secops" "irene,matt,jennifer"
-    ``` 
+       jf rt gau "developers" "mike,jennifer"
+   ```
+Ops - Bob, Rolando, Jennifer, Support
+- Run the following command to add users to the ops group:
+  ```bash 
+  jf rt group-add-users "ops" "bob,jennifer,rolando,support"
+  ```
   or
-    ```bash 
-        jf rt gau "secops" "irene,matt,jennifer"
-    ```
-<br />
+  ```bash 
+  jf rt gau "ops" "bob,jennifer,rolando,support"
+  ```
+SecOps - Irene, Matt, Jennifer
+- Run the following command to add users to the secops group:
+  ```bash 
+  jf rt group-add-users "secops" "irene,matt,jennifer"
+  ```
+  or
+  ```bash 
+  jf rt gau "secops" "irene,matt,jennifer"
+  ```
 
 ## CREATE PERMISSION TARGET TEMPLATE
 - Run
-
   ```bash 
-      jf rt permission-target-template pt-template.json
-   ```
-    or
+  jf rt permission-target-template pt-template.json
+  ```
+  or
   ```bash
-     jf rt ptt pt-template.json
+      jf rt ptt pt-template.json
   ```
 - Insert the permission target name > `development`
 
 - You can type ":x" at any time to save and exit.
-- Select the permission target section to configure (press Tab for options): `repo` <br/>
-- Insert the section's repositories value. <br/>
+- Select the permission target section to configure (press Tab for options): `repo` 
+- Insert the section's repositories value.
 - You can specify the name "ANY" to apply to all repositories, "ANY REMOTE" for all remote repositories or "ANY LOCAL" for all local repositories:
 - Insert a value for repositories: ↵
 - The value should be a comma separated list > `ANY`
@@ -215,56 +209,42 @@ jf rt group-create secops
 - Insert group name (press enter to finish) > ↵
 - Select the permission target section to configure (press Tab for options): `:x`
 
-<br />
-
 ## CREATE PERMISSION TARGET USING TEMPLATE
-- Run the following command to create a permission target using the template:
-  ```bash
-  jf rt permission-target-create pt-template.json
-  ```
-  or
-  ```bash
-  jf rt ptc pt-template.json
-  ```
-
-  ```json
- ###NOTE:
-    --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
-  
+Run the following command to create a permission target using the template:
 ```bash
-   jf rt permission-target-create pt-template.json``
+jf rt permission-target-create pt-template.json
+```
+or
+```bash
+jf rt ptc pt-template.json
+```
+
+> **NOTE**
+> --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
+
+```bash
+jf rt permission-target-create pt-template.json``
 ```
 or
 ```bash
   jf rt ptc pt-template.json
 ```
-
-    
-###NOTE:
-    --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
-
-<br />
-
+> **NOTE**
+> --var - List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template.
 
 ### Delete User (Internal) - [POST SESSION TASK]
-- Run
-
+Run
 ```bash
 jf rt users-delete users.csv --quiet``
 ```
 or
-
 ```bash
 jf rt udel --csv users.csv --quiet``
 ```
-<br />
 
 ### Delete Group - [POST SESSION TASK]
-- Run the following command to delete the developers group:
+Run the following command to delete the developers group:
 
 ```bash
 jf rt group-delete developers
 ```
-
-<br />
-<br />

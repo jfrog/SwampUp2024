@@ -31,7 +31,7 @@ Check Current JFrog CLI Configurations
 
 1. Run the following command to list all JFrog CLI configurations:
     ```bash
-        jf config show
+    jf config show
     ```
 
 2. Configure JFrog CLI
@@ -70,6 +70,8 @@ To add configuration for an edge node, use the following command:
 ```bash
 jf config add swampupedge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
 ```
+
+Let's get started with [Module 1 - Artifactory Automation](../module1-artifactory-automation/)!
 
 ## Optional Challenge: Export and Import JFrog CLI Configurations
 
