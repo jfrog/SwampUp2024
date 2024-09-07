@@ -8,6 +8,9 @@ The terraform (tf) resources in this folder will help managing the JFrog Xray in
   
 - [Release Bundle (xray_binary_manager_release_bundles_v2)](https://registry.terraform.io/providers/jfrog/xray/latest/docs/resources/binary_manager_release_bundles_v2)
 
+> **NOTE**
+> Changes to the xray binary manager for repos, builds, or release bundles will impact the existing indexed resources. Ensure full list of existing and new resources are passed in when running the tf apply    
+
 ## Getting Started
 Purpose of the various terraform files used 
 
@@ -19,7 +22,7 @@ Purpose of the various terraform files used
 └── versions.tf - Contains required version information for terraform and providers
 ```
 
-Create a copy of the `sample.tfvars` and add in your custom values. NOTE - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
+Create a copy of the `sample.tfvars` and add in your custom values. **NOTE** - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
 ```
 cp sample.tfvars swampup.tfvars
 ```
@@ -29,6 +32,8 @@ Below listed are the values for reference.
 JFROG_PLATFORM_URL="foo.jfrog.io" 
 JFROG_PLATFORM_ACCESS_TOKEN="XXXXXX"
 JFROG_PROJECT_NAME="foobar123"
+
+BUILDS_INDEX_LIST=["landing-npm-app"]
 ```
 
 Initialize terraform 

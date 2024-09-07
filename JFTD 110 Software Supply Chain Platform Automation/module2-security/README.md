@@ -1,10 +1,10 @@
 # [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](../../JFTD%20110%20Software%20Supply%20Chain%20Platform%20Automation/) 🐸
 
 ## Module 2 - JFrog SSC Security
-Intro to SSC Security and Threats High Level on JFrog's Capabilities (Curation, Shift Left, SCA, Advanced, Runtime)
+Intro to SSC Security Threats and JFrog's end to end security overview 
 - Index Resources (Repos, Builds, RB)
-- Policy 
-- Watch
+- Xray Policy 
+- Xray Watch
 - Violation
 
 Lab - Security config  Automation - Using Terraform and JFrog CLI

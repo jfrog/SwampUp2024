@@ -10,3 +10,7 @@ variable "JFROG_PLATFORM_ACCESS_TOKEN" {
 variable "JFROG_PROJECT_NAME" {
 	type = string
 }
+
+variable "BUILDS_INDEX_LIST" {
+	type = list(string)
+}
