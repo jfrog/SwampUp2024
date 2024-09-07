@@ -1,12 +1,12 @@
 [
-  {"key":"finapp-docker-dev-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default","environments":"DEV","xrayIndex":"true"},
-  {"key":"finapp-docker-qa-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default","environments":"QA","xrayIndex":"true"},
-  {"key":"finapp-docker-prod-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default","environments":"PROD","xrayIndex":"true"},
+  {"key":"demonodeapp-docker-dev-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default","environments":"DEV","xrayIndex":"true"},
+  {"key":"demonodeapp-docker-qa-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default","environments":"QA","xrayIndex":"true"},
+  {"key":"demonodeapp-docker-prod-local","packageType":"docker","rclass":"local","repoLayoutRef":"simple-default","environments":"PROD","xrayIndex":"true"},
   {"key":"payment-maven-dev-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default","environments":"DEV","xrayIndex":"true"},
   {"key":"payment-maven-qa-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default","environments":"QA","xrayIndex":"true"},
   {"key":"payment-maven-prod-local","packageType":"maven","rclass":"local","repoLayoutRef":"maven-2-default","environments":"PROD","xrayIndex":"true"},
-  {"key":"auth-npm-dev-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"DEV","xrayIndex":"true"},
-  {"key":"auth-npm-qa-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"QA","xrayIndex":"true"},
-  {"key":"auth-npm-prod-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"PROD","xrayIndex":"true"},
+  {"key":"demonodeapp-npm-dev-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"DEV","xrayIndex":"true"},
+  {"key":"demonodeapp-npm-qa-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"QA","xrayIndex":"true"},
+  {"key":"demonodeapp-npm-prod-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"PROD","xrayIndex":"true"},
   {"key":"notification-npm-dev-local","packageType":"npm","rclass":"local","repoLayoutRef":"npm-default","environments":"PROD","xrayIndex":"true"}
 ]

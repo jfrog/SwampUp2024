@@ -1,5 +1,5 @@
 [
-  {"key":"finapp-docker-prod-virtual","packageType":"docker","rclass":"virtual","repoLayoutRef":"simple-default","externalDependenciesRemoteRepo":"","repositories":"finapp-docker-prod-local","environments":"PROD"},
+  {"key":"demoapp-docker-prod-virtual","packageType":"docker","rclass":"virtual","repoLayoutRef":"simple-default","externalDependenciesRemoteRepo":"","repositories":"demonodeapp-docker-prod-local","environments":"PROD"},
   {"key":"payment-maven-prod-virtual","packageType":"maven","rclass":"virtual","repoLayoutRef":"maven-2-default","externalDependenciesRemoteRepo":"","repositories":"payment-maven-prod-local","environments":"PROD"},
-  {"key":"auth-npm-prod-virtual","packageType":"npm","rclass":"virtual","repoLayoutRef":"npm-default","externalDependenciesRemoteRepo":"","repositories":"auth-npm-prod-local","environments":"PROD"}
+  {"key":"demoapp-npm-prod-virtual","packageType":"npm","rclass":"virtual","repoLayoutRef":"npm-default","externalDependenciesRemoteRepo":"","repositories":"demonodeapp-npm-prod-local","environments":"PROD"}
 ]

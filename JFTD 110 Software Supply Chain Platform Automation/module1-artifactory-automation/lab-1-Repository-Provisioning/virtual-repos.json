@@ -1,16 +1,16 @@
 [
   {
-    "key": "finapp-docker-dev-virtual",
+    "key": "demonodeapp-docker-dev-virtual",
     "packageType": "docker",
     "rclass": "virtual",
     "repoLayoutRef": "simple-default",
-    "defaultDeploymentRepo": "finapp-docker-dev-local",
+    "defaultDeploymentRepo": "demonodeapp-docker-dev-local",
     "externalDependenciesRemoteRepo": "docker-remote",
     "environments": "DEV",
     "repositories": [
-      "finapp-docker-dev-local",
-      "finapp-docker-qa-local",
-      "finapp-docker-prod-local",
+      "demonodeapp-docker-dev-local",
+      "demonodeapp-docker-qa-local",
+      "demonodeapp-docker-prod-local",
       "docker-remote"
     ]
   },
@@ -30,17 +30,17 @@
     ]
   },
   {
-    "key": "auth-npm-dev-virtual",
+    "key": "demonodeapp-npm-dev-virtual",
     "packageType": "npm",
     "rclass": "virtual",
     "repoLayoutRef": "npm-default",
-    "defaultDeploymentRepo": "auth-npm-dev-local",
+    "defaultDeploymentRepo": "demonodeapp-npm-dev-local",
     "externalDependenciesRemoteRepo": "npm-remote",
     "environments": "DEV",
     "repositories": [
-      "auth-npm-dev-local",
-      "auth-npm-qa-local",
-      "auth-npm-prod-local",
+      "demonodeapp-npm-dev-local",
+      "demonodeapp-npm-qa-local",
+      "demonodeapp-npm-prod-local",
       "npm-remote"
     ]
   }
