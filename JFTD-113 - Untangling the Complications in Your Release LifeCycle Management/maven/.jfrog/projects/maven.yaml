@@ -1,0 +1,11 @@
+version: 1
+type: maven
+resolver:
+    serverId: swampup-jftd-113
+    snapshotRepo: puser0-dev-maven-virt
+    releaseRepo: puser0-dev-maven-virt
+deployer:
+    serverId: swampup-jftd-113
+    snapshotRepo: puser0-dev-maven-virt
+    releaseRepo: puser0-dev-maven-virt
+useWrapper: true
