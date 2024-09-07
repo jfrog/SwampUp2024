@@ -4,6 +4,8 @@ The terraform (tf) resources in this folder will help you manage config of index
 
 - [Repository Config (xray_repository_config)](https://registry.terraform.io/providers/jfrog/xray/latest/docs/resources/repository_config)
 
+> **NOTE**
+> Modifications to the indexed repos config will need privileged access
 
 ## Getting Started
 Purpose of the various terraform files used 
