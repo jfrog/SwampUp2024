@@ -18,8 +18,14 @@ The Xray provider is used to interact with the resources supported by the JFrog 
   
 - [Xray Watches (xray_watch)](https://registry.terraform.io/providers/jfrog/xray/latest/docs/resources/watch)
 
-## Getting Started
 
+### Prerequisites
+Before proceeding please ensure the following labs are completed
+- [Lab-0 - Configure JFrog CLI](../../lab-0-Configure-JFrog-CLI/)
+- [Lab-1 - Repository Provisioning](../../module1-artifactory-automation/lab-1-Repository-Provisioning/)
+- [Lab 3 - Build and Replication](../../module1-artifactory-automation/lab-3-Build-and-Replication/)
+
+## Getting Started
 The content is broken down into the following sections to help with the flow.
 ```
 ├── 1_resource_indexing

@@ -11,6 +11,12 @@ The terraform (tf) resources in this folder will help managing the JFrog Xray in
 > **NOTE**
 > Changes to the xray binary manager for repos, builds, or release bundles will impact the existing indexed resources. Ensure full list of existing and new resources are passed in when running the tf apply  
 
+### Prerequisites
+Before proceeding please ensure the following labs are completed
+- [Lab-0 - Configure JFrog CLI](../../lab-0-Configure-JFrog-CLI/)
+- [Lab-1 - Repository Provisioning](../../module1-artifactory-automation/lab-1-Repository-Provisioning/)
+- [Lab 3 - Build and Replication](../../module1-artifactory-automation/lab-3-Build-and-Replication/)
+
 ## Getting Started
 Purpose of the various terraform files used 
 
@@ -22,33 +28,37 @@ Purpose of the various terraform files used
 └── versions.tf - Contains required version information for terraform and providers
 ```
 
-Create a copy of the `sample.tfvars` and add in your custom values. **NOTE** - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
+**Step 1 -** Create a copy of the `sample.tfvars` and add in your custom values. **NOTE** - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
 ```
 cp sample.tfvars swampup.tfvars
 ```
 
+**Step 2 -** Modify the `swampup.tfvars` file with relevant values. 
+
 Below listed are the values for reference.
 ```
-JFROG_PLATFORM_URL="foo.jfrog.io" 
+JFROG_PLATFORM_URL="swampup17242726643.jfrog.io" 
 JFROG_PLATFORM_ACCESS_TOKEN="XXXXXX"
-JFROG_PROJECT_NAME="foobar123"
+JFROG_PROJECT_NAME="puser1"
 
-BUILDS_INDEX_LIST=["landing-npm-app"]
+BUILDS_INDEX_LIST=["demo-node-app"]
 ```
 
-Initialize terraform 
+**Step 3 -** Initialize terraform 
 ```
 tf init
 ```
 
-Generate terraform plan
+**Step 4 -** Generate terraform plan
 ```
 tf plan -var-file=swampup.tfvars
 ```
 
-Apply terraform changes
+**Step 5 -** Apply terraform changes
 ```
 tf apply -var-file=swampup.tfvars
 ```
 
-Let's move on to [repo config](../2_repo_config/)
+**Step 6 -** Navigate to the jfrog platform portal and view the list of indexed resources under `Administration tab --> Xray Settings --> Indexed Resources`
+
+#### Let's proceed with [repo config](../2_repo_config/)

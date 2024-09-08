@@ -7,7 +7,7 @@ Intro to Software Supply Chain security threats and JFrog's end to end security 
 - Xray Watch
 - Violation
 
-Lab - Security config  Automation - Using Terraform and JFrog CLI
+**Lab -** JFrog Security config  Automation - Using Terraform and JFrog CLI
 - Indexing config as code 
 - Repo config (retention days, adv sec) as code
 - Policy config as code
@@ -15,3 +15,8 @@ Lab - Security config  Automation - Using Terraform and JFrog CLI
 - JF Audit | Curation Audit | container image scan using JFrog CLI
 - SBOM Automation
 - report (license automation)
+
+Let's navigate to [js_security_config_as_code](./jf_security_config_as_code/)
+```
+cd jf_security_config_as_code
+```
