@@ -31,7 +31,8 @@ The content is broken down into the following sections to help with the flow.
 ├── lab1_resource_indexing
 ├── lab2_policies
 ├── lab3_watches
-└── lab4_repo_config
+├── lab4_repo_config
+└── lab5_shift_left_scans
 ```
 
 Each folder consists of the following files

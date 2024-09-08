@@ -54,4 +54,4 @@ tf plan -var-file=swampup.tfvars
 tf apply -var-file=swampup.tfvars
 ```
 
-#### Let's proceed with [Lab 4 - repo config](../lab4_repo_config/))
+#### Let's proceed with [Lab 4 - repo config](../lab4_repo_config/)

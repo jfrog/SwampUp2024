@@ -42,7 +42,7 @@ cat .jfrog/projects/npm.yaml
 Set the following values before proceeding
 ```
 export JF_PROJECT="" 
-export JF_INSTANCE="" 
+export JF_INSTANCE="swampup17242726643.jfrog.io" 
 export JF_BUILD_NAME="demo-node-app"
 export JF_BUILD_NUMBER="1.0.0"
 ```
