@@ -1,4 +1,0 @@
-!!python/object/new:tuple 
-- !!python/object/new:map 
-  - !!python/name:eval
-  - [ print("THIS PRINT COULD HAVE BEEN REMOTE CODE EXECUTION") ]

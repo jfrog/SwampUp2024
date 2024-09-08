@@ -1,0 +1,10 @@
+{
+  "name": "SeniorDeveloper",
+  "actions": [
+    "READ_REPOSITORY"
+  ],
+  "type": "CUSTOM",
+  "environments": [
+    "DEV"
+  ]
+}

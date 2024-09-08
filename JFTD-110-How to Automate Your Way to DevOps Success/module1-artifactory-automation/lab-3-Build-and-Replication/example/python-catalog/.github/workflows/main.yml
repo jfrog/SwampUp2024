@@ -1,0 +1,50 @@
+name: catalog-ci-job
+on: [push]
+  
+       
+jobs: 
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    env:
+      JF_URL: ${{ secrets.JF_URL }}
+      JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
+      MODULE_NAME: "pythonExample"
+      SERVER_ID: "rtsaas"
+      REPO: "auth-python-virtual"
+          
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - uses: actions/checkout@v3
+    - name: Setup JFrog CLI 
+      uses: jfrog/setup-jfrog-cli@v3.4.0
+    - name: JFrog CLI config
+      run: jf c add $SERVER_ID --url=$JF_URL --access-token=$JF_ACCESS_TOKEN --interactive=false
+    - name: Ping JFrog CLI
+      run: jf rt ping --server-id=$SERVER_ID
+    - name: Run Python build and publish
+      run: |
+        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=$REPO
+        # Build the python project
+        jf pip install -r requirements.txt --module=$MODULE_NAME 
+        jf pip install wheel
+        # Package the project, create distribution archives (tar.gz and whl):
+        python3 setup.py sdist bdist_wheel
+        jf rt u dist/ $REPO/pypi/ --module=$MODULE_NAME 
+        
+    - name: Publish Build-info to RT
+      run: |
+        # Add env vars
+        jf rt bce
+        # Collect VCS details from git and add them to the build
+        jf rt bag
+        #Publish build-info
+        jf rt bp
+            
+    - name: Build Scan
+      run: |
+        jf bs --fail=false

@@ -1,1 +1,0 @@
-items.find({"dependency.item.name":{"$match":"*log4j*"}})

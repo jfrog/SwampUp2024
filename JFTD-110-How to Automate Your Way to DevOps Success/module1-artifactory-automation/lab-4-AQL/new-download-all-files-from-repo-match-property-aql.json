@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "$and": [
+            {
+              "repo": "auth-npm-dev-local"
+            },
+            {
+              "@npm.name": { "$eq":  "frogsui"}
+            },
+            {
+              "@npm.version": { "$eq":  "0.3.0-11"}
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

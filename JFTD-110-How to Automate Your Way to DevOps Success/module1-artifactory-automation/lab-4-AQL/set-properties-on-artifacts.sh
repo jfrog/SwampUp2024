@@ -1,0 +1,12 @@
+echo "START - setting properties on MAVEN artifacts"
+jf rt sp "payment-maven-dev-local/*" "unit.test=null;integration.test=null;qa.code.quality.alert_status=ok;qa.code.quality.new_bugs=0;qa.code.quality.reliability_rating=0;qa.code.quality.new_vulnerabilities=0;qa.code.quality.security_rating=1;qa.code.quality.skipped_tests=0;ops.prod.ready=false;ops.qa.ready=true"
+jf rt sp "payment-maven-dev-local/*" "unit.test=null;integration.test=null;qa.code.quality.alert_status=ok;qa.code.quality.new_bugs=0;qa.code.quality.reliability_rating=0;qa.code.quality.new_vulnerabilities=0;qa.code.quality.security_rating=1;qa.code.quality.skipped_tests=0;ops.prod.ready=false;ops.qa.ready=true"
+jf rt sp "payment-maven-dev-local/spring-petclinic/2.5.0-SANPSHOT/spring-petclinic-2.5.0-20220328.121944-2.jar" "unit.test=pass;integration.test=pass;release.version=2.0.0;"
+jf rt sp "payment-maven-dev-local/org/jfrog/test/*" "unit.test=pass;integration.test=pass;release.version=2.0.0;"
+echo "END - setting properties on MAVEN artifacts"
+
+echo "START - setting properties on NPM artifacts"
+jf rt sp "auth-npm-dev-local/*" "unit.test=null;integration.test=null;qa.code.quality.alert_status=ok;qa.code.quality.new_bugs=0;qa.code.quality.reliability_rating=0;qa.code.quality.new_vulnerabilities=0;qa.code.quality.security_rating=1;qa.code.quality.skipped_tests=0;ops.prod.ready=false;ops.qa.ready=true"
+jf rt sp "auth-npm-dev-local/*" "unit.test=null;integration.test=null;qa.code.quality.alert_status=ok;qa.code.quality.new_bugs=0;qa.code.quality.reliability_rating=0;qa.code.quality.new_vulnerabilities=0;qa.code.quality.security_rating=1;qa.code.quality.skipped_tests=0;ops.prod.ready=false;ops.qa.ready=true"
+jf rt sp "auth-npm-dev-local/npm-example/-/npm-example-1.1.5.tgz" "unit.test=pass;integration.test=pass;release.version=2.0.0;"
+echo "END - setting properties on NPM artifacts"

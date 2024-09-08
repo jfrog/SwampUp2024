@@ -1,3 +1,0 @@
-[
-  {"key":"finapp-docker-dev-local","targetServerId":"${{target_server_id}}","targetRepoKey":"finapp-docker-dev-local"}
-]

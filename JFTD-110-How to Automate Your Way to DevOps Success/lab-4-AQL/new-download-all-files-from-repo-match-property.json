@@ -1,9 +1,0 @@
-{
-  "files": [
-    {
-      "pattern": "auth-npm-dev-local/*",
-      "target": "local-copy/",
-      "props": "unit.test=pass"
-    }
-  ]
-}

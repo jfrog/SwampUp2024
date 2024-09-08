@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "pattern": "auth-npm-dev-local/*",
+      "target": "local-copy/",
+      "build": "auth-npm/1.0.0"
+    }
+  ]
+}

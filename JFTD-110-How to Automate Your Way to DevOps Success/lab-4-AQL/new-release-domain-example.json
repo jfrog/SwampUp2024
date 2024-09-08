@@ -1,1 +1,0 @@
-releases.find({"release_artifact.item.name":{"$nmatch":"*jfrog*"}}).include("release_artifact.item").limit(5)
