@@ -134,5 +134,5 @@ dist
 # Jfrog config
 .jfrog
 
-# # locks
-# package-lock.json
+# locks
+package-lock.json

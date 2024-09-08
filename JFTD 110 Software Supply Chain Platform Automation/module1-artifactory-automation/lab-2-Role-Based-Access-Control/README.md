@@ -11,15 +11,15 @@ cd lab-2-Role-Based-Access-Control`
 
 ### Step 1: Set Environment Variables 
 You can set environment variables directly in your shell session
- ```bash 
- export baseUrl="https://your-jfrog-instance.com replace with your_jfrog_instance"
- ```
- ```bash 
- export project_key="replace with your_project"
- ```
- ```bash
-  export token="replace your_access_or_identity_token"
- ```
+```bash 
+export baseUrl="https://your-jfrog-instance.com replace with your_jfrog_instance"
+```
+```bash 
+export project_key="replace with your_project"
+```
+```bash
+export token="replace your_access_or_identity_token"
+```
 
 ### Step 2: Get Project Details
  ```bash 
@@ -77,7 +77,7 @@ curl -XPUT "${JFROG_PLATFORM}/access/api/v1/projects/${projectKey}/roles/SeniorD
 -d "@update-role.json"
   ```
 
-Let's jump into [lab 3 - Build and Replication](../lab-3-Build-and-Replication/)
+#### Let's jump into [lab 3 - Build and Replication](../lab-3-Build-and-Replication/)
 
 ## [Optional]
 

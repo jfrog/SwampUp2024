@@ -71,7 +71,7 @@ To add configuration for an edge node, use the following command:
 jf config add swampupedge --artifactory-url=https://$JFROG_EDGE/artifactory --user=$ADMIN_USER --password=$ADMIN_PASSWORD --interactive=false
 ```
 
-Let's get started with [Module 1 - Artifactory Automation](../module1-artifactory-automation/)!
+#### Let's get started with [Module 1 - Artifactory Automation](../module1-artifactory-automation/)!
 
 ## Optional Challenge: Export and Import JFrog CLI Configurations
 
