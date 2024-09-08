@@ -5,7 +5,6 @@ Intro to the JFrog Software Supply Chain Platform
 - Platform Automation Overview
 - Deep dive on JFrog Artifactory
 
-
 Lab - Onboarding automation & Build automation - Using JFrog CLI and API
 - [lab-1-Repository-Provisioning](./lab-1-Repository-Provisioning/)
 - [lab-2-Role-Based-Access-Control](./lab-2-Role-Based-Access-Control/)

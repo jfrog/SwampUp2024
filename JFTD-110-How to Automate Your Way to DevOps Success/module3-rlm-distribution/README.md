@@ -1,4 +1,4 @@
-# [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](../../JFTD%20110%20Software%20Supply%20Chain%20Platform%20Automation/) 🐸
+# [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](../../JFTD-110-How%20to%20Automate%20Your%20Way%20to%20DevOps%20Success/) 🐸
 
 ## Module 3 - JFrog Release Lifecycle Management (RLM) and Distribution
 Intro to Release Lifecycle Management (RLM) and Distribution
