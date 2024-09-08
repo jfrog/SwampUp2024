@@ -61,4 +61,4 @@ tf apply -var-file=swampup.tfvars
 
 **Step 6 -** Navigate to the jfrog platform portal and view the list of indexed resources under `Administration tab --> Xray Settings --> Indexed Resources`
 
-#### Let's proceed with [repo config](../lab2_policies/)
+#### Let's proceed with [Lab 2 - Policies](../lab2_policies/)
