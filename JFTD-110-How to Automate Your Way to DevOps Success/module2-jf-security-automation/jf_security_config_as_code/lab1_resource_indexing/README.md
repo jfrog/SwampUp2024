@@ -1,4 +1,4 @@
-# 1 - JFrog Xray Resource Indexing - Repos, Builds, Release Bundles
+# Lab 1 - JFrog Xray Resource Indexing - Repos, Builds, Release Bundles
 
 The terraform (tf) resources in this folder will help managing the JFrog Xray indexing list for repos, builds, and release bundles.
 

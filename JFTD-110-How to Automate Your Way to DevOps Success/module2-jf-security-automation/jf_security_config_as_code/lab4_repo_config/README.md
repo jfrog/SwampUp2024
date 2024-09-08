@@ -1,4 +1,4 @@
-# 2 - JFrog Xray Indexed Repo config 
+# Lab 4 - JFrog Xray Indexed Repo config 
 
 The terraform (tf) resources in this folder will help you manage config of indexed repositories.
 
@@ -9,8 +9,8 @@ The terraform (tf) resources in this folder will help you manage config of index
 
 ### Prerequisites
 Before proceeding please ensure the following labs are completed
-- [1_resource_indexing](../1_resource_indexing/)
-  
+- [lab1_resource_indexing](../lab1_resource_indexing/)
+
 ## Getting Started
 Purpose of the various terraform files used 
 
@@ -60,5 +60,3 @@ tf plan -var-file=swampup.tfvars
 ```
 tf apply -var-file=swampup.tfvars
 ```
-
-#### Let's proceed with [Xray Policy Creation](../3_policies/)

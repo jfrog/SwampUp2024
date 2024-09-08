@@ -1,4 +1,4 @@
-# 4 - JFrog Xray Indexed Repo config 
+# Lab 3 - JFrog Xray Indexed Repo config 
 
 The terraform (tf) resources in this folder will help you map JFrog Xray security, license, and operational risk policies to different jfrog resources (repos, builds, release bundles).
 
@@ -6,8 +6,8 @@ The terraform (tf) resources in this folder will help you map JFrog Xray securit
   
 ### Prerequisites
 Before proceeding please ensure the following labs are completed
-- [1_resource_indexing](../1_resource_indexing/)
-  
+- [lab1_resource_indexing](../lab1_resource_indexing/)
+- [lab2_policies](../lab2_policies/)
 ## Getting Started
 Purpose of the various terraform files used 
 
