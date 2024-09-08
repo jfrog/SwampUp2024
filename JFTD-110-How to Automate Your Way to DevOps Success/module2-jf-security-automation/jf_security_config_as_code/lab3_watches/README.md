@@ -4,6 +4,10 @@ The terraform (tf) resources in this folder will help you map JFrog Xray securit
 
 - [Xray Watches (xray_watch)](https://registry.terraform.io/providers/jfrog/xray/latest/docs/resources/watch)
   
+### Prerequisites
+Before proceeding please ensure the following labs are completed
+- [1_resource_indexing](../1_resource_indexing/)
+  
 ## Getting Started
 Purpose of the various terraform files used 
 
@@ -15,29 +19,38 @@ Purpose of the various terraform files used
 └── versions.tf - Contains required version information for terraform and providers
 ```
 
-Create a copy of the `sample.tfvars` and add in your custom values. NOTE - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
+**Step 1 -** Create a copy of the `sample.tfvars` and add in your custom values. **NOTE** - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
 ```
 cp sample.tfvars swampup.tfvars
 ```
 
+**Step 2 -** Modify the `swampup.tfvars` file with relevant values. 
+
 Below listed are the values for reference.
 ```
-JFROG_PLATFORM_URL="foo.jfrog.io" 
+JFROG_PLATFORM_URL="swampup17242726643.jfrog.io" 
 JFROG_PLATFORM_ACCESS_TOKEN="XXXXXX"
-JFROG_PROJECT_NAME="foobar123"
+
+JFROG_PROJECT_NAME="puser1"
+
+EMAIL_LIST_XRAY_VIOLATION=[""]
+
+ACTIVATE_POLICIES=false
 ```
 
-Initialize terraform 
+**Step 3 -** Initialize terraform 
 ```
 tf init
 ```
 
-Generate terraform plan
+**Step 4 -** Generate terraform plan
 ```
 tf plan -var-file=swampup.tfvars
 ```
 
-Apply terraform changes
+**Step 5 -** Apply terraform changes
 ```
 tf apply -var-file=swampup.tfvars
 ```
+
+#### Let's proceed with [Lab 4 - repo config](../lab4_repo_config/))

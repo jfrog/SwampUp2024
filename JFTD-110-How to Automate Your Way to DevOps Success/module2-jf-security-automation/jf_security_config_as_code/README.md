@@ -28,10 +28,10 @@ Before proceeding please ensure the following labs are completed
 ## Getting Started
 The content is broken down into the following sections to help with the flow.
 ```
-├── 1_resource_indexing
-├── 2_repo_config
-├── 3_policies
-└── 4_watches
+├── lab1_resource_indexing
+├── lab2_policies
+├── lab3_watches
+└── lab4_repo_config
 ```
 
 Each folder consists of the following files
@@ -52,7 +52,7 @@ if not installed then download or refer to the [executables folder](../executabl
 - [JFrog CLI version 2.67.0](https://jfrog.com/getcli/)
 - [Terraform CLI version 1.8.5](https://releases.hashicorp.com/terraform/1.8.5/)
 
-Let's jump into [resource indexing](./1_resource_indexing/)
+Let's jump into [Lab 1 - Resource Indexing](./lab1_resource_indexing/)
 ```
-cd 1_resource_indexing
+cd lab1_resource_indexing
 ```

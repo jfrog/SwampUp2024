@@ -8,6 +8,10 @@ The terraform (tf) resources in this folder will help you manage JFrog Xray secu
   
 - [Operation Risk Policy as Code (xray_operational_risk_policy)](https://registry.terraform.io/providers/jfrog/xray/latest/docs/resources/security_policy)
 
+### Prerequisites
+Before proceeding please ensure the following labs are completed
+- [1_resource_indexing](../1_resource_indexing/)
+  
 ## Getting Started
 Purpose of the various terraform files used 
 
@@ -19,31 +23,40 @@ Purpose of the various terraform files used
 └── versions.tf - Contains required version information for terraform and providers
 ```
 
-Create a copy of the `sample.tfvars` and add in your custom values. NOTE - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
+**Step 1 -** Create a copy of the `sample.tfvars` and add in your custom values. **NOTE** - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
 ```
 cp sample.tfvars swampup.tfvars
 ```
 
+**Step 2 -** Modify the `swampup.tfvars` file with relevant values. 
+
 Below listed are the values for reference.
 ```
-JFROG_PLATFORM_URL="foo.jfrog.io" 
+JFROG_PLATFORM_URL="swampup17242726643.jfrog.io" 
 JFROG_PLATFORM_ACCESS_TOKEN="XXXXXX"
-JFROG_PROJECT_NAME="foobar123"
+
+JFROG_PROJECT_NAME="puser1"
+
+EMAIL_LIST_XRAY_VIOLATION=[""]
+
+CVE_IDS_BLOCK_LIST=["CVE-2021-44228","CVE-2021-45046","CVE-2021-45046","CVE-2022-42475","CVE-2023-38831","CVE-2024-26234"]
+
+BANNED_LICENSE_LIST=["GPL-2.0","GPL-3.0","LGPL-2.1","LGPL-3.0","AGPL-3.0-or-later"]
 ```
 
-Initialize terraform 
+**Step 3 -** Initialize terraform 
 ```
 tf init
 ```
 
-Generate terraform plan
+**Step 4 -** Generate terraform plan
 ```
 tf plan -var-file=swampup.tfvars
 ```
 
-Apply terraform changes
+**Step 5 -** Apply terraform changes
 ```
 tf apply -var-file=swampup.tfvars
 ```
 
-Let's move on to [Attaching policies to resources using watches](../4_watches/))
+#### Let's proceed with [Lab 3 - attaching policies to resources using watches](../lab3_watches/))

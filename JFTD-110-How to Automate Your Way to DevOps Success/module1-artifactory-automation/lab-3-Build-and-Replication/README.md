@@ -74,7 +74,6 @@ jf docker push $JF_INSTANCE.jfrog.io/$JF_PROJECT-demonodeapp-docker-dev-virtual/
 
 **Step 7 -** Gather the build dependencies, environment variables, and git information.
 ```
-jf rt build-add-dependencies $JF_BUILD_NAME $JF_BUILD_NUMBER --project $JF_PROJECT ./node_modules
 jf rt build-add-git $JF_BUILD_NAME $JF_BUILD_NUMBER --project $JF_PROJECT
 jf rt build-collect-env $JF_BUILD_NAME $JF_BUILD_NUMBER --project $JF_PROJECT
 ```

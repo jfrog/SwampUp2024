@@ -7,6 +7,10 @@ The terraform (tf) resources in this folder will help you manage config of index
 > **NOTE**
 > Modifications to the indexed repos config will need privileged access
 
+### Prerequisites
+Before proceeding please ensure the following labs are completed
+- [1_resource_indexing](../1_resource_indexing/)
+  
 ## Getting Started
 Purpose of the various terraform files used 
 
@@ -18,40 +22,43 @@ Purpose of the various terraform files used
 └── versions.tf - Contains required version information for terraform and providers
 ```
 
-Create a copy of the `sample.tfvars` and add in your custom values. NOTE - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
+**Step 1 -** Create a copy of the `sample.tfvars` and add in your custom values. **NOTE** - all `.tfvars` files will be git ignored except `sample.tfvars`. Please do not modify sample.tfvars
 ```
 cp sample.tfvars swampup.tfvars
 ```
 
+**Step 2 -** Modify the `swampup.tfvars` file with relevant values. 
+
 Below listed are the values for reference.
 ```
-JFROG_PLATFORM_URL="foo.jfrog.io" 
+JFROG_PLATFORM_URL="swampup17242726643.jfrog.io" 
 JFROG_PLATFORM_ACCESS_TOKEN="XXXXXX"
 
-REPO_NAME_LIST=["swampup-docker-dev-local","swampup-npm-dev-local"]
+REPO_NAME_LIST=[""]
 
+## default
 JAS_ENABLED=true
 VULN_CONTEXTUAL_ANALYSIS_STATUS=true
 EXP_SCAN_SECRETS_STATUS=true
 EXP_SCAN_IAC_STATUS=true
 EXP_SCAN_SERVICES_STATUS=true
 EXP_SCAN_APPLICATIONS_STATUS=true
-XRAY_SCAN_DATA_RETENTION_DAYS=180
+XRAY_SCAN_DATA_RETENTION_DAYS=365
 ```
 
-Initialize terraform 
+**Step 3 -** Initialize terraform 
 ```
 tf init
 ```
 
-Generate terraform plan
+**Step 4 -** Generate terraform plan
 ```
 tf plan -var-file=swampup.tfvars
 ```
 
-Apply terraform changes
+**Step 5 -** Apply terraform changes
 ```
 tf apply -var-file=swampup.tfvars
 ```
 
-Let's move on to [Xray Policy Creation](../3_policies/)
+#### Let's proceed with [Xray Policy Creation](../3_policies/)
