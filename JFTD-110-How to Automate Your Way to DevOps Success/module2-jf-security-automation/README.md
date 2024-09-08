@@ -1,4 +1,4 @@
-# [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](../../JFTD%20110%20Software%20Supply%20Chain%20Platform%20Automation/) 🐸
+# [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](../../JFTD-110-How%20to%20Automate%20Your%20Way%20to%20DevOps%20Success/) 🐸
 
 ## Module 2 - JFrog SSC Security Automation
 Intro to Software Supply Chain security threats and JFrog's end to end security overview 

@@ -1,6 +1,8 @@
-# Lab 0 - Configure JFrog CLI 🐸
+# [110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale](../../JFTD-110-How%20to%20Automate%20Your%20Way%20to%20DevOps%20Success/) 🐸
 
-## Prerequisites
+## Lab 0 - Configure JFrog CLI 🐸
+
+### Prerequisites
 
 Ensure that JFrog CLI is installed on your machine.
 
