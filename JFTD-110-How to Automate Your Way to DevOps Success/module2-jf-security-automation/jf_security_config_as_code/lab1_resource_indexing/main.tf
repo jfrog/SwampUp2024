@@ -6,7 +6,7 @@ provider "xray" {
 resource "xray_binary_manager_builds" "build_index_config_default" {
   id              = "default"
   project_key     = "${var.JFROG_PROJECT_NAME}"
-  indexed_builds  = "${var.BUILDS_INDEX_LIST}"
+  indexed_builds  = var.BUILDS_INDEX_LIST
 }
 
 # Skipped as repos are already indexed 

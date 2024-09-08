@@ -8,6 +8,7 @@ The terraform (tf) resources in this folder will help you map JFrog Xray securit
 Before proceeding please ensure the following labs are completed
 - [lab1_resource_indexing](../lab1_resource_indexing/)
 - [lab2_policies](../lab2_policies/)
+
 ## Getting Started
 Purpose of the various terraform files used 
 
