@@ -137,7 +137,7 @@ chmod 755 repo_bootstrap*.sh
 sh repo_bootstrap.sh
 ```
 
-### let's proceed with [lab 2 - Role based access control](../lab-2-Role-Based-Access-Control/)
+#### let's proceed with [lab 2 - Role based access control](../lab-2-Role-Based-Access-Control/)
 
 ## CHALLENGE - Update Repository [Optional]
 - Disable indexing in Xray for one repository we created above

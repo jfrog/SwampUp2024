@@ -1,6 +1,6 @@
 # 110 - Software Supply Chain Platform Automation - Create, Distribute, and Automate at Scale 🐸
 
-## [Module 1 - JFrog Platform Automation](./module1-artifactory-automation/)
+## [Module 1 - JFrog SSC Platform Automation](./module1-artifactory-automation/)
 Intro to the JFrog Software Supply Chain Platform
 - Platform Automation Overview
 - Deep dive on JFrog Artifactory
@@ -11,7 +11,7 @@ Lab - Onboarding automation & Build automation - Using JFrog CLI and API
 - Projects and Environments
 - Builds publish
 
-## [Module 2 - JFrog Security Automation](./module2-jf-security-automation/)
+## [Module 2 - JFrog SSC Security Automation](./module2-jf-security-automation/)
 Intro to SSC Security and Threats High Level on JFrog's Capabilities (Curation, Shift Left, SCA, Advanced, Runtime)
 - Index Resources (Repos, Builds, RB)
 - Policy 
@@ -34,7 +34,7 @@ Intro to Release Lifecycle Management (RLM) and Distribution
 - Promotion
 - Distribution
 
-Lab - Security config  Automation - Using JFrog CLI
+Lab - RLM and Distribution - Using JFrog CLI
 - Release Bundle Management
 - Build Promotion Automation
 - Secure distribution
