@@ -11,7 +11,7 @@ Lab - Onboarding automation & Build automation - Using JFrog CLI and API
 - Projects and Environments
 - Builds publish
 
-## [Module 2 - JFrog SSC Security](./module2-security/)
+## [Module 2 - JFrog Security Automation](./module2-jf-security-automation/)
 Intro to SSC Security and Threats High Level on JFrog's Capabilities (Curation, Shift Left, SCA, Advanced, Runtime)
 - Index Resources (Repos, Builds, RB)
 - Policy 
