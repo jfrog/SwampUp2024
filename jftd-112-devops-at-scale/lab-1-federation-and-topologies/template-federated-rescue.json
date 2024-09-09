@@ -4,6 +4,5 @@
   "rclass": "${repo-type}",
   "repoLayoutRef": "${repo-layout}",
   "environments":"${env}",
-  "xrayIndex": "${xray-enable}",
-  "priorityResolution": "${priorityResolution}"
+  "xrayIndex": "${xray-enable}"
 }
