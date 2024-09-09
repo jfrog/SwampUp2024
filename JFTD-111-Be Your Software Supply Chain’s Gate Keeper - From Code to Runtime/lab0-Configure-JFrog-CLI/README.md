@@ -1,6 +1,6 @@
 # Lab 0: Tools Installation & Validation
 
-EC2s will be available.
+Your 
 Terminal app installation is told a head of time
 
 ## JFrog CLI setup
@@ -40,7 +40,11 @@ Verify you have a working installation of `git`: `git -v`.  If you don't have `g
 [Linux Installation Options](https://git-scm.com/download/linux)
 
 ## NPM Installation
-[Installation guidance](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-### Windows
-### macOS
-### Linux
+* [Installation guidance](https://nodejs.org/en/download/package-manager)
+* Once Node and NPM is installed run the following commands in your terminal to validate:
+```bash
+node --version
+npm --version
+```
+
+## Clone

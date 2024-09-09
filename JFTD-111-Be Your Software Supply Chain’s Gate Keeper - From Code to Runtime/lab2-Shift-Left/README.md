@@ -7,11 +7,9 @@ your preferred IDE isn't either of these two, we recommend installing VSCode to 
 #### 1.1. VSCode Plugin
 1.1.1. Install The Jfrog extension in VS Code  as mentioned in [JFrog - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension)
 
-1.1.2. Open npm-vulnerable-example project in the folder example on VS Code 
+1.1.2. Navigate to Extension tab and look up `JFrog` > Click `Install`
 
-1.1.3. Navigate to Extension tab and look up `JFrog` > Click `Install`
-
-1.1.4. Configure Jfrog extension of VS Code - the URL for the Course JFrog Platform instance will be provided, along with your username and password
+1.1.3. Configure Jfrog extension of VS Code - the URL for the Course JFrog Platform instance will be provided, along with your username and password
 
 #### 1.2. IntelliJ Plugin
 1.2.1. Navigate to Settings > Plugins > Marketplace and enter `JFrog`.
@@ -24,10 +22,10 @@ your preferred IDE isn't either of these two, we recommend installing VSCode to 
 1.2.4. Add in your Username and Password to the Workshop instance of JFrog Cloud
 
 #### 1.3. Open a new Editor instance
-1.3.1. Open a new project window or instance specifically on the `./sample-app` directory.  This is intended to help clearly show this course's sample app's results instead of the other courses' projects.  The results are much easier to review in the context of this course.
+1.3.1. Open a new project window or instance specifically on the sample app directory.  The full path from the repository root is `JFTD-111-Be Your Software Supply Chain’s Gate Keeper - From Code to Runtime/sample-app` This is intended to help clearly show this course's sample app's results instead of the other courses' projects.  In other words should should have a clean IDE project window with _just_ the sample app's file and folders.
 
 ## 2. Scan the Sample Project with the IDE Plugin
-2.0  In order to get the full experience of the JFrog IDE Plugin, the project needs to have it's dependencies resolved and present in the `./sampe-app/node_modules` folder.  If you haven't already built this project in Lab 1, please do so now with the following command:
+2.0  In order to get the full experience of the JFrog IDE Plugin, the project needs to have its dependencies resolved and present in the `./sampe-app/node_modules` folder.  If you haven't already built this project in Lab 1, please do so now with the following command:
 ```bash
 jf npm install
 ```
@@ -49,12 +47,12 @@ Plugin, is being able to mitigate security risk early in the development cycle. 
 (Applicability) offered by Jfrog Advanced Security can direct a developer precisely where and how to patch security 
 vulnerabilities.  Let's take it for a test drive!
 
-3.1. Select the CVE associated with the `lodash:3.10.1` package that was determined to be applicable.
+3.1. With the JFrog Plugin selected in either VSCode or IntelliJ, expand the scan results for `package.json`, and then expand the results for the dependency `lodash:3.10.1`.  Select the CVE associated with the `lodash:3.10.1` package that was determined to be applicable.
 
-3.2. Can you spot the Applicability evidence for this applicable CVE?  Where should we look to remediate?  How 
+3.2. Can you spot the Applicability evidence for `CVE-2019-10744`?  Where should we look to remediate?  How 
 should we remediate?
 
-3.3. Go ahead and implement the fix by uncommenting line 26 in `./sample-app/index.js` on line 9 and _save the file_ if you're running VSCode.  IntelliJ users don't need to save the file for the changes to persist.
+3.3. Go ahead and implement the fix by uncommenting line 9 in `./sample-app/index.js` and _save the file_ if you're running VSCode.  IntelliJ users don't need to save the file for the changes to persist.
 
 3.4. Re-run the JFrog Plugin scan.  Is your issue still applicable?
 
