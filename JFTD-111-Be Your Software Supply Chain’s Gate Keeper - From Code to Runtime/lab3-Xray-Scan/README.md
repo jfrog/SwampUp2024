@@ -68,7 +68,6 @@ jf rt bp --project <your-project-name> <your-build-name> 2
   * Under `Rule Types` Select `CVEs` under Rule Type, 
   * Under `Rule Category` select `Minimal Severity`.
   * In the Drop-Down for `Minimal Severity`, select `High`
-  * Check both boxes for "Except if a fix version is not available" & "Skip Not Applicable CVEs".
   * When completed, click `Save Rule`.
 
 3.6 Once the rule is saved, click "Save Policy" in the lower right.
@@ -117,12 +116,6 @@ Based on one of the findings in the XRay Policy let's pick a Vulnerability to re
 6.8 Once you have run and published your build, XRay will automatically scan this new build.  After a few minutes, take a look at the results and see if `CVE-2018-3728` is still present in your scan results.
 
 6.9 As a suggestion, in the main "Scans" page for your specific build, do you notice anything interesting in the "Build Trends" visualization?
-
-## 7. (Optional) Scan the build locally with XRay after it's been published to Artifactory
-7.1 Scan the build info on your local machine with XRay:
-```bash
-jf bs <your-build-name> 2 --extended-table=true --vuln
-```
 
 # Quick Start To Quickly Advance to the Required End State of this Lab
 1. Index the build that was published to Artifactory in Lab 1.

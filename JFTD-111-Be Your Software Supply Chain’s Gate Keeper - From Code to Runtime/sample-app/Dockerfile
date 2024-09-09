@@ -1,5 +1,5 @@
 # Create image based on the official Node image from dockerhub
-FROM tomjfrog.jfrog.io/su24-app-docker-virtual/node:lts-buster
+FROM <your-course-instance>/<docker-virtual-repo-name>/node:lts-buster
 
 # Create app directory
 WORKDIR /usr/src/app
