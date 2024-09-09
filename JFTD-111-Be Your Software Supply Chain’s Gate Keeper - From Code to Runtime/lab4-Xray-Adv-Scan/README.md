@@ -1,15 +1,20 @@
 # JFrog Advanced Security Scan
 ## 0. Pre Reqs
 0.1. Docker installed on local machine
+
 0.2. Docker Local, Remote and Virtual
+
+
 0.3. Note the name of your virtual Docker repo
 
 ## 1. Create Docker Local, Remote and Virtual Repos
 In your Project context, create new repositories for Docker.
 
 1.1. In your project context, go to `Administration -> Resources -> Create Repository`, click Local Repository.  Name the new repo `<project-prefix>-docker-local` and keep the defaults
-1.1. In your project context, go to `Administration -> Resources -> Create Repository`, click Remote Repository.  Name the new repo `<project-prefix>-docker-remote` and keep the defaults
-1.1. In your project context, go to `Administration -> Resources -> Create Repository`, click Virtual Repository.  Name the new repo `<project-prefix>-docker-virtual`.  Add the two previously-created repos as members of the Virtual repository.  Add `<project-prefix>-docker-local` as the "Deafult Deployment Repository".  Leave all other values at default.
+
+1.2. In your project context, go to `Administration -> Resources -> Create Repository`, click Remote Repository.  Name the new repo `<project-prefix>-docker-remote` and keep the defaults
+
+1.3. In your project context, go to `Administration -> Resources -> Create Repository`, click Virtual Repository.  Name the new repo `<project-prefix>-docker-virtual`.  Add the two previously-created repos as members of the Virtual repository.  Add `<project-prefix>-docker-local` as the "Deafult Deployment Repository".  Leave all other values at default.
 
 ## 2. Build Docker Image from Sample App
 Let's build a Docker image that we can scan with JFrog Advanced Security
