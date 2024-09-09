@@ -3,7 +3,7 @@
 ### Agenda
 - Lab 0 - Configure JFrog CLI
 - LAB 1 - Federation and Topologies
-- LAB 2 - Release Liftcycle Management and Distribution Patterns
+- LAB 2 - Release Lifecycle Management and Distribution Patterns
 
 
 <br/>
