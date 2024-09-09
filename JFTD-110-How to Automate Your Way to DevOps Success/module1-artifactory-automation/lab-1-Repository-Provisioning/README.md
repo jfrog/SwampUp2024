@@ -5,7 +5,16 @@
 
 
 ## CREATE REPOSITORY TEMPLATE
-### Step 1: Run the following command to create a local repository template:
+
+### Step 1: Update project config
+Ensure you are in the right folder - `SwampUp2024/JFTD-110-How to Automate Your Way to DevOps Success/module1-artifactory-automation/lab-1-Repository-Provisioning`
+
+Update the `projectKey` value in your `project.json` file with your unique project name `puser--`
+```
+vi project.json
+```
+
+### Step 2: Run the following command to create a local repository template:
   ```bash
   jf rt repo-template template-local.json
   ```
@@ -37,7 +46,7 @@
     }
     ```
 
-### Step 2: Run the following command to create a remote repository template:
+### Step 3: Run the following command to create a remote repository template:
 ```bash
 jf rt repo-template template-remote.json
 ```
@@ -71,7 +80,7 @@ jf rt repo-template template-remote.json
     }
     ```
 
-### Step 3: Run the following command to create a virtual repository template:
+### Step 4: Run the following command to create a virtual repository template:
 ```bash
 jf rt repo-template template-virtual.json
 ```        
@@ -111,7 +120,7 @@ jf rt repo-template template-virtual.json
     ```
 
 ## CREATE REPOSITORY
-### Step 4: Run the template one after the other to create local, remote, and virtual repositories.
+### Step 5: Run the template one after the other to create local, remote, and virtual repositories.
 ```bash
 jf rt repo-create template-{{ local|remote|virtual }}.json
 ```
@@ -130,7 +139,8 @@ jf rt rc template-local.json --var "repo-name=sup016-npm-qa-local"
 We are going to run this for local and remote repository. For virtual please skip this step and proceed with next step.
 
 
-## Demo App Repo Bootstrap - Prerequisites for future labs [MUST]
+## Step 6: Demo App Repo Bootstrap - Prerequisites for future labs [MUST]
+
 Run the following `repo_bootstrap.sh` script to all local, remote, and virtual repositories needed for 
 ```bash
 chmod 755 repo_bootstrap*.sh
