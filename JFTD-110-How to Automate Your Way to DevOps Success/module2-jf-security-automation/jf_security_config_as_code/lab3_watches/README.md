@@ -10,6 +10,8 @@ Before proceeding please ensure the following labs are completed
 - [lab2_policies](../lab2_policies/)
 
 ## Getting Started
+Ensure you are in the right folder - `SwampUp2024/JFTD-110-How to Automate Your Way to DevOps Success/module2-jf-security-automation/jf_security_config_as_code/lab3_watches`
+
 Purpose of the various terraform files used 
 
 ```
@@ -26,13 +28,16 @@ cp sample.tfvars swampup.tfvars
 ```
 
 **Step 2 -** Modify the `swampup.tfvars` file with relevant values. 
+```
+vi swampup.tfvars
+```
 
 Below listed are the values for reference.
 ```
 JFROG_PLATFORM_URL="swampup17242726643.jfrog.io" 
 JFROG_PLATFORM_ACCESS_TOKEN="XXXXXX"
 
-JFROG_PROJECT_NAME="puser1"
+JFROG_PROJECT_NAME="puser--"
 
 EMAIL_LIST_XRAY_VIOLATION=[""]
 
@@ -41,17 +46,17 @@ ACTIVATE_POLICIES=false
 
 **Step 3 -** Initialize terraform 
 ```
-tf init
+terraform init
 ```
 
 **Step 4 -** Generate terraform plan
 ```
-tf plan -var-file=swampup.tfvars
+terraform plan -var-file=swampup.tfvars
 ```
 
 **Step 5 -** Apply terraform changes
 ```
-tf apply -var-file=swampup.tfvars
+terraform apply -var-file=swampup.tfvars
 ```
 
 #### Let's proceed with [Lab 4 - repo config](../lab4_repo_config/)

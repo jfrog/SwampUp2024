@@ -12,6 +12,8 @@ Before proceeding please ensure the following labs are completed
 - [lab1_resource_indexing](../lab1_resource_indexing/)
 
 ## Getting Started
+Ensure you are in the right folder - `SwampUp2024/JFTD-110-How to Automate Your Way to DevOps Success/module2-jf-security-automation/jf_security_config_as_code/lab4_repo_config`
+
 Purpose of the various terraform files used 
 
 ```
@@ -27,7 +29,10 @@ Purpose of the various terraform files used
 cp sample.tfvars swampup.tfvars
 ```
 
-**Step 2 -** Modify the `swampup.tfvars` file with relevant values. 
+**Step 2 -** Modify the `swampup.tfvars` file with relevant values.
+```
+vi swampup.tfvars
+```
 
 Below listed are the values for reference.
 ```
@@ -48,15 +53,15 @@ XRAY_SCAN_DATA_RETENTION_DAYS=365
 
 **Step 3 -** Initialize terraform 
 ```
-tf init
+terraform init
 ```
 
 **Step 4 -** Generate terraform plan
 ```
-tf plan -var-file=swampup.tfvars
+terraform plan -var-file=swampup.tfvars
 ```
 
 **Step 5 -** Apply terraform changes
 ```
-tf apply -var-file=swampup.tfvars
+terraform apply -var-file=swampup.tfvars
 ```
