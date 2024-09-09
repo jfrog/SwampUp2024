@@ -13,4 +13,4 @@ sh create_virtual_repos.sh
 # Commenting it out as it is not required for the lab
 #jf rt curl -XPUT "/api/repositories/aws-tf-local" -H "Content-Type: application/json" -d "@createTerraformRepo.json"
 
-sh repo_bootstrap_for_edge.sh
+# sh repo_bootstrap_for_edge.sh

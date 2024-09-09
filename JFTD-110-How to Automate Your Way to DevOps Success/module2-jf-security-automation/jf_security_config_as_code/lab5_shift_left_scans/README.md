@@ -8,17 +8,24 @@ Before proceeding please ensure the following labs are completed
 
 ## Getting Started
 
-Set the following values before proceeding
-```
-export JF_PROJECT="" 
-export JF_INSTANCE="swampup17242726643.jfrog.io" 
-export JF_BUILD_NAME="demo-node-app"
-export JF_BUILD_NUMBER="1.0.0"
-```
-
 Navigate to the [example demo-node-app](../../../module1-artifactory-automation/lab-3-Build-and-Replication/example/demo-node-app/) directory used in Module 1 - Artifactory Automation, Lab 3 Build and Replication.
 ```
 cd SwampUp2024/JFTD-110-How to Automate Your Way to DevOps Success/module1-artifactory-automation/lab-3-Build-and-Replication/example/demo-node-app
+```
+
+
+Set the `JF_PROJECT` value to your unique project key before proceeding
+```
+export JF_PROJECT="puser--"
+```
+```
+export JF_INSTANCE="swampup17242726643.jfrog.io"
+```
+```
+export JF_BUILD_NAME="demo-node-app"
+```
+```
+export JF_BUILD_NUMBER="1.0.0"
 ```
 
 ### JF Audit
@@ -39,5 +46,5 @@ JFrog Curation defends your software supply chain, enabling early blocking of ma
 The 'curation-audit' is a JFrog CLI command designed for developers to scan their projects and identify third-party dependencies that violate the restrictions set by the Curation service. 
 
 ```
-jf curation audit
+jf curation-audit
 ```

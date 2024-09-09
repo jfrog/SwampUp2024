@@ -12,6 +12,8 @@ Below are the instructions for [NPM](#npm---package-manager-integration) and [Ma
 
 ### NPM and Docker - Package Manager Integration
 
+Ensure you are in the right folder - `SwampUp2024/JFTD-110-How to Automate Your Way to DevOps Success/module1-artifactory-automation/lab-3-Build-and-Replication/example/demo-node-app`
+
 **Step 1 -** Navigate into the demo-node-app under `lab-3-Build-and-Replicate/example-project/demo-node-app`
 ```
 cd lab-3-Build-and-Replicate/example-project/demo-node-app
@@ -39,11 +41,17 @@ cat .jfrog/projects/npm.yaml
 
 **Step 3 -** Build the npm app by passing in the build name and build number.
 
-Set the following values before proceeding
+Set the `JF_PROJECT` value to your unique project key before proceeding
 ```
-export JF_PROJECT="" 
-export JF_INSTANCE="swampup17242726643.jfrog.io" 
+export JF_PROJECT="puser--"
+```
+```
+export JF_INSTANCE="swampup17242726643.jfrog.io"
+```
+```
 export JF_BUILD_NAME="demo-node-app"
+```
+```
 export JF_BUILD_NUMBER="1.0.0"
 ```
 
@@ -64,12 +72,12 @@ On successful upload you should should be able to view the artifact under the np
 
 **Step 5 -** Perform a docker image build using the `dockerfile` placed under the same folder.
 ```
-jf docker build -t $JF_INSTANCE.jfrog.io/$JF_PROJECT-demonodeapp-docker-dev-virtual/$JF_BUILD_NAME:$JF_BUILD_NUMBER --build-name $JF_BUILD_NAME --build-number $JF_BUILD_NUMBER --module docker-build --project $JF_PROJECT .
+jf docker build -t $JF_INSTANCE/$JF_PROJECT-demonodeapp-docker-dev-virtual/$JF_BUILD_NAME:$JF_BUILD_NUMBER --build-name $JF_BUILD_NAME --build-number $JF_BUILD_NUMBER --module docker-build --project $JF_PROJECT .
 ```
 
 **Step 6 -** Publish the docker image to artifactory.
 ```
-jf docker push $JF_INSTANCE.jfrog.io/$JF_PROJECT-demonodeapp-docker-dev-virtual/$JF_BUILD_NAME:$JF_BUILD_NUMBER --build-name $JF_BUILD_NAME --build-number $JF_BUILD_NUMBER --module docker-build --project $JF_PROJECT
+jf docker push $JF_INSTANCE/$JF_PROJECT-demonodeapp-docker-dev-virtual/$JF_BUILD_NAME:$JF_BUILD_NUMBER --build-name $JF_BUILD_NAME --build-number $JF_BUILD_NUMBER --module docker-build --project $JF_PROJECT
 ```
 
 **Step 7 -** Gather the build dependencies, environment variables, and git information.
