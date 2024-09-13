@@ -1,0 +1,8 @@
+version: 1
+type: npm
+resolver:
+    repo: oren-npm-remote
+    serverId: psazuse
+deployer:
+    repo: oren-npm
+    serverId: psazuse
